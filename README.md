@@ -26,9 +26,9 @@ O build estático fica em `dist/`. Não precisa de banco de dados ou variáveis 
 - `src/assets/`: originais importados pelo Astro; `SchoolImage.astro` gera WebP responsivo sem alterar a composição.
 - `public/images/`: cópias dos originais para referência.
 - `.project/source/`: HTML e CSS originais capturados em 05/09/2026.
-- `.project/BRIEF.md`: direção aprovada e pendências editoriais.
+- `.project/BRIEF.md`: direção, revisão visual e pendências editoriais.
 
-As fontes Alegreya Sans e Lato são carregadas pelo Google Fonts. O vídeo abre no YouTube. Contatos abrem no WhatsApp; o site não envia mensagens automaticamente. Não foi copiado o rastreamento Google Tag Manager do site original para esta apresentação.
+As fontes Alegreya Sans e Lato são carregadas pelo Google Fonts. O vídeo é incorporado após clique na capa; sem JavaScript, há um link para o YouTube. Contatos abrem no WhatsApp; o site não envia mensagens automaticamente. Não foi copiado o rastreamento Google Tag Manager do site original para esta apresentação.
 
 ## Verificação
 
@@ -39,7 +39,7 @@ npx playwright install chromium
 node scripts/verify.mjs
 ```
 
-Se um Chromium já estiver instalado, indique seu executável em `PLAYWRIGHT_EXECUTABLE_PATH`. O script verifica conteúdo, destinos dos links, cinco abas, teclado, expansores móveis, menu, imagens, acessibilidade WCAG AA e overflow em 360, 390, 768 e 1440px. Também verifica leitura sem JavaScript. Relatório e capturas ficam em `.impeccable/review/` (não versionados).
+Se um Chromium já estiver instalado, indique seu executável em `PLAYWRIGHT_EXECUTABLE_PATH`. O script verifica conteúdo, destinos dos links, cinco abas, teclado, expansores móveis, menu, imagens, regras automáticas WCAG AA da interface própria (excluindo o iframe de terceiros) e overflow em 360, 390, 768 e 1440px. Também verifica leitura sem JavaScript e ativação do vídeo incorporado. Relatório e capturas ficam em `.impeccable/review/` (não versionados).
 
 ## Antes de publicar
 

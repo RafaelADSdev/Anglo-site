@@ -1,8 +1,10 @@
-# Direção aprovada
+# Direção e revisão visual
 
 Página institucional clara e acolhedora para famílias. Preservar laranja #EC9600, azul-violeta #34327C, azul-claro #77DAEE, creme #FDFBE8; Alegreya Sans e Lato. Conteúdo original é autoridade.
 
-Implementação direta em Astro do plano aprovado. Cabeçalho laranja e abertura com arte original inteira; apresentação, quatro segmentos, estrutura com vídeo, cinco projetos em painel de abas no desktop e expansores no celular, contato e rodapé. Nenhuma imagem gerada ou substituição de identidade.
+Implementação em Astro. Após o usuário rejeitar a primeira apresentação visual, a revisão adotou cabeçalho azul-violeta, abertura creme com chamada HTML em grande escala e montagem original dos segmentos sobre arco azul-claro. O banner original inteiro passou para a seção de matrícula. Os quatro segmentos usam linhas compactas com imagens; os cinco projetos têm logos nas abas no desktop e expansores no celular. O vídeo incorporado carrega após clique na capa original. Contato móvel no cabeçalho, sem cobrir conteúdo. Nenhuma imagem gerada ou substituição de identidade.
+
+Esta revisão está disponível para avaliação local; o aceite estético do usuário ainda não foi recebido.
 
 ## Pendências editoriais
 - WhatsApp original menciona matrícula 2024; preservar até revisão.

@@ -6,8 +6,8 @@ Origem: https://colegioanglotamarineira.com.br/ — captura em 05/09/2026. Os va
 
 | Conteúdo | Imagem original | Destino na nova página |
 |---|---|---|
-| Campanha 2026 | slide1_2026.png | #layerslider |
-| Apresentação dos segmentos | Segmentos.png | #services |
+| Campanha 2026 | slide1_2026.png | seção de matrícula, após projetos |
+| Apresentação dos segmentos | Segmentos.png | #layerslider (abertura) |
 | Ed. Infantil | Infantil.png | #segment-list |
 | Fund 1 | Fund1.png | #segment-list |
 | Fund 2 | Fund2.png | #segment-list |

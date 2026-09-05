@@ -58,11 +58,20 @@ try {
         actual.searchParams.get("text"),
         new URL(original).searchParams.get("text"),
       );
+    } else if (original.includes("youtube.com/watch?v=")) {
+      assert.match(
+        await page
+          .locator(".video-embed iframe")
+          .getAttribute("data-video-src"),
+        /youtube-nocookie\.com\/embed\/oRDhcJh9l20/,
+      );
+    } else if (original.includes("youtube.com/@anglotamarineira5930")) {
+      assert.ok(links.includes("https://www.youtube.com/@anglotamarineira"));
     } else
       assert.ok(links.includes(original), `Link original ausente: ${original}`);
   }
   result.checks.push(
-    "Destinos externos e mensagem original de WhatsApp preservados; nenhum envio",
+    "Destinos externos preservados, vídeo e canal atuais mantidos; nenhum envio",
   );
   for (let i = 0; i < names.length; i++) {
     await page.getByRole("tab", { name: names[i], exact: true }).click();
@@ -73,6 +82,7 @@ try {
       await img.decode();
     });
     const scan = await new AxeBuilder({ page })
+      .exclude(".video-embed iframe")
       .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
       .analyze();
     assert.deepEqual(
@@ -102,8 +112,8 @@ try {
   );
   await page.keyboard.press("Home");
   result.checks.push("Navegação das abas por setas, Home e End");
-  for (const width of [1440, 768, 390, 360]) {
-    await page.setViewportSize({ width, height: 1000 });
+  for (const width of [1440, 844, 768, 430, 390, 360, 320]) {
+    await page.setViewportSize({ width, height: width === 844 ? 390 : 1000 });
     await page.evaluate(async () => {
       document
         .querySelectorAll("img")
@@ -132,8 +142,16 @@ try {
     if (width < 768) {
       await page.getByRole("button", { name: "Menu", exact: true }).click();
       assert.ok(await page.locator("#navigation").isVisible());
+      for (const link of await page.locator("#navigation a").all()) {
+        const box = await link.boundingBox();
+        assert.ok(box && box.height >= 44, "Menu com alvo de toque mínimo de 44px");
+      }
       await page.keyboard.press("Escape");
       assert.equal(await page.locator("#navigation").isVisible(), false);
+      await page.locator(".menu-toggle").click();
+      await page.locator('#navigation a[href="#services"]').click();
+      assert.equal(await page.locator("#navigation").isVisible(), false);
+      assert.ok(await page.locator(".segment p").first().evaluate((el) => parseFloat(getComputedStyle(el).fontSize) >= 16));
       for (const id of ids) {
         const panel = page.locator(`#project-${id}`);
         if (!((await panel.getAttribute("open")) !== null))
@@ -146,6 +164,7 @@ try {
           .evaluate((panel) => (panel.open = false));
     }
     const scan = await new AxeBuilder({ page })
+      .exclude(".video-embed iframe")
       .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
       .analyze();
     assert.deepEqual(
@@ -185,6 +204,18 @@ try {
   result.checks.push(
     "Sem JavaScript: navegação e cinco descrições disponíveis",
   );
+  await page
+    .getByRole("button", {
+      name: "Reproduzir vídeo institucional nesta página",
+    })
+    .click();
+  assert.ok(await page.locator(".video-embed iframe").isVisible());
+  assert.match(
+    await page.locator(".video-embed iframe").getAttribute("src"),
+    /embed\/oRDhcJh9l20.*autoplay=1/,
+  );
+  assert.equal(await page.locator(".video-poster").isVisible(), false);
+  result.checks.push("Capa do vídeo aciona o player incorporado atual");
   assert.deepEqual(result.errors, []);
   await writeFile(
     new URL("verification.json", destination),

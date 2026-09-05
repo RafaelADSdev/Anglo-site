@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-05T00:00:00-03:00",
+  "title": "Design System: Colégio Anglo Tamarineira",
+  "extensions": {
+    "colorMeta": {
+      "orange": { "role": "secondary", "displayName": "Laranja", "tonalRamp": ["oklch(15% .16 70)", "oklch(27% .16 70)", "oklch(38% .16 70)", "oklch(49% .16 70)", "oklch(61% .16 70)", "oklch(72% .16 70)", "oklch(84% .16 70)", "oklch(95% .16 70)"] },
+      "purple": { "role": "primary", "displayName": "Azul-violeta", "tonalRamp": ["oklch(15% .12 282)", "oklch(27% .12 282)", "oklch(38% .12 282)", "oklch(49% .12 282)", "oklch(61% .12 282)", "oklch(72% .12 282)", "oklch(84% .12 282)", "oklch(95% .12 282)"] },
+      "sky": { "role": "secondary", "displayName": "Azul-claro", "tonalRamp": ["oklch(15% .1 212)", "oklch(27% .1 212)", "oklch(38% .1 212)", "oklch(49% .1 212)", "oklch(61% .1 212)", "oklch(72% .1 212)", "oklch(84% .1 212)", "oklch(95% .1 212)"] },
+      "cream": { "role": "neutral", "displayName": "Creme", "tonalRamp": ["oklch(15% .025 103)", "oklch(27% .025 103)", "oklch(38% .025 103)", "oklch(49% .025 103)", "oklch(61% .025 103)", "oklch(72% .025 103)", "oklch(84% .025 103)", "oklch(95% .025 103)"] },
+      "ink": { "role": "neutral", "displayName": "Tinta", "tonalRamp": ["oklch(15% .05 285)", "oklch(27% .05 285)", "oklch(38% .05 285)", "oklch(49% .05 285)", "oklch(61% .05 285)", "oklch(72% .05 285)", "oklch(84% .05 285)", "oklch(95% .05 285)"] },
+      "muted": { "role": "neutral", "displayName": "Texto secundário", "tonalRamp": ["oklch(15% .03 285)", "oklch(27% .03 285)", "oklch(38% .03 285)", "oklch(49% .03 285)", "oklch(61% .03 285)", "oklch(72% .03 285)", "oklch(84% .03 285)", "oklch(95% .03 285)"] },
+      "white": { "role": "neutral", "displayName": "Branco", "tonalRamp": ["oklch(15% 0 0)", "oklch(27% 0 0)", "oklch(38% 0 0)", "oklch(49% 0 0)", "oklch(61% 0 0)", "oklch(72% 0 0)", "oklch(84% 0 0)", "oklch(95% 0 0)"] },
+      "line": { "role": "neutral", "displayName": "Divisor", "tonalRamp": ["oklch(15% .025 103)", "oklch(27% .025 103)", "oklch(38% .025 103)", "oklch(49% .025 103)", "oklch(61% .025 103)", "oklch(72% .025 103)", "oklch(84% .025 103)", "oklch(95% .025 103)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Abertura", "purpose": "Título que acompanha a arte de campanha; destaque interno em peso 800." },
+      "headline": { "displayName": "Título de seção", "purpose": "Hierarquia principal das seções." },
+      "body": { "displayName": "Texto", "purpose": "Parágrafos institucionais." },
+      "label": { "displayName": "Controle", "purpose": "Botões principais." }
+    },
+    "shadows": [
+      { "name": "button-hover", "value": "0 6px 18px #24225926", "purpose": "Hover do botão violeta." },
+      { "name": "mobile-contact", "value": "0 4px 18px #13113640", "purpose": "Contato móvel fixo." }
+    ],
+    "motion": [
+      { "name": "control-transition", "value": "0.2s ease", "purpose": "Fundo, sombra e rotação do indicador. Desativado com prefers-reduced-motion: reduce." }
+    ],
+    "breakpoints": [
+      { "name": "single-segment", "value": "540px" },
+      { "name": "mobile-max", "value": "767px" },
+      { "name": "desktop-tabs-min", "value": "768px" },
+      { "name": "compact-desktop", "value": "1100px" },
+      { "name": "wide-campaign-min", "value": "1600px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Contato violeta", "kind": "button", "refersTo": "button-dark",
+      "description": "CTA principal de contato.",
+      "html": "<a class=\"ds-dark\" href=\"#contato\">Fale com nosso time <span aria-hidden=\"true\">↗</span></a>",
+      "css": ".ds-dark{display:inline-flex;align-items:center;justify-content:center;gap:20px;min-height:52px;padding:15px 24px;border-radius:8px;font:700 15px/1.4 Lato,sans-serif;text-decoration:none;background:var(--purple,#34327c);color:white;transition:background .2s,box-shadow .2s}.ds-dark span{font-size:24px;line-height:1}.ds-dark:hover{background:#242259;box-shadow:0 6px 18px #24225926}.ds-dark:focus-visible{outline:3px solid var(--purple,#34327c);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-dark{transition:none}}"
+    },
+    {
+      "name": "Ação azul-clara", "kind": "button", "refersTo": "button-light",
+      "description": "Ação na superfície violeta da estrutura.",
+      "html": "<a class=\"ds-light\" href=\"#video\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m9 5 11 7-11 7Z\"/></svg>Clique aqui e assista ao vídeo</a>",
+      "css": ".ds-light{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:15px 24px;border-radius:8px;font:700 14px/1.4 Lato,sans-serif;text-decoration:none;background:var(--sky,#77daee);color:var(--purple,#34327c);transition:background .2s,box-shadow .2s}.ds-light svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;flex-shrink:0}.ds-light:hover{background:#a7e8f4}.ds-light:focus-visible{outline:3px solid var(--sky,#77daee);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-light{transition:none}}"
+    },
+    {
+      "name": "Link editorial", "kind": "button",
+      "description": "Link textual recorrente abaixo do conteúdo.",
+      "html": "<a class=\"ds-link\" href=\"#segmentos\">Conheça cada etapa <span aria-hidden=\"true\">↓</span></a>",
+      "css": ".ds-link{display:inline-flex;gap:18px;align-items:center;color:var(--purple,#34327c);font:700 16px Lato,sans-serif;text-decoration:none;border-bottom:1px solid var(--purple,#34327c);padding-block:8px}.ds-link:hover{color:#171640}.ds-link:focus-visible{outline:3px solid var(--purple,#34327c);outline-offset:5px}"
+    },
+    {
+      "name": "Navegação institucional", "kind": "nav",
+      "description": "Links do cabeçalho laranja; amostra dos links, sem reprodução do logotipo.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Navegação principal\"><a href=\"#inicio\">Início</a><a href=\"#segmentos\">Segmentos</a><a href=\"#estrutura\">Estrutura</a><a href=\"#projetos\">Projetos</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;flex-wrap:wrap;gap:30px;background:var(--orange,#ec9600);color:var(--ink,#272644)}.ds-nav a{font:700 15px Lato,sans-serif;text-decoration:none;padding-block:12px;color:inherit;text-underline-offset:5px}.ds-nav a:hover{text-decoration:underline}.ds-nav a:focus-visible{outline:3px solid var(--purple,#34327c);outline-offset:5px}"
+    },
+    {
+      "name": "Seletor de projeto", "kind": "button", "refersTo": "project-tab",
+      "description": "Aba em repouso; aria-selected representa a seleção aplicada pelo script da página.",
+      "html": "<button class=\"ds-tab\" type=\"button\">Projetos <span aria-hidden=\"true\">↗</span></button>",
+      "css": ".ds-tab{min-height:88px;text-align:left;border:1px solid #deddeb;background:white;border-radius:12px;padding:18px;font:700 16px Lato,sans-serif;color:var(--purple,#34327c);display:flex;justify-content:space-between;align-items:center;gap:10px;cursor:pointer;transition:background .2s}.ds-tab span{font-size:22px}.ds-tab[aria-selected=true]{background:var(--purple,#34327c);border-color:var(--purple,#34327c);color:white}.ds-tab:hover:not([aria-selected=true]){background:var(--cream,#fdfbe8)}.ds-tab:focus-visible{outline:3px solid var(--purple,#34327c);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-tab{transition:none}}"
+    },
+    {
+      "name": "Expansor de projeto", "kind": "card", "refersTo": "project-panel",
+      "description": "Contêiner móvel nativo, com comportamento funcional de expansão.",
+      "html": "<details class=\"ds-project\" open><summary>Projetos <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m6 9 6 6 6-6\"/></svg></summary><div class=\"ds-content\"><h3>Novos Projetos</h3><p>Conheça os projetos do nosso colégio</p></div></details>",
+      "css": ".ds-project{background:var(--cream,#fdfbe8);border-radius:16px;overflow:hidden;font-family:Lato,sans-serif}.ds-project summary{display:flex;align-items:center;justify-content:space-between;list-style:none;gap:15px;padding:22px;font-size:18px;font-weight:700;min-height:70px;cursor:pointer;color:var(--purple,#34327c)}.ds-project summary::-webkit-details-marker{display:none}.ds-project svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;transition:transform .2s}.ds-project[open] summary{background:var(--purple,#34327c);color:white}.ds-project[open] svg{transform:rotate(180deg)}.ds-project summary:focus-visible{outline:3px solid var(--purple,#34327c);outline-offset:-6px}.ds-project[open] summary:focus-visible{outline-color:var(--sky,#77daee)}.ds-content{padding:24px}.ds-content h3{font:700 34px/1.05 'Alegreya Sans',sans-serif;color:var(--purple,#34327c);margin:0 0 18px}.ds-content p{font:400 15px/1.8 Lato,sans-serif;color:var(--muted,#57566b);margin-top:0}@media(prefers-reduced-motion:reduce){.ds-project svg{transition:none}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Preservação da identidade institucional aprovada",
+    "overview": "Direção institucional orientada à preservação da identidade aprovada. A linguagem é clara e acolhedora para famílias: tipografia expressiva nos títulos, leitura confortável nos textos e imagens originais reconhecíveis. Não há uma nova metáfora de marca.\n\nO sistema usa superfícies amplas, cores sólidas e espaçamento generoso. A arte institucional permanece inteira, com sua proporção preservada. Esta documentação descreve a implementação em `src/styles/global.css` e `src/pages/index.astro`; os valores do frontmatter são normativos para os papéis ali registrados.",
+    "keyCharacteristics": ["Identidade original preservada.", "Títulos em Alegreya Sans e leitura em Lato.", "Superfícies planas com cantos suavizados.", "Conteúdo acessível com aprimoramento progressivo."],
+    "rules": [],
+    "dos": ["**Do** preservar a paleta, o logotipo, os textos e as imagens originais aprovados.", "**Do** usar Alegreya Sans nos títulos e Lato no texto e nos controles.", "**Do** manter as artes inteiras e os controles acessíveis por teclado.", "**Do** preservar a leitura e a navegação sem JavaScript."],
+    "donts": ["**Don't** substituir a identidade por outra paleta ou imagens geradas.", "**Don't** transformar os painéis planos em cartões com sombras recorrentes.", "**Don't** esconder conteúdo atrás de animações de entrada."]
+  }
+}

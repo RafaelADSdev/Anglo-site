@@ -1,0 +1,389 @@
+---
+import { introduction, segments, projects, whatsapp, structureVideoId } from "../data/content";
+import "../styles/global.css";
+import SchoolImage from "../components/SchoolImage.astro";
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Conheça o Colégio Anglo Tamarineira: da Educação Infantil ao Ensino Médio, nossa estrutura e os projetos que fazem parte da formação dos nossos estudantes."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#EC9600" />
+    <title>
+      Colégio Anglo Tamarineira | Da Educação Infantil ao Ensino Médio
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500;700;800;900&family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body id="page-top">
+    <a class="skip-link" href="#content">Pular para o conteúdo</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a
+          class="brand"
+          href="#page-top"
+          aria-label="Colégio Anglo Tamarineira — início"
+          ><SchoolImage
+            name="logo_branca_colorida.png"
+            loading="eager"
+            alt="Colégio Anglo Tamarineira"
+            width="220"
+          /></a
+        >
+        <button
+          class="menu-toggle"
+          aria-expanded="false"
+          aria-controls="navigation"
+          >Menu <svg viewBox="0 0 24 24" aria-hidden="true"
+            ><path d="M4 7h16M4 12h16M4 17h16"></path></svg
+          ></button
+        >
+        <nav id="navigation" aria-label="Navegação principal">
+          <a href="#layerslider">Início</a><a href="#services">Segmentos</a><a
+            href="#call-to-action">Estrutura</a
+          ><a href="#activities">Projetos</a>
+          <a
+            class="button button-dark header-contact"
+            href={whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            >Fale com nosso time <span aria-hidden="true">↗</span></a
+          >
+        </nav>
+      </div>
+    </header>
+    <main id="content">
+      <section id="layerslider" class="hero" aria-labelledby="hero-title">
+        <div class="campaign">
+          <SchoolImage
+            name="slide1_2026.png"
+            width="1280"
+            fetchpriority="high"
+            loading="eager"
+            alt="Criando pessoas autorais num mundo de cópias. Matrículas abertas, Infantil I ao Ensino Médio. Educação disruptiva, ensino infantil a partir de 01 ano, estrutura que acolhe, metodologias ativas, escolinha de esportes e formação integral."
+          />
+        </div>
+        <div class="hero-caption container">
+          <h1 id="hero-title">
+            Criando <strong>pessoas autorais</strong>
+            <br />num mundo de cópias.
+          </h1><a
+            class="button button-dark"
+            href={whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            >Fale com nosso time <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+      <section id="services" class="segments section-space">
+        <div class="container">
+          <div class="section-top reveal">
+            <h2>Segmentos</h2><a class="text-link" href="#segment-list"
+              >Conheça cada etapa <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="intro-grid">
+            <div class="intro-copy reveal-left">
+              <h3>Da Educação Infantil<br />ao <em>Ensino Médio</em></h3>{
+                introduction.map((text) => <p>{text}</p>)
+              }
+            </div><div class="intro-image reveal-right">
+              <SchoolImage
+                name="Segmentos.png"
+                width="700"
+                loading="lazy"
+                alt="Estudantes de diferentes segmentos e educadora do Anglo Tamarineira"
+              />
+            </div>
+          </div>
+          <div class="segment-grid" id="segment-list">
+            {
+              segments.map((segment, index) => (
+                <article
+                  class="segment reveal"
+                  style={`--reveal-delay: ${index * 100}ms`}
+                >
+                  <>
+                    <div class="segment-image">
+                      <SchoolImage
+                        name={segment.image}
+                        alt={
+                          "Segmento " + segment.name + " do Anglo Tamarineira"
+                        }
+                        loading="lazy"
+                        width="500"
+                      />
+                    </div>
+                    <h3>{segment.name}</h3>
+                    <p>{segment.text}</p>
+                  </>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+      <section id="call-to-action" class="structure section-space">
+        <div class="container structure-grid">
+          <div class="structure-copy reveal-left">
+            <h2>Conheça <br />nossa estrutura</h2><p>
+              Quer conhecer melhor nossa estrutura e os projetos inovadores da
+              nossa unidade Anglo Tamarineira?
+            </p>
+          </div><div class="video-embed reveal-right">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${structureVideoId}?rel=0`}
+              title="Vídeo institucional do Anglo Tamarineira"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </section>
+      <section id="activities" class="projects section-space">
+        <div class="container">
+          <div class="section-top reveal">
+            <h2>Novos Projetos</h2><span class="section-note"
+              >Conheça os projetos do nosso colégio</span>
+          </div>
+          <div class="project-tabs reveal" aria-label="Projetos do colégio">
+            {
+              projects.map((project, index) => (
+                <button
+                  id={"tab-" + project.id}
+                  data-project={project.id}
+                  class:list={["project-tab", { active: index === 0 }]}
+                >
+                  {project.name}
+                  <span aria-hidden="true">↗</span>
+                </button>
+              ))
+            }
+          </div>
+          <div class="project-panels">
+            {
+              projects.map((project) => (
+                <details class="project" id={"project-" + project.id} open>
+                  <>
+                    <summary>
+                      {project.name}
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="m6 9 6 6 6-6" />
+                      </svg>
+                    </summary>
+                    <div class="project-content">
+                      <>
+                        <div class="project-image">
+                          <SchoolImage
+                            name={project.image}
+                            loading="lazy"
+                            alt={
+                              project.name + " — projeto do Anglo Tamarineira"
+                            }
+                            width="700"
+                          />
+                        </div>
+                        <div class="project-copy">
+                          <>
+                            <h3>{project.title}</h3>
+                            <h4>{project.question}</h4>
+                            <p>{project.text}</p>
+                            <a
+                              class="text-link"
+                              href={whatsapp}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              Fale com nosso time{" "}
+                              <span aria-hidden="true">↗</span>
+                            </a>
+                          </>
+                        </div>
+                      </>
+                    </div>
+                  </>
+                </details>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+      <section class="contact-band">
+        <div class="container">
+          <h2 class="reveal">Da Educação Infantil<br />ao Ensino Médio.</h2><a
+            class="button button-dark reveal"
+            style="--reveal-delay: 150ms"
+            href={whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            >Fale com nosso time <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="container footer-grid">
+        <div class="reveal">
+          <a class="footer-brand" href="#page-top"
+            ><SchoolImage
+              name="logo_branca_colorida.png"
+              alt="Colégio Anglo Tamarineira — início"
+              width="240"
+              loading="lazy"
+            /></a
+          ><div class="socials">
+            <a
+              href="https://instagram.com/anglolidertamarineira"
+              target="_blank"
+              rel="noopener noreferrer">Instagram ↗</a
+            ><a
+              href="https://www.facebook.com/anglolidertamarineira"
+              target="_blank"
+              rel="noopener noreferrer">Facebook ↗</a
+            ><a
+              href="https://www.youtube.com/@anglotamarineira"
+              target="_blank"
+              rel="noopener noreferrer">YouTube ↗</a>
+          </div>
+        </div><div class="hours reveal" style="--reveal-delay: 120ms">
+          <h2>Horário de Atendimento:</h2><p>
+            <span>Segunda a Sexta</span><strong>8h às 17h</strong>
+          </p><p>
+            <span>Finais de Semanas e Feriados</span><strong>Fechado</strong>
+          </p>
+        </div>
+      </div><div class="container credits">
+        <p>
+          Todos os Direitos Reservados <a
+            href="http://colegioanglotamarineira.com"
+            >@Colégio Anglo Tamarineira. 2023</a>
+        </p><a href="#page-top">Voltar ao início ↑</a>
+      </div>
+    </footer>
+    <a
+      class="mobile-contact button button-dark"
+      href={whatsapp}
+      target="_blank"
+      rel="noopener noreferrer"
+      >Fale com nosso time <span aria-hidden="true">↗</span></a
+    >
+    <script>
+      const menu = document.querySelector<HTMLButtonElement>(".menu-toggle")!;
+      const navigation = document.querySelector<HTMLElement>("#navigation")!;
+      document.documentElement.classList.add("enhanced");
+
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+      );
+      document
+        .querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale")
+        .forEach((el) => revealObserver.observe(el));
+
+      function closeMenu() {
+        menu.setAttribute("aria-expanded", "false");
+        navigation.classList.remove("is-open");
+      }
+      menu.addEventListener("click", () => {
+        const open = menu.getAttribute("aria-expanded") !== "true";
+        menu.setAttribute("aria-expanded", String(open));
+        navigation.classList.toggle("is-open", open);
+      });
+      navigation
+        .querySelectorAll("a")
+        .forEach((link) => link.addEventListener("click", closeMenu));
+      document.addEventListener("keydown", (e) => {
+        if (
+          e.key === "Escape" &&
+          menu.getAttribute("aria-expanded") === "true"
+        ) {
+          closeMenu();
+          menu.focus();
+        }
+      });
+
+      const tabs = [
+        ...document.querySelectorAll<HTMLButtonElement>(".project-tab"),
+      ];
+      const panels = [
+        ...document.querySelectorAll<HTMLDetailsElement>(".project"),
+      ];
+      const tablist = document.querySelector(".project-tabs")!;
+      const desktop = matchMedia("(min-width: 768px)");
+      let selected = 0;
+      function select(index: number, focus = false) {
+        selected = index;
+        tabs.forEach((tab, i) => {
+          tab.classList.toggle("active", i === index);
+          tab.setAttribute("aria-selected", String(i === index));
+          tab.tabIndex = i === index ? 0 : -1;
+          panels[i].hidden = i !== index;
+          panels[i].open = true;
+          if (i === index && desktop.matches) {
+            panels[i].classList.remove("panel-enter");
+            void panels[i].offsetWidth;
+            panels[i].classList.add("panel-enter");
+          }
+        });
+        if (focus) tabs[index].focus();
+      }
+      function layout() {
+        if (desktop.matches) {
+          tablist.setAttribute("role", "tablist");
+          tabs.forEach((tab, i) => {
+            tab.setAttribute("role", "tab");
+            tab.setAttribute("aria-controls", panels[i].id);
+            panels[i].setAttribute("role", "tabpanel");
+            panels[i].setAttribute("aria-labelledby", tab.id);
+            panels[i].tabIndex = 0;
+          });
+          select(selected);
+        } else {
+          tablist.removeAttribute("role");
+          panels.forEach((panel, i) => {
+            panel.hidden = false;
+            panel.open = i === selected;
+            panel.removeAttribute("role");
+            panel.removeAttribute("aria-labelledby");
+            panel.removeAttribute("tabindex");
+          });
+        }
+      }
+      tabs.forEach((tab, i) => {
+        tab.addEventListener("click", () => select(i));
+        tab.addEventListener("keydown", (e) => {
+          let next = i;
+          if (e.key === "ArrowRight") next = (i + 1) % tabs.length;
+          else if (e.key === "ArrowLeft")
+            next = (i + tabs.length - 1) % tabs.length;
+          else if (e.key === "Home") next = 0;
+          else if (e.key === "End") next = tabs.length - 1;
+          else return;
+          e.preventDefault();
+          select(next, true);
+        });
+      });
+      panels.forEach((panel, i) =>
+        panel.addEventListener("toggle", () => {
+          if (!desktop.matches && panel.open) selected = i;
+        }),
+      );
+      desktop.addEventListener("change", layout);
+      layout();
+    </script>
+  </body>
+</html>

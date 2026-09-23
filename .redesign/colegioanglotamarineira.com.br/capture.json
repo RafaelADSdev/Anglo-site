@@ -1,0 +1,122 @@
+{
+  "url": "https://colegioanglotamarineira.com.br/",
+  "finalUrl": "https://colegioanglotamarineira.com.br/",
+  "fetchedAt": "2026-09-23T02:05:27.417Z",
+  "status": 200,
+  "host": "colegioanglotamarineira.com.br",
+  "title": "Anglo Líder Tamarineira",
+  "description": "",
+  "ogTitle": "",
+  "ogImage": "",
+  "canonical": "",
+  "lang": "en",
+  "h1": [
+    "Welcome to Alphabet"
+  ],
+  "h2": [
+    "Segmentos",
+    "Novos Projetos"
+  ],
+  "h3": [
+    "Da Educação Infantil ao Ensino Médio",
+    "Conheça nossa estrutura",
+    "Google For Education",
+    "Criatto",
+    "Geração Líder",
+    "Além do Vest",
+    "Pod Criar",
+    "Our Playground"
+  ],
+  "nav": [],
+  "cta": [
+    "Contact us",
+    "fale com nosso time",
+    "Clique aqui e assista ao vídeo",
+    "Google For Education",
+    "Criatto Lab",
+    "Geração Líder",
+    "Além do Vest",
+    "Pod Criar",
+    "O que é Google For Education?",
+    "O que é a Criatto Lab?",
+    "O que é a Geração Líder?",
+    "O que é o Além do Vest?",
+    "O que é o Pod Criar?",
+    "Activity Description"
+  ],
+  "images": [
+    {
+      "src": "https://colegioanglotamarineira.com.br/img/logo_branca_colorida.png",
+      "alt": "Logo Anglo Tamarineira"
+    },
+    {
+      "src": "https://colegioanglotamarineira.com.br/img/logo_branca_colorida.png",
+      "alt": ""
+    },
+    {
+      "src": "https://colegioanglotamarineira.com.br/img/slide1_2026.png",
+      "alt": "Slide background"
+    },
+    {
+      "src": "https://colegioanglotamarineira.com.br/img/sun.png",
+      "alt": ""
+    },
+    {
+      "src": "https://colegioanglotamarineira.com.br/img/flower.png",
+      "alt": ""
+    },
+    {
+      "src": "https://colegioanglotamarineira.com.br/img/Segmentos.png",
+      "alt": ""
+    },
+    {
+      "src": "https://colegioanglotamarineira.com.br/img/Infantil.png",
+      "alt": ""
+    },
+    {
+      "src": "https://colegioanglotamarineira.com.br/img/Fund1.png",
+      "alt": ""
+    },
+    {
+      "src": "https://colegioanglotamarineira.com.br/img/Fund2.png",
+      "alt": ""
+    },
+    {
+      "src": "https://colegioanglotamarineira.com.br/img/Medio.png",
+      "alt": ""
+    },
+    {
+      "src": "https://colegioanglotamarineira.com.br/img/googleForEducation.png",
+      "alt": ""
+    },
+    {
+      "src": "https://colegioanglotamarineira.com.br/img/criatto-lab.png",
+      "alt": ""
+    },
+    {
+      "src": "https://colegioanglotamarineira.com.br/img/gerac%CC%A7a%CC%83o-lider.png",
+      "alt": ""
+    },
+    {
+      "src": "https://colegioanglotamarineira.com.br/img/alem_do_vest.png",
+      "alt": ""
+    },
+    {
+      "src": "https://colegioanglotamarineira.com.br/img/pod-criar.png",
+      "alt": ""
+    },
+    {
+      "src": "https://colegioanglotamarineira.com.br/img/activity5.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://colegioanglotamarineira.com.br/img/logo_branca_colorida.png",
+      "alt": ""
+    }
+  ],
+  "stackHints": [],
+  "headers": {
+    "content-type": "text/html",
+    "server": "Apache"
+  }
+}

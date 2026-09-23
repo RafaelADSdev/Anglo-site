@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<title>Hero proposto · Etapa 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,72,500..700,50,0;1,72,500..700,50,1&family=Manrope:wght@400..800&display=swap">
+<style>
+  /* Tokens da proposta (docs/etapa-1/proposta.md §3) */
+  :root {
+    --paper: #FBF8F1; --paper-2: #F3EDE1; --surface: #FFFDF9;
+    --ink: #121D38; --ink-muted: #4F586C; --line: #E4DFD5; --field: #868073;
+    --blue: #00279B; --blue-hover: #001A81; --sky: #036EA9; --yellow: #FCFA03; --red: #DB2C1B;
+    --inf: #FCFA03; --inf-soft: #F9F6BC; --inf-ink: #6D5900;
+    --f1: #DB2C1B; --f1-soft: #FFDDD5; --f1-ink: #AF2D1B;
+    --f2: #036EA9; --f2-soft: #D3ECF9; --f2-ink: #09659F;
+    --em: #00279B; --em-soft: #D8DEFA; --em-ink: #00279B;
+    --wa: #128C7E;
+
+    --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+    --font-sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --fs-display: clamp(2.5rem, 1.5rem + 3.9vw, 4.25rem);
+    --fs-h3: clamp(1.375rem, 1.2rem + .8vw, 1.75rem);
+    --fs-lead: clamp(1.125rem, 1.05rem + .35vw, 1.3125rem);
+    --fs-body: clamp(1.0625rem, 1.04rem + .1vw, 1.125rem);
+    --fs-small: .9375rem; --fs-caption: .875rem; --fs-eyebrow: .8125rem;
+
+    --gutter: clamp(1rem, .4rem + 2.7vw, 2.5rem);
+    --maxw: 75rem;
+    --r-sm: 8px; --r-md: 14px; --r-lg: 24px; --r-pill: 999px;
+    --shadow-float: 0 1px 2px rgb(18 29 56 / .06), 0 12px 32px -8px rgb(18 29 56 / .18);
+    --ease: cubic-bezier(.22, 1, .36, 1); --dur-fast: 150ms;
+    --stripe: linear-gradient(90deg, var(--blue) 0 50%, var(--yellow) 50% 75%, var(--red) 75% 100%);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font: 450 var(--fs-body)/1.6 var(--font-sans);
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .skip { position: absolute; left: var(--gutter); top: -100px; z-index: 50; background: var(--blue); color: #fff; padding: .75rem 1rem; border-radius: var(--r-sm); font-weight: 700; }
+  .skip:focus { top: 1rem; }
+  svg.i { width: 18px; height: 18px; flex: none; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* Faixas do topo */
+  .stripe { height: 4px; background: var(--stripe); }
+  .homolog { background: var(--inf-soft); font-size: var(--fs-caption); line-height: 1.4; text-align: center; padding: .5rem var(--gutter); }
+  .homolog strong { font-weight: 800; }
+
+  /* Header */
+  .site-header { position: sticky; top: 0; z-index: 20; background: var(--paper); border-bottom: 1px solid var(--line); }
+  .header-in { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); height: 80px; display: flex; align-items: center; gap: 2rem; }
+  .logo-ph {
+    display: grid; place-items: center; width: 184px; height: 52px; flex: none;
+    border: 1.5px dashed var(--field); border-radius: var(--r-sm); color: var(--ink-muted);
+    font: 700 .6875rem/1.25 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; text-align: center;
+  }
+  .nav { margin-left: auto; display: flex; gap: clamp(1rem, .2rem + 1.2vw, 1.75rem); }
+  .nav a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 650; font-size: .9375rem; text-decoration: none; position: relative; }
+  .nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 8px; height: 2px; background: var(--blue); transform: scaleX(0); transform-origin: left; transition: transform var(--dur-fast) var(--ease); }
+  .nav a:hover::after { transform: scaleX(1); }
+  .header-cta { display: flex; align-items: center; gap: .5rem; }
+  .menu-btn { display: none; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); color: var(--ink); place-items: center; cursor: pointer; }
+
+  /* Botões e links com seta */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .625rem;
+    min-height: 48px; padding: 0 1.5rem; border: 0; border-radius: var(--r-pill);
+    font: 750 1rem/1 var(--font-sans); letter-spacing: .005em; text-decoration: none; cursor: pointer;
+    transition: background-color var(--dur-fast) var(--ease);
+  }
+  .btn .i { transition: transform var(--dur-fast) var(--ease); }
+  .btn-primary { background: var(--blue); color: #fff; }
+  .btn-primary:hover { background: var(--blue-hover); }
+  .btn-sm { min-height: 44px; padding: 0 1.125rem; font-size: .9375rem; }
+  .go-r:hover .i { transform: translateX(3px); }
+  .go-d:hover .i { transform: translateY(3px); }
+  .go-ur:hover .i { transform: translate(2px, -2px); }
+  .link-arrow {
+    display: inline-flex; align-items: center; gap: .5rem; min-height: 48px;
+    font-weight: 750; text-decoration: underline; text-decoration-thickness: 1.5px;
+    text-underline-offset: .32em; text-decoration-color: color-mix(in srgb, var(--ink) 30%, transparent);
+  }
+  .link-arrow .i { color: var(--blue); transition: transform var(--dur-fast) var(--ease); }
+  .link-arrow:hover { text-decoration-color: var(--blue); }
+
+  /* Eyebrow com o friso tricolor */
+  .eyebrow { display: flex; align-items: center; gap: .75rem; margin: 0; font: 800 var(--fs-eyebrow)/1.3 var(--font-sans); letter-spacing: .12em; text-transform: uppercase; }
+  .eyebrow::before { content: ""; width: 24px; height: 3px; flex: none; border-radius: 2px; background: var(--stripe); }
+
+  /* Hero em composição de capa: título em largura total; texto (5 col.) + foto (7 col.) abaixo */
+  .hero {
+    max-width: var(--maxw); margin: 0 auto;
+    padding: clamp(1.75rem, 1rem + 2.5vw, 3.5rem) var(--gutter) 0;
+    display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(1.5rem, 1rem + 1vw, 2rem); row-gap: clamp(2rem, 1.5rem + 1.5vw, 2.75rem); align-items: start;
+  }
+  .hero-head { grid-column: 1 / -1; }
+  .hero-copy { grid-column: 1 / span 5; }
+  .hero-media { grid-column: 6 / span 7; margin: 0; }
+  h1 {
+    margin: 1.25rem 0 0; font: 600 var(--fs-display)/1.03 var(--font-display);
+    letter-spacing: -.02em; text-wrap: pretty;
+  }
+  h1 em { display: block; font-style: italic; color: var(--blue); }
+  .lead { margin: 0; max-width: 33em; font-size: var(--fs-lead); line-height: 1.55; color: var(--ink-muted); }
+  .ctas { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.75rem; margin-top: 2rem; }
+  .micro { margin: 1rem 0 0; font: 500 var(--fs-small)/1.5 var(--font-sans); color: var(--ink-muted); }
+
+  .ph {
+    position: relative; aspect-ratio: 16 / 9; border-radius: var(--r-lg); overflow: hidden;
+    display: grid; place-items: center; padding: 2rem; text-align: center; color: var(--ink-muted);
+    background-color: var(--paper-2);
+    background-image: repeating-linear-gradient(135deg, transparent 0 15px, rgb(18 29 56 / .04) 15px 16px);
+    font-size: var(--fs-small); line-height: 1.5;
+  }
+  .ph b { display: block; margin-bottom: .5rem; color: var(--ink); font: 800 var(--fs-eyebrow)/1.3 var(--font-sans); letter-spacing: .12em; text-transform: uppercase; }
+  .pause {
+    position: absolute; right: 1rem; bottom: 1rem; display: inline-flex; align-items: center; gap: .5rem;
+    min-height: 44px; padding: 0 1rem; border: 0; border-radius: var(--r-pill);
+    background: rgb(18 29 56 / .82); color: #fff; font: 700 .875rem/1 var(--font-sans); cursor: pointer;
+  }
+  .pause .i { width: 16px; height: 16px; fill: currentColor; stroke: none; }
+  figcaption { margin-top: .75rem; font: 500 var(--fs-caption)/1.45 var(--font-sans); color: var(--ink-muted); }
+
+  /* Encontre a série */
+  .finder-wrap { position: relative; z-index: 2; max-width: var(--maxw); margin: -3rem auto 0; padding: 0 var(--gutter) 4rem; }
+  .hero-media figcaption { padding-bottom: 3.75rem; }
+  .finder { background: var(--surface); border-radius: var(--r-md); box-shadow: var(--shadow-float); overflow: hidden; }
+  .finder::before { content: ""; display: block; height: 4px; background: var(--stripe); }
+  .finder-body { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 1.25rem 3rem; align-items: end; padding: clamp(1.25rem, .9rem + 1.2vw, 2rem); }
+  .finder h2 { margin: .75rem 0 0; font: 600 var(--fs-h3)/1.18 var(--font-display); letter-spacing: -.01em; }
+  .finder h2 em { font-style: italic; color: var(--blue); }
+  .fields { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+  label { display: block; margin-bottom: .375rem; font: 700 .875rem/1.3 var(--font-sans); }
+  select {
+    appearance: none; width: 100%; min-height: 48px; padding: 0 2.75rem 0 .875rem;
+    border: 1px solid var(--field); border-radius: var(--r-sm); color: var(--ink); font: 500 1rem/1.2 var(--font-sans);
+    background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23121D38' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right .875rem center / 18px;
+    cursor: pointer;
+  }
+  select:hover { border-color: var(--ink); }
+  .result { grid-column: 1 / -1; margin: 0; padding-top: 1.25rem; border-top: 1px solid var(--line); font-size: var(--fs-small); color: var(--ink-muted); }
+  .result.has { color: var(--ink); }
+  .res-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .5rem 2rem; align-items: center; padding: 1.25rem 1.5rem; border-radius: var(--r-sm); background: var(--soft); box-shadow: inset 4px 0 0 var(--base); }
+  .chip { display: inline-flex; align-items: center; gap: .5rem; font: 800 .75rem/1 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; color: var(--seg-ink); }
+  .chip::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--base); box-shadow: 0 0 0 1px rgb(18 29 56 / .12); }
+  .res-serie { display: block; margin-top: .375rem; font: 600 clamp(1.5rem, 1.2rem + 1.2vw, 2rem)/1.1 var(--font-display); color: var(--ink); }
+  .res-links { display: flex; flex-direction: column; align-items: flex-start; }
+  .res-links .link-arrow { min-height: 40px; font-size: .9375rem; }
+  .res-note { grid-column: 1 / -1; margin: .25rem 0 0; font-size: var(--fs-caption); color: var(--ink-muted); }
+  .wa-msg { grid-column: 1 / -1; margin: 0; font-size: var(--fs-caption); color: var(--ink-muted); }
+  .wa-msg q { color: var(--ink); }
+
+  /* WhatsApp flutuante */
+  .fab {
+    position: fixed; right: max(1rem, env(safe-area-inset-right)); bottom: max(1rem, env(safe-area-inset-bottom)); z-index: 30;
+    width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--wa); color: #fff; box-shadow: var(--shadow-float);
+    transition: opacity var(--dur-fast) var(--ease), visibility 0s linear 0s;
+  }
+  .fab.is-hidden { opacity: 0; visibility: hidden; transition: opacity var(--dur-fast) var(--ease), visibility 0s linear var(--dur-fast); }
+  .fab .i { width: 26px; height: 26px; }
+
+  @media (max-width: 1023px) {
+    .nav, .header-cta .desk { display: none; }
+    .menu-btn { display: grid; }
+    .header-cta { margin-left: auto; }
+    .header-in { height: 68px; gap: 1rem; }
+    .logo-ph { width: 132px; height: 44px; font-size: .625rem; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-head, .hero-copy, .hero-media { grid-column: 1 / -1; }
+    .ph { aspect-ratio: 4 / 3; }
+    .finder-body { grid-template-columns: 1fr; }
+  }
+  @media (min-width: 1024px) { .header-cta .mob { display: none; } }
+  @media (max-width: 767px) {
+    .ctas .btn-primary { width: 100%; }
+    .ctas { gap: .25rem 1.5rem; }
+    .res-card { grid-template-columns: 1fr; }
+    .finder-wrap { margin-top: -2.5rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-r" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-d" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+  <symbol id="i-ur" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.5 20.4l1.3-4.5a8.4 8.4 0 1 1 15.7-4.3Z"/><path d="M9 9.5c.3 2 2.4 4.2 4.6 4.8l1.2-1.1 2 .9c-.3 1.2-1.3 1.9-2.4 1.8-3.6-.4-6.9-3.7-7.2-7.3-.1-1.1.6-2.1 1.8-2.4l.9 2-.9 1.3Z" stroke-width="1.4"/></symbol>
+</svg>
+
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<div class="stripe" aria-hidden="true"></div>
+<p class="homolog"><strong>Ambiente de homologação</strong> · textos e fotos em validação com a escola</p>
+
+<header class="site-header">
+  <div class="header-in">
+    <a href="#" class="logo-ph" aria-label="Colégio Anglo Líder Tamarineira — página inicial">Logo oficial<br>SVG pendente</a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#">A Escola</a><a href="#">Segmentos</a><a href="#">Projetos</a><a href="#">Estrutura</a><a href="#">Matrículas</a><a href="#">Contato</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn-primary btn-sm go-r desk" href="#">Agendar visita <svg class="i" aria-hidden="true"><use href="#i-r"/></svg></a>
+      <a class="btn btn-primary btn-sm mob" href="#">Agendar</a>
+      <button class="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false"><svg class="i" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+  <section class="hero" aria-labelledby="h1">
+    <div class="hero-head">
+      <p class="eyebrow"><span>Matrículas <span data-ano>2027</span> abertas · Tamarineira, Recife</span></p>
+      <h1 id="h1"><span data-h1-a>Dos primeiros passos ao vestibular.</span> <em data-h1-b>Na mesma escola.</em></h1>
+    </div>
+    <div class="hero-copy">
+      <p class="lead" data-sub>Da Educação Infantil, a partir de 1 ano, ao 3º ano do Ensino Médio. Com o Sistema Anglo e projetos de liderança, tecnologia e comunicação.</p>
+      <div class="ctas">
+        <a class="btn btn-primary go-r" href="#">Agendar visita <svg class="i" aria-hidden="true"><use href="#i-r"/></svg></a>
+        <a class="link-arrow go-d" href="#encontre-a-serie">Conhecer os segmentos <svg class="i" aria-hidden="true"><use href="#i-d"/></svg></a>
+      </div>
+      <p class="micro">Visita guiada · sem compromisso · seg. a sex., 8h às 17h</p>
+    </div>
+    <figure class="hero-media">
+      <div class="ph" role="img" aria-label="Espaço reservado para foto real da escola">
+        <div><b>Foto ou vídeo real</b>Famílias chegando pela entrada da escola, de manhã.<br>Proporção final 16:9 (4:3 no celular).</div>
+        <button class="pause" type="button"><svg class="i" aria-hidden="true"><use href="#i-pause"/></svg>Pausar vídeo</button>
+      </div>
+      <figcaption>Fotografia real · entrada da escola, Tamarineira <span class="sr-only">(legenda de exemplo)</span></figcaption>
+    </figure>
+  </section>
+
+  <div class="finder-wrap" id="encontre-a-serie">
+    <section class="finder" aria-labelledby="finder-t">
+      <div class="finder-body">
+        <div>
+          <p class="eyebrow">Encontre a série</p>
+          <h2 id="finder-t">Em que série a criança entra <em>em <span data-ano>2027</span>?</em></h2>
+        </div>
+        <form class="fields" onsubmit="return false">
+          <div>
+            <label for="mes">Mês de nascimento</label>
+            <select id="mes" name="mes">
+              <option value="">Mês</option>
+              <option value="1">Janeiro</option><option value="2">Fevereiro</option><option value="3">Março</option>
+              <option value="4">Abril</option><option value="5">Maio</option><option value="6">Junho</option>
+              <option value="7">Julho</option><option value="8">Agosto</option><option value="9">Setembro</option>
+              <option value="10">Outubro</option><option value="11">Novembro</option><option value="12">Dezembro</option>
+            </select>
+          </div>
+          <div>
+            <label for="ano">Ano de nascimento</label>
+            <select id="ano" name="ano"><option value="">Ano</option></select>
+          </div>
+        </form>
+        <div class="result" id="resultado" aria-live="polite">Escolha o mês e o ano. O resultado aparece aqui, sem enviar nenhum dado.</div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<a class="fab is-hidden" href="#" aria-label="Falar no WhatsApp (abre em nova aba)"><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg></a>
+
+<script>
+  // Ano da campanha: um único lugar (no site, vem de site.config.ts)
+  const ANO = 2027;
+  document.querySelectorAll('[data-ano]').forEach(el => { el.textContent = ANO; });
+
+  // Opções de H1 (docs/etapa-1/proposta.md §4) — ?h1=a|b|c
+  const H1 = {
+    a: ['Dos primeiros passos ao vestibular.', 'Na mesma escola.', 'Da Educação Infantil, a partir de 1 ano, ao 3º ano do Ensino Médio. Com o Sistema Anglo e projetos de liderança, tecnologia e comunicação.'],
+    b: ['Acolhimento desde 1 ano.', 'Preparo até o vestibular.', 'Da Educação Infantil ao 3º ano do Ensino Médio, com o Sistema Anglo e projetos de liderança, tecnologia e comunicação.'],
+    c: ['Base forte para aprender.', 'Coragem para liderar.', 'Da Educação Infantil, a partir de 1 ano, ao 3º ano do Ensino Médio. Com o Sistema Anglo e projetos de liderança, tecnologia e comunicação.'],
+  };
+  // Configuração: ?h1=a|b|c&demo=MM-AAAA (arquivo aberto direto) ou window.HERO_CFG (quando embutido via srcdoc)
+  const CFG = window.HERO_CFG || Object.fromEntries(new URLSearchParams(location.search));
+  const opt = H1[CFG.h1] || H1.a;
+  document.querySelector('[data-h1-a]').textContent = opt[0];
+  document.querySelector('[data-h1-b]').textContent = opt[1];
+  document.querySelector('[data-sub]').textContent = opt[2];
+
+  // Encontre a série — TABELA PROVISÓRIA [A CONFIRMAR: secretaria e nomenclatura das turmas]
+  // Idade completa até 31/03 do ano da campanha → série.
+  const SEG = {
+    infantil: { nome: 'Educação Infantil', base: 'var(--inf)', soft: 'var(--inf-soft)', ink: 'var(--inf-ink)' },
+    fund1: { nome: 'Fundamental 1', base: 'var(--f1)', soft: 'var(--f1-soft)', ink: 'var(--f1-ink)' },
+    fund2: { nome: 'Fundamental 2', base: 'var(--f2)', soft: 'var(--f2-soft)', ink: 'var(--f2-ink)' },
+    medio: { nome: 'Ensino Médio', base: 'var(--em)', soft: 'var(--em-soft)', ink: 'var(--em-ink)' },
+  };
+  const SERIES = {
+    1: ['Infantil I', 'infantil'], 2: ['Infantil II', 'infantil'], 3: ['Infantil III', 'infantil'], 4: ['Infantil IV', 'infantil'], 5: ['Infantil V', 'infantil'],
+    6: ['1º ano', 'fund1'], 7: ['2º ano', 'fund1'], 8: ['3º ano', 'fund1'], 9: ['4º ano', 'fund1'], 10: ['5º ano', 'fund1'],
+    11: ['6º ano', 'fund2'], 12: ['7º ano', 'fund2'], 13: ['8º ano', 'fund2'], 14: ['9º ano', 'fund2'],
+    15: ['1º ano do Ensino Médio', 'medio'], 16: ['2º ano do Ensino Médio', 'medio'], 17: ['3º ano do Ensino Médio', 'medio'],
+  };
+  const anoSel = document.getElementById('ano'), mesSel = document.getElementById('mes'), out = document.getElementById('resultado');
+  for (let y = ANO - 1; y >= ANO - 19; y--) anoSel.add(new Option(y, y));
+
+  const idadeNoCorte = (mes, ano) => ANO - ano - (mes > 3 ? 1 : 0);
+
+  function render() {
+    const mes = +mesSel.value, ano = +anoSel.value;
+    out.classList.remove('has');
+    if (!mes && !ano) { out.textContent = 'Escolha o mês e o ano. O resultado aparece aqui, sem enviar nenhum dado.'; return; }
+    if (!mes) { out.textContent = 'Falta o mês: quem nasce até 31 de março entra uma série à frente de quem nasce depois.'; return; }
+    if (!ano) { out.textContent = 'Agora escolha o ano de nascimento.'; return; }
+    const idade = idadeNoCorte(mes, ano);
+    out.classList.add('has');
+    if (idade < 1) { out.textContent = `A Educação Infantil recebe crianças a partir de 1 ano. Fale com a secretaria para saber quando a criança pode começar.`; return; }
+    if (idade > 17) { out.textContent = 'Pela idade, a série prevista ficaria depois do 3º ano do Ensino Médio. Fale com a secretaria sobre a situação escolar.'; return; }
+    const [serie, segKey] = SERIES[idade], seg = SEG[segKey];
+    const msg = `Olá! Vim pelo site e gostaria de informações sobre o ${serie} para ${ANO}.`;
+    out.innerHTML = `
+      <div class="res-card" style="--base:${seg.base};--soft:${seg.soft};--seg-ink:${seg.ink}">
+        <div>
+          <span class="chip">${seg.nome}</span>
+          <span class="res-serie">Em ${ANO}: ${serie}</span>
+        </div>
+        <div class="res-links">
+          <a class="link-arrow go-r" href="#">Conhecer ${segKey === 'infantil' ? 'a' : 'o'} ${seg.nome} <svg class="i" aria-hidden="true"><use href="#i-r"/></svg></a>
+          <a class="link-arrow go-ur" href="#">Falar no WhatsApp <span class="sr-only">sobre o ${serie} (abre em nova aba)</span><svg class="i" aria-hidden="true"><use href="#i-ur"/></svg></a>
+        </div>
+        <p class="wa-msg">Mensagem pronta: <q>${msg}</q></p>
+        <p class="res-note">Cálculo pela data de corte de 31 de março. ${segKey === 'medio' ? 'No Ensino Médio, a série também depende do histórico escolar. ' : ''}A secretaria confirma a série na matrícula.</p>
+      </div>`;
+  }
+  // WhatsApp flutuante: só aparece depois que os CTAs do hero saem da tela (não cobre o hero)
+  const fab = document.querySelector('.fab');
+  new IntersectionObserver(([e]) => fab.classList.toggle('is-hidden', e.isIntersecting || e.boundingClientRect.top > 0))
+    .observe(document.querySelector('.ctas'));
+
+  mesSel.addEventListener('change', render);
+  anoSel.addEventListener('change', render);
+  // Pré-visualização: ?demo=MM-AAAA preenche o seletor
+  // Protótipo: links de exemplo não navegam
+  document.addEventListener('click', e => { if (e.target.closest('a[href="#"]')) e.preventDefault(); });
+
+  const demo = CFG.demo;
+  if (demo) { const [m, y] = demo.split('-'); mesSel.value = String(+m); anoSel.value = y; render(); }
+</script>
+</body>
+</html>

@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<title>Proposta visual Anglo Tamarineira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,72,500..700,50,0;1,72,500..700,50,1&family=Manrope:wght@400..800&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #FBF8F1; --paper-2: #F3EDE1; --surface: #FFFDF9;
+    --ink: #121D38; --ink-muted: #4F586C; --line: #E4DFD5; --field: #868073;
+    --blue: #00279B; --blue-hover: #001A81; --sky: #036EA9; --yellow: #FCFA03; --red: #DB2C1B;
+    --inf: #FCFA03; --inf-soft: #F9F6BC; --inf-ink: #6D5900;
+    --f1: #DB2C1B; --f1-soft: #FFDDD5; --f1-ink: #AF2D1B;
+    --f2: #036EA9; --f2-soft: #D3ECF9; --f2-ink: #09659F;
+    --em: #00279B; --em-soft: #D8DEFA; --em-ink: #00279B;
+    --wa: #128C7E; --wa-ink: #075E54; --error: #B3241F; --success: #21763C;
+
+    --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+    --font-sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --fs-display: clamp(2.5rem, 1.5rem + 3.9vw, 4.25rem);
+    --fs-h2: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
+    --fs-h3: clamp(1.375rem, 1.2rem + .8vw, 1.75rem);
+    --fs-lead: clamp(1.125rem, 1.05rem + .35vw, 1.3125rem);
+    --fs-body: clamp(1.0625rem, 1.04rem + .1vw, 1.125rem);
+    --fs-small: .9375rem; --fs-caption: .875rem; --fs-eyebrow: .8125rem;
+    --fs-step: clamp(2.5rem, 2rem + 2vw, 3.5rem);
+
+    --gutter: clamp(1rem, .4rem + 2.7vw, 2.5rem);
+    --maxw: 75rem;
+    --section-y: clamp(4rem, 2.8rem + 5.3vw, 8rem);
+    --r-sm: 8px; --r-md: 14px; --r-lg: 24px; --r-pill: 999px;
+    --shadow-float: 0 1px 2px rgb(18 29 56 / .06), 0 12px 32px -8px rgb(18 29 56 / .18);
+    --ease: cubic-bezier(.22, 1, .36, 1); --dur-fast: 150ms; --dur-base: 250ms;
+    --stripe: linear-gradient(90deg, var(--blue) 0 50%, var(--yellow) 50% 75%, var(--red) 75% 100%);
+    --stripe-on-blue: linear-gradient(90deg, #fff 0 50%, var(--yellow) 50% 75%, var(--red) 75% 100%);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 450 var(--fs-body)/1.6 var(--font-sans); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  svg.i { width: 18px; height: 18px; flex: none; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+  .stripe { height: 4px; background: var(--stripe); }
+
+  /* Cabeçalho do documento */
+  .doc-head { padding: clamp(2.5rem, 2rem + 3vw, 4.5rem) 0 clamp(2rem, 1.5rem + 2vw, 3rem); border-bottom: 1px solid var(--line); }
+  .doc-meta { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin: 0 0 1.25rem; font: 700 var(--fs-caption)/1.4 var(--font-sans); color: var(--ink-muted); }
+  .doc-meta span:first-child { color: var(--ink); }
+  .doc-head h1 { margin: 0; max-width: 16em; font: 600 var(--fs-h2)/1.06 var(--font-display); letter-spacing: -.015em; text-wrap: balance; }
+  .doc-head h1 em { font-style: italic; color: var(--blue); }
+  .doc-head p.intro { max-width: 44em; margin: 1.25rem 0 0; font-size: var(--fs-lead); line-height: 1.55; color: var(--ink-muted); }
+  .flag { display: inline-flex; align-items: center; gap: .5rem; margin-top: 1.5rem; padding: .5rem .875rem; border-radius: var(--r-sm); background: var(--inf-soft); font: 600 var(--fs-caption)/1.4 var(--font-sans); }
+
+  /* Seções do tile */
+  .t-section { padding: clamp(3rem, 2.4rem + 3vw, 5rem) 0; border-bottom: 1px solid var(--line); }
+  .t-head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 1rem 3rem; align-items: end; margin-bottom: 2.5rem; }
+  .t-head h2 { margin: .75rem 0 0; font: 600 var(--fs-h3)/1.18 var(--font-display); }
+  .t-head p { margin: 0; color: var(--ink-muted); font-size: var(--fs-small); max-width: 42em; }
+  .eyebrow { display: flex; align-items: center; gap: .75rem; margin: 0; font: 800 var(--fs-eyebrow)/1.3 var(--font-sans); letter-spacing: .12em; text-transform: uppercase; }
+  .eyebrow::before { content: ""; width: 24px; height: 3px; flex: none; border-radius: 2px; background: var(--stripe); }
+  .sub-t { margin: 2.5rem 0 1rem; font: 800 var(--fs-eyebrow)/1.3 var(--font-sans); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted); }
+
+  /* 01 — Hero em iframes */
+  .switch { display: inline-flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.25rem; }
+  .switch button { min-height: 44px; padding: 0 1.125rem; border: 1px solid var(--field); border-radius: var(--r-pill); background: var(--surface); color: var(--ink); font: 700 .9375rem/1 var(--font-sans); cursor: pointer; }
+  .switch button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .h1-note { margin: 0 0 1.25rem; font-size: var(--fs-small); color: var(--ink-muted); min-height: 3em; max-width: 60em; }
+  .device { position: relative; border-radius: var(--r-md); overflow: hidden; background: var(--surface); box-shadow: 0 0 0 1px var(--line), var(--shadow-float); }
+  .device-bar { display: flex; align-items: center; gap: .75rem; height: 36px; padding: 0 1rem; background: var(--paper-2); border-bottom: 1px solid var(--line); font: 600 .75rem/1 var(--font-sans); color: var(--ink-muted); }
+  .device-bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); display: inline-block; }
+  .scaler { position: relative; overflow: hidden; }
+  .scaler iframe { position: absolute; top: 0; left: 0; border: 0; transform-origin: 0 0; background: var(--paper); }
+  .fold { position: absolute; left: 0; right: 0; border-top: 2px dashed var(--red); pointer-events: none; }
+  .fold span { position: absolute; right: .75rem; top: -1.6rem; padding: .125rem .5rem; border-radius: 4px; background: var(--red); color: #fff; font: 700 .6875rem/1.4 var(--font-sans); letter-spacing: .06em; text-transform: uppercase; }
+  .mobile-row { display: grid; grid-template-columns: 390px minmax(0, 1fr); gap: 2.5rem; margin-top: 2.5rem; align-items: start; }
+  .mobile-row .device { width: 390px; }
+  .checks { margin: 0; padding: 0; list-style: none; display: grid; gap: .875rem; }
+  .checks li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: .75rem; align-items: start; }
+  .checks li::before { content: ""; width: 28px; height: 28px; border-radius: 50%; background: var(--em-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300279B' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") no-repeat center / 16px; }
+  .checks b { display: block; font-weight: 800; }
+  .checks span { color: var(--ink-muted); font-size: var(--fs-small); }
+
+  /* 02 — Cor */
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1rem; }
+  .sw { border-radius: var(--r-md); background: var(--surface); box-shadow: 0 0 0 1px var(--line); overflow: hidden; }
+  .sw-color { height: 104px; display: flex; align-items: flex-end; padding: .75rem; font: 800 .75rem/1 var(--font-sans); letter-spacing: .06em; }
+  .sw-body { padding: .875rem 1rem 1rem; }
+  .sw-name { font-weight: 800; }
+  .sw-hex { font: 600 .875rem/1.4 ui-monospace, "Cascadia Mono", Consolas, monospace; color: var(--ink-muted); }
+  .sw-role { margin-top: .375rem; font-size: var(--fs-caption); line-height: 1.45; color: var(--ink-muted); }
+  .seg-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+  .seg-col { border-radius: var(--r-md); background: var(--surface); box-shadow: 0 0 0 1px var(--line); overflow: hidden; }
+  .seg-col .base { height: 72px; }
+  .seg-col .soft { padding: 1rem; }
+  .seg-col .soft p { margin: 0; }
+  .seg-age { font: 800 .75rem/1.3 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; }
+  .seg-name { margin-top: .25rem !important; font: 600 1.375rem/1.15 var(--font-display); color: var(--ink); }
+  .seg-col dl { margin: 0; padding: .875rem 1rem 1rem; display: grid; grid-template-columns: auto 1fr; gap: .25rem .75rem; font-size: var(--fs-caption); }
+  .seg-col dt { color: var(--ink-muted); }
+  .seg-col dd { margin: 0; font: 600 .8125rem/1.5 ui-monospace, "Cascadia Mono", Consolas, monospace; }
+  .rule-note { margin-top: 1rem; font-size: var(--fs-small); color: var(--ink-muted); max-width: 60em; }
+
+  /* 03 — Tipografia */
+  .type-row { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 1rem 2.5rem; padding: 1.5rem 0; border-top: 1px solid var(--line); align-items: baseline; }
+  .type-meta { font: 600 .8125rem/1.5 var(--font-sans); color: var(--ink-muted); }
+  .type-meta b { display: block; color: var(--ink); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; font-size: .75rem; }
+  .t-display { margin: 0; font: 600 var(--fs-display)/1.02 var(--font-display); letter-spacing: -.02em; }
+  .t-display em, .t-h2 em { display: block; font-style: italic; color: var(--blue); }
+  .t-h2 { margin: 0; font: 600 var(--fs-h2)/1.06 var(--font-display); letter-spacing: -.015em; }
+  .t-h3 { margin: 0; font: 600 var(--fs-h3)/1.18 var(--font-display); }
+  .t-h4 { margin: 0; font: 700 1.125rem/1.3 var(--font-sans); }
+  .t-lead { margin: 0; font-size: var(--fs-lead); line-height: 1.55; color: var(--ink-muted); max-width: 36em; }
+  .t-body { margin: 0; max-width: 65ch; }
+  .t-small { margin: 0; font: 500 var(--fs-small)/1.5 var(--font-sans); color: var(--ink-muted); }
+  .t-caption { margin: 0; font: 500 var(--fs-caption)/1.45 var(--font-sans); color: var(--ink-muted); }
+  .t-step { margin: 0; font: italic 500 var(--fs-step)/1 var(--font-display); color: var(--blue); }
+
+  /* 04 — Componentes */
+  .row { display: flex; flex-wrap: wrap; gap: 1rem 1.75rem; align-items: center; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: .625rem; min-height: 48px; padding: 0 1.5rem; border: 0; border-radius: var(--r-pill); font: 750 1rem/1 var(--font-sans); text-decoration: none; cursor: pointer; transition: background-color var(--dur-fast) var(--ease); }
+  .btn .i { transition: transform var(--dur-fast) var(--ease); }
+  .btn-primary { background: var(--blue); color: #fff; } .btn-primary:hover { background: var(--blue-hover); }
+  .btn-outline { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
+  .btn-outline:hover { background: var(--paper-2); }
+  .btn-outline .wa { color: var(--wa-ink); width: 20px; height: 20px; }
+  .btn-yellow { background: var(--yellow); color: var(--ink); }
+  .btn-yellow:hover { background: #fff; }
+  .go-r:hover .i:last-child { transform: translateX(3px); }
+  .go-d:hover .i { transform: translateY(3px); }
+  .go-ur:hover .i:last-child { transform: translate(2px, -2px); }
+  .link-arrow { display: inline-flex; align-items: center; gap: .5rem; min-height: 48px; font-weight: 750; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: .32em; text-decoration-color: color-mix(in srgb, var(--ink) 30%, transparent); }
+  .link-arrow .i { color: var(--blue); transition: transform var(--dur-fast) var(--ease); }
+  .micro { margin: .75rem 0 0; font: 500 var(--fs-small)/1.5 var(--font-sans); color: var(--ink-muted); }
+  .tag { display: inline-flex; align-items: center; gap: .5rem; min-height: 32px; padding: 0 .75rem; border-radius: var(--r-sm); background: var(--soft); color: var(--seg-ink); font: 800 .75rem/1 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; }
+  .tag::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--base); box-shadow: 0 0 0 1px rgb(18 29 56 / .14); }
+  .s-inf { --base: var(--inf); --soft: var(--inf-soft); --seg-ink: var(--inf-ink); }
+  .s-f1 { --base: var(--f1); --soft: var(--f1-soft); --seg-ink: var(--f1-ink); }
+  .s-f2 { --base: var(--f2); --soft: var(--f2-soft); --seg-ink: var(--f2-ink); }
+  .s-em { --base: var(--em); --soft: var(--em-soft); --seg-ink: var(--em-ink); }
+
+  .cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+  .card { position: relative; display: flex; flex-direction: column; min-height: 100%; padding: 0 0 1.5rem; border-radius: var(--r-md); background: var(--surface); box-shadow: 0 0 0 1px var(--line); overflow: hidden; transition: box-shadow var(--dur-base) var(--ease), transform var(--dur-base) var(--ease); }
+  .card::before { content: ""; height: 8px; background: var(--base); }
+  .card:hover { box-shadow: 0 0 0 1px var(--line), var(--shadow-float); transform: translateY(-2px); }
+  .card > * { margin-left: 1.5rem; margin-right: 1.5rem; }
+  .card .seg-age { margin-top: 1.5rem; color: var(--seg-ink); }
+  .card h3 { margin-top: .5rem; margin-bottom: 0; font: 600 1.625rem/1.15 var(--font-display); }
+  .card p { margin-top: .75rem; margin-bottom: 1.25rem; font-size: var(--fs-small); line-height: 1.55; color: var(--ink-muted); }
+  .card .link-arrow { margin-top: auto; min-height: 44px; font-size: .9375rem; }
+  .card .link-arrow::after { content: ""; position: absolute; inset: 0; }
+
+  .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; counter-reset: s; border-top: 1px solid var(--line); }
+  .step { padding: 1.5rem 1.5rem 0 0; }
+  .step + .step { padding-left: 1.5rem; border-left: 1px solid var(--line); }
+  .step h3 { margin: 1rem 0 .5rem; font: 700 1.125rem/1.3 var(--font-sans); }
+  .step p { margin: 0; font-size: var(--fs-small); color: var(--ink-muted); }
+  .step .t-step { font-size: var(--fs-step); line-height: 1; color: var(--blue); }
+  .pend { display: inline-block; padding: .125rem .5rem; border-radius: 4px; background: var(--inf-soft); color: var(--ink); font: 700 .8125rem/1.5 var(--font-sans); }
+
+  .field-blue { margin-top: 1rem; border-radius: var(--r-lg); background: var(--blue); color: #fff; padding: clamp(2rem, 1.5rem + 3vw, 4rem); }
+  .field-blue .eyebrow::before { background: var(--stripe-on-blue); }
+  .field-blue h3 { margin: 1rem 0 0; font: 600 var(--fs-h2)/1.06 var(--font-display); letter-spacing: -.015em; max-width: 14em; }
+  .field-blue h3 em { display: block; font-style: italic; color: var(--yellow); }
+  .pillars { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin: 2.5rem 0; }
+  .pillars .n { font: italic 500 var(--fs-step)/1 var(--font-display); color: var(--yellow); }
+  .pillars h4 { margin: .75rem 0 .5rem; font: 700 1.125rem/1.3 var(--font-sans); }
+  .pillars p { margin: 0; font-size: var(--fs-small); color: rgb(255 255 255 / .82); }
+  .field-blue :focus-visible { outline-color: var(--yellow); }
+
+  .two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.5rem; }
+  details { border-top: 1px solid var(--line); }
+  details:last-of-type { border-bottom: 1px solid var(--line); }
+  summary { display: flex; justify-content: space-between; gap: 1rem; align-items: center; min-height: 64px; padding: .75rem 0; list-style: none; cursor: pointer; font: 700 1.0625rem/1.4 var(--font-sans); }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: ""; width: 28px; height: 28px; flex: none; border-radius: 50%; background: var(--em-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300279B' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") no-repeat center / 16px; transition: transform var(--dur-base) var(--ease); }
+  details[open] summary::after { transform: rotate(45deg); }
+  details p { margin: 0 0 1.25rem; color: var(--ink-muted); max-width: 60ch; }
+
+  .form { display: grid; gap: 1.25rem; padding: 1.75rem; border-radius: var(--r-md); background: var(--surface); box-shadow: 0 0 0 1px var(--line); position: relative; overflow: hidden; }
+  .form::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: var(--stripe); }
+  .form label { display: block; margin-bottom: .375rem; font: 700 .875rem/1.3 var(--font-sans); }
+  .form label small { font-weight: 500; color: var(--ink-muted); }
+  .form input[type=text], .form input[type=tel] { width: 100%; min-height: 48px; padding: 0 .875rem; border: 1px solid var(--field); border-radius: var(--r-sm); background: var(--surface); color: var(--ink); font: 500 1rem/1.2 var(--font-sans); }
+  .form input:focus-visible { outline: 2px solid var(--blue); outline-offset: 1px; border-color: var(--blue); }
+  .form .err input { border-color: var(--error); box-shadow: inset 0 0 0 1px var(--error); }
+  .form .err-msg { display: flex; gap: .5rem; align-items: center; margin-top: .375rem; color: var(--error); font: 600 var(--fs-caption)/1.4 var(--font-sans); }
+  .check { display: grid; grid-template-columns: 24px 1fr; gap: .75rem; align-items: start; font-size: var(--fs-small); }
+  .check input { width: 22px; height: 22px; margin: .1rem 0 0; accent-color: var(--blue); }
+
+  .ph { position: relative; aspect-ratio: 4 / 3; border-radius: var(--r-lg); display: grid; place-items: center; padding: 1.5rem; text-align: center; color: var(--ink-muted); background: var(--paper-2) repeating-linear-gradient(135deg, transparent 0 15px, rgb(18 29 56 / .04) 15px 16px); font-size: var(--fs-small); }
+  .ph b { display: block; margin-bottom: .375rem; color: var(--ink); font: 800 var(--fs-eyebrow)/1.3 var(--font-sans); letter-spacing: .12em; text-transform: uppercase; }
+  figure { margin: 0; }
+  figcaption { margin-top: .75rem; font: 500 var(--fs-caption)/1.45 var(--font-sans); color: var(--ink-muted); }
+
+  /* 05 — Espaço e forma */
+  .scale { display: grid; gap: .5rem; }
+  .scale div { display: grid; grid-template-columns: 64px 1fr; gap: 1rem; align-items: center; font: 600 .8125rem/1 ui-monospace, "Cascadia Mono", Consolas, monospace; color: var(--ink-muted); }
+  .scale i { display: block; height: 12px; border-radius: 3px; background: var(--em-soft); box-shadow: inset 0 0 0 1px rgb(0 39 155 / .25); }
+  .radii { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .radii div { width: 112px; height: 88px; display: grid; place-items: end start; padding: .625rem; background: var(--surface); box-shadow: 0 0 0 1px var(--field); font: 700 .75rem/1.2 var(--font-sans); }
+  .grid-demo { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; height: 88px; }
+  .grid-demo i { background: var(--f1-soft); border-radius: 4px; }
+  .grid-demo i:nth-child(-n+5) { background: var(--em-soft); }
+  .spec { margin: .75rem 0 0; font-size: var(--fs-small); color: var(--ink-muted); }
+
+  .next { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
+  .next li { padding: 1.25rem; border-radius: var(--r-md); background: var(--surface); box-shadow: 0 0 0 1px var(--line); font-size: var(--fs-small); line-height: 1.55; color: var(--ink-muted); }
+  .next b { display: block; margin-bottom: .375rem; color: var(--ink); font-size: 1rem; }
+
+  .doc-foot { padding: 2.5rem 0 4rem; font-size: var(--fs-caption); color: var(--ink-muted); }
+  .doc-foot p { margin: .25rem 0; max-width: 70em; overflow-wrap: anywhere; }
+
+  @media (max-width: 1023px) {
+    .t-head, .mobile-row, .two { grid-template-columns: 1fr; }
+    .seg-grid, .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .step:nth-child(3) { padding-left: 0; border-left: 0; }
+    .pillars { grid-template-columns: 1fr; }
+    .type-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .seg-grid, .cards, .steps { grid-template-columns: 1fr; }
+    .step + .step { padding-left: 0; border-left: 0; }
+    .mobile-row .device { width: 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } .card:hover { transform: none; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-r" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-d" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+  <symbol id="i-ur" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5v.01"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.5 20.4l1.3-4.5a8.4 8.4 0 1 1 15.7-4.3Z"/><path d="M9 9.5c.3 2 2.4 4.2 4.6 4.8l1.2-1.1 2 .9c-.3 1.2-1.3 1.9-2.4 1.8-3.6-.4-6.9-3.7-7.2-7.3-.1-1.1.6-2.1 1.8-2.4l.9 2-.9 1.3Z" stroke-width="1.4"/></symbol>
+</svg>
+
+<div class="stripe" aria-hidden="true"></div>
+<header class="doc-head">
+  <div class="wrap">
+    <p class="doc-meta"><span>Novo site do Colégio Anglo Líder Tamarineira</span><span>Etapa 1 de 6 · proposta visual</span><span>22/09/2026</span></p>
+    <h1>A trajetória como identidade. <em>Do primeiro passo ao vestibular.</em></h1>
+    <p class="intro">Cores, letras e peças do novo site, propostas para aprovação. As quatro fases ganham as cores do logo Anglo em sequência, do amarelo ao azul: a paleta amadurece junto com a criança. O friso tricolor da gola do uniforme vira a assinatura gráfica.</p>
+    <p class="flag">Proposta para aprovação — ainda não é o site. As cores foram medidas no logo usado hoje; se o manual da marca Anglo indicar outros valores, vale o manual.</p>
+  </div>
+</header>
+
+<main>
+  <!-- 01 HERO -->
+  <section class="t-section" aria-labelledby="s1">
+    <div class="wrap">
+      <div class="t-head">
+        <div><p class="eyebrow">01 · Primeira tela</p><h2 id="s1">A primeira tela, com as três opções de título</h2></div>
+        <p>O que a família vê ao abrir o site, em tamanho real. O "Encontre a série" já funciona, com uma tabela provisória que a secretaria precisa validar. A linha tracejada marca onde termina a primeira tela de um notebook comum (1280 × 880).</p>
+      </div>
+      <div class="switch" role="group" aria-label="Opção de título">
+        <button type="button" data-h1="a" aria-pressed="true">A · recomendada</button>
+        <button type="button" data-h1="b" aria-pressed="false">B</button>
+        <button type="button" data-h1="c" aria-pressed="false">C</button>
+      </div>
+      <p class="h1-note" id="h1-note" aria-live="polite"></p>
+
+      <div class="device">
+        <div class="device-bar"><i></i><i></i><i></i><span>Computador · 1280 px</span></div>
+        <div class="scaler" data-w="1280" data-h="1180" data-fold="880">
+          <iframe title="Primeira tela no computador, 1280 px" data-src="hero.html?demo=05-2022"></iframe>
+          <div class="fold"><span>fim da 1ª tela</span></div>
+        </div>
+      </div>
+
+      <div class="mobile-row">
+        <div class="device">
+          <div class="device-bar"><i></i><i></i><i></i><span>Celular · 390 × 844</span></div>
+          <div class="scaler" data-w="390" data-h="844">
+            <iframe title="Primeira tela no celular, 390 px" data-src="hero.html"></iframe>
+          </div>
+        </div>
+        <div>
+          <p class="eyebrow">Teste dos 10 segundos · celular</p>
+          <ul class="checks" style="margin-top:1.5rem">
+            <li><div><b>O que é</b><span>"Colégio" no logo, no título e no subtítulo — antes de rolar a página.</span></div></li>
+            <li><div><b>Para quais idades</b><span>"a partir de 1 ano, ao 3º ano do Ensino Médio" no subtítulo (na opção B, no próprio título).</span></div></li>
+            <li><div><b>Onde fica</b><span>"Tamarineira, Recife" na linha acima do título; o endereço completo entra no rodapé e na página de contato assim que for confirmado.</span></div></li>
+            <li><div><b>Como agendar</b><span>Botão "Agendar" fixo no topo de todas as páginas e outro, largo, logo abaixo do título. O botão do WhatsApp aparece assim que a pessoa rola a página — assim ele nunca cobre o texto de abertura.</span></div></li>
+          </ul>
+          <p class="spec">No celular, a foto vem depois dos botões e já aparece na borda da tela — convida a rolar sem empurrar o botão para baixo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 COR -->
+  <section class="t-section" aria-labelledby="s2">
+    <div class="wrap">
+      <div class="t-head">
+        <div><p class="eyebrow">02 · Cor</p><h2 id="s2">Papel quente, tinta azul-noite e um acento: o azul Anglo</h2></div>
+        <p>Fundo claro e quente, texto em azul-noite e uma cor de destaque: o azul Anglo, usado em botões e links. Uma vez por página, uma faixa inteira em azul — é ali que o amarelo aparece, como botão. As cores de cada segmento servem para orientar a navegação.</p>
+      </div>
+
+      <p class="sub-t">Marca · medidas pixel a pixel no logo em uso</p>
+      <div class="swatches">
+        <div class="sw"><div class="sw-color" style="background:#00279B;color:#fff">11,9:1 com branco</div><div class="sw-body"><div class="sw-name">Azul Anglo</div><div class="sw-hex">#00279B · brand-blue</div><div class="sw-role">Ponto mais escuro do degradê azul do logo. Botões, links, faixa de destaque, Ensino Médio.</div></div></div>
+        <div class="sw"><div class="sw-color" style="background:#036EA9;color:#fff">5,5:1 com branco</div><div class="sw-body"><div class="sw-name">Azul-claro</div><div class="sw-hex">#036EA9 · brand-sky</div><div class="sw-role">Ponto mais claro do mesmo degradê. Fundamental 2.</div></div></div>
+        <div class="sw"><div class="sw-color" style="background:#FCFA03;color:#121D38">15,0:1 com a tinta</div><div class="sw-body"><div class="sw-name">Amarelo</div><div class="sw-hex">#FCFA03 · brand-yellow</div><div class="sw-role">Pincelada amarela. Educação Infantil, botão sobre a faixa azul, friso. Nunca como cor de texto.</div></div></div>
+        <div class="sw"><div class="sw-color" style="background:#DB2C1B;color:#fff">4,8:1 com branco</div><div class="sw-body"><div class="sw-name">Vermelho</div><div class="sw-hex">#DB2C1B · brand-red</div><div class="sw-role">Pincelada vermelha. Fundamental 1 e friso. Quando o texto precisa ser vermelho, usa o tom mais escuro #AF2D1B.</div></div></div>
+      </div>
+
+      <p class="rule-note">Os números nas amostras (ex.: 11,9:1) medem o contraste entre texto e fundo. A norma de acessibilidade (WCAG 2.2, nível AA) pede no mínimo 4,5:1 para texto comum.</p>
+
+      <p class="sub-t">Neutros</p>
+      <div class="swatches">
+        <div class="sw"><div class="sw-color" style="background:#FBF8F1;box-shadow:inset 0 -1px 0 var(--line)"></div><div class="sw-body"><div class="sw-name">Papel</div><div class="sw-hex">#FBF8F1 · paper</div><div class="sw-role">Fundo principal, off-white quente.</div></div></div>
+        <div class="sw"><div class="sw-color" style="background:#F3EDE1"></div><div class="sw-body"><div class="sw-name">Areia</div><div class="sw-hex">#F3EDE1 · paper-2</div><div class="sw-role">Seções alternadas, placeholders de foto.</div></div></div>
+        <div class="sw"><div class="sw-color" style="background:#FFFDF9;box-shadow:inset 0 -1px 0 var(--line)"></div><div class="sw-body"><div class="sw-name">Superfície</div><div class="sw-hex">#FFFDF9 · surface</div><div class="sw-role">Cards, painéis e campos que se destacam do papel.</div></div></div>
+        <div class="sw"><div class="sw-color" style="background:#121D38;color:#fff">15,7:1 no papel</div><div class="sw-body"><div class="sw-name">Tinta</div><div class="sw-hex">#121D38 · ink</div><div class="sw-role">Texto. Azul-noite derivado do azul Anglo, não preto.</div></div></div>
+        <div class="sw"><div class="sw-color" style="background:#4F586C;color:#fff">6,7:1 no papel</div><div class="sw-body"><div class="sw-name">Tinta suave</div><div class="sw-hex">#4F586C · ink-muted</div><div class="sw-role">Subtítulos, legendas, microcopy.</div></div></div>
+        <div class="sw"><div class="sw-color" style="background:#E4DFD5"></div><div class="sw-body"><div class="sw-name">Linha</div><div class="sw-hex">#E4DFD5 · line</div><div class="sw-role">Divisórias decorativas.</div></div></div>
+        <div class="sw"><div class="sw-color" style="background:#868073;color:#fff">3,7:1 no papel</div><div class="sw-body"><div class="sw-name">Borda de campo</div><div class="sw-hex">#868073 · field</div><div class="sw-role">Borda dos campos de formulário (a norma pede no mínimo 3:1).</div></div></div>
+      </div>
+
+      <p class="sub-t">Segmentos · a paleta amadurece com a criança</p>
+      <div class="seg-grid">
+        <div class="seg-col s-inf"><div class="base" style="background:var(--inf)"></div><div class="soft" style="background:var(--inf-soft)"><p class="seg-age" style="color:var(--inf-ink)">A partir de 1 ano</p><p class="seg-name">Educação Infantil</p></div><dl><dt>base</dt><dd>#FCFA03</dd><dt>suave</dt><dd>#F9F6BC</dd><dt>tinta</dt><dd>#6D5900 · 6,2:1</dd></dl></div>
+        <div class="seg-col s-f1"><div class="base" style="background:var(--f1)"></div><div class="soft" style="background:var(--f1-soft)"><p class="seg-age" style="color:var(--f1-ink)">1º ao 5º ano</p><p class="seg-name">Fundamental 1</p></div><dl><dt>base</dt><dd>#DB2C1B</dd><dt>suave</dt><dd>#FFDDD5</dd><dt>tinta</dt><dd>#AF2D1B · 5,2:1</dd></dl></div>
+        <div class="seg-col s-f2"><div class="base" style="background:var(--f2)"></div><div class="soft" style="background:var(--f2-soft)"><p class="seg-age" style="color:var(--f2-ink)">6º ao 9º ano</p><p class="seg-name">Fundamental 2</p></div><dl><dt>base</dt><dd>#036EA9</dd><dt>suave</dt><dd>#D3ECF9</dd><dt>tinta</dt><dd>#09659F · 5,1:1</dd></dl></div>
+        <div class="seg-col s-em"><div class="base" style="background:var(--em)"></div><div class="soft" style="background:var(--em-soft)"><p class="seg-age" style="color:var(--em-ink)">1º ao 3º ano</p><p class="seg-name">Ensino Médio</p></div><dl><dt>base</dt><dd>#00279B</dd><dt>suave</dt><dd>#D8DEFA</dd><dt>tinta</dt><dd>#00279B · 8,9:1</dd></dl></div>
+      </div>
+      <p class="rule-note">Contraste da tinta de cada segmento medido sobre o fundo suave (e ≥ 4,5:1 também sobre o papel). A cor nunca é a única pista: toda etiqueta traz o nome do segmento por escrito.</p>
+
+      <p class="sub-t">Funcionais</p>
+      <div class="swatches">
+        <div class="sw"><div class="sw-color" style="background:#128C7E;color:#fff">4,1:1 · ícone</div><div class="sw-body"><div class="sw-name">WhatsApp</div><div class="sw-hex">#128C7E · whatsapp</div><div class="sw-role">Botão flutuante (verde-azulado oficial do WhatsApp). O verde claro #25D366 dá 2:1 com branco — reprova.</div></div></div>
+        <div class="sw"><div class="sw-color" style="background:#075E54;color:#fff">7,7:1 com branco</div><div class="sw-body"><div class="sw-name">WhatsApp escuro</div><div class="sw-hex">#075E54 · whatsapp-ink</div><div class="sw-role">Ícone do WhatsApp nos botões secundários.</div></div></div>
+        <div class="sw"><div class="sw-color" style="background:#B3241F;color:#fff">6,2:1 no papel</div><div class="sw-body"><div class="sw-name">Erro</div><div class="sw-hex">#B3241F · error</div><div class="sw-role">Sempre com ícone e texto.</div></div></div>
+        <div class="sw"><div class="sw-color" style="background:#21763C;color:#fff">5,3:1 no papel</div><div class="sw-body"><div class="sw-name">Sucesso</div><div class="sw-hex">#21763C · success</div><div class="sw-role">Confirmação do formulário.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 TIPOGRAFIA -->
+  <section class="t-section" aria-labelledby="s3">
+    <div class="wrap">
+      <div class="t-head">
+        <div><p class="eyebrow">03 · Tipografia</p><h2 id="s3">Fraunces para a voz, Manrope para a leitura</h2></div>
+        <p>Fraunces nos títulos: uma serifa editorial com pontas levemente arredondadas — acolhe sem parecer infantil, e o itálico dá a segunda batida de cada título. Manrope nos textos: limpa e fácil de ler em tela pequena. As duas juntas pesam cerca de 107 KB, para o site abrir rápido no celular, e o texto cresce junto com o zoom do navegador.</p>
+      </div>
+      <div class="type-row"><div class="type-meta"><b>Título principal</b>Fraunces 600 · 40→68 px · 1,03</div><p class="t-display">Dos primeiros passos ao vestibular. <em>Na mesma escola.</em></p></div>
+      <div class="type-row"><div class="type-meta"><b>Título de seção</b>Fraunces 600 · 32→52 px · 1,06</div><p class="t-h2">Do Chromebook ao podcast. <em>Aprender também é criar.</em></p></div>
+      <div class="type-row"><div class="type-meta"><b>Título de bloco</b>Fraunces 600 · 22→28 px · 1,18</div><p class="t-h3">Criatto Lab</p></div>
+      <div class="type-row"><div class="type-meta"><b>Rótulo</b>Manrope 700 · 18 px · 1,3</div><p class="t-h4">Documentos para a matrícula</p></div>
+      <div class="type-row"><div class="type-meta"><b>Texto de abertura</b>Manrope 450 · 18→21 px · 1,55</div><p class="t-lead">Da Educação Infantil, a partir de 1 ano, ao 3º ano do Ensino Médio. Com o Sistema Anglo e projetos de liderança, tecnologia e comunicação.</p></div>
+      <div class="type-row"><div class="type-meta"><b>Texto corrido</b>Manrope 450 · 17→18 px · 1,6 · até 65 caracteres</div><p class="t-body">No Pod Criar, estudantes fazem jornal, podcasts e comerciais. No Além do Vest, conversam com profissionais da região sobre carreiras.</p></div>
+      <div class="type-row"><div class="type-meta"><b>Linha de confiança</b>Manrope 500 · 15 px · 1,5</div><p class="t-small">Visita guiada · sem compromisso · seg. a sex., 8h às 17h</p></div>
+      <div class="type-row"><div class="type-meta"><b>Legenda</b>Manrope 500 · 14 px · 1,45</div><p class="t-caption">Fotografia real · Criatto Lab, Tamarineira</p></div>
+      <div class="type-row"><div class="type-meta"><b>Linha acima do título</b>Manrope 800 · 13 px · +0,12em · maiúsculas</div><p class="eyebrow">Matrículas 2027 abertas · Tamarineira, Recife</p></div>
+      <div class="type-row"><div class="type-meta"><b>Número de etapa</b>Fraunces itálico 500 · 40→56 px</div><p class="t-step">01 · 02 · 03 · 04</p></div>
+    </div>
+  </section>
+
+  <!-- 04 COMPONENTES -->
+  <section class="t-section" aria-labelledby="s4">
+    <div class="wrap">
+      <div class="t-head">
+        <div><p class="eyebrow">04 · Peças do site</p><h2 id="s4">Setas que dizem para onde o clique leva</h2></div>
+        <p>→ faz algo no site · ↓ desce na página · ↗ abre outro site ou app. Quem usa leitor de tela ouve "abre em nova aba" nos links que saem do site.</p>
+      </div>
+
+      <p class="sub-t">Botões e links</p>
+      <div class="row">
+        <a class="btn btn-primary go-r" href="#">Agendar visita <svg class="i" aria-hidden="true"><use href="#i-r"/></svg></a>
+        <a class="link-arrow go-d" href="#">Conhecer os segmentos <svg class="i" aria-hidden="true"><use href="#i-d"/></svg></a>
+        <a class="btn btn-outline go-ur" href="#"><svg class="i wa" aria-hidden="true"><use href="#i-chat"/></svg>Falar no WhatsApp <svg class="i" aria-hidden="true"><use href="#i-ur"/></svg><span class="sr-only">(abre em nova aba)</span></a>
+      </div>
+      <p class="micro">Visita guiada · sem compromisso · seg. a sex., 8h às 17h</p>
+
+      <p class="sub-t">Etiquetas de segmento</p>
+      <div class="row">
+        <span class="tag s-inf">Educação Infantil</span><span class="tag s-f1">Fundamental 1</span><span class="tag s-f2">Fundamental 2</span><span class="tag s-em">Ensino Médio</span>
+      </div>
+
+      <p class="sub-t">Cards de segmento · seção "Segmentos" da página inicial</p>
+      <div class="cards">
+        <article class="card s-inf"><p class="seg-age">A partir de 1 ano</p><h3>Educação Infantil</h3><p>Acolhimento e equipe pedagógica completa para as primeiras descobertas.</p><a class="link-arrow go-r" href="#">Conhecer <span class="sr-only">a Educação Infantil</span><svg class="i" aria-hidden="true"><use href="#i-r"/></svg></a></article>
+        <article class="card s-f1"><p class="seg-age">1º ao 5º ano</p><h3>Fundamental 1</h3><p>A continuidade da base: o momento de consolidar as aprendizagens.</p><a class="link-arrow go-r" href="#">Conhecer <span class="sr-only">o Fundamental 1</span><svg class="i" aria-hidden="true"><use href="#i-r"/></svg></a></article>
+        <article class="card s-f2"><p class="seg-age">6º ao 9º ano</p><h3>Fundamental 2</h3><p>Um novo ciclo: as disciplinas do currículo e as habilidades que as profissões do futuro pedem.</p><a class="link-arrow go-r" href="#">Conhecer <span class="sr-only">o Fundamental 2</span><svg class="i" aria-hidden="true"><use href="#i-r"/></svg></a></article>
+        <article class="card s-em"><p class="seg-age">1º ao 3º ano</p><h3>Ensino Médio</h3><p>Foco nos principais vestibulares e no desenvolvimento de soft skills.</p><a class="link-arrow go-r" href="#">Conhecer <span class="sr-only">o Ensino Médio</span><svg class="i" aria-hidden="true"><use href="#i-r"/></svg></a></article>
+      </div>
+
+      <p class="sub-t">Passos numerados · "Como funciona a matrícula"</p>
+      <div class="steps">
+        <div class="step"><p class="t-step">01</p><h3>Agende a visita</h3><p>Pelo formulário ou pelo WhatsApp.</p></div>
+        <div class="step"><p class="t-step">02</p><h3>Conheça a escola</h3><p>Visita guiada pelos espaços, com tempo para as perguntas da família.</p></div>
+        <div class="step"><p class="t-step">03</p><h3><span class="pend">A confirmar</span></h3><p>Etapa entre a visita e a vaga, definida pela secretaria.</p></div>
+        <div class="step"><p class="t-step">04</p><h3>Garanta a vaga</h3><p>Documentos e contrato <span class="pend">a confirmar</span>.</p></div>
+      </div>
+
+      <p class="sub-t">Faixa azul · o momento de cor da página (Proposta, na página inicial)</p>
+      <div class="field-blue">
+        <p class="eyebrow">Proposta pedagógica</p>
+        <h3>Conteúdo que prepara. <em>Habilidades que ficam.</em></h3>
+        <div class="pillars">
+          <div><div class="n">01</div><h4>Base acadêmica do Sistema Anglo</h4><p>A base acadêmica vem do Sistema Anglo. <span class="pend" style="color:var(--ink)">detalhar com a escola</span></p></div>
+          <div><div class="n">02</div><h4>Preparação para os vestibulares</h4><p>No Ensino Médio, o foco está nos principais vestibulares.</p></div>
+          <div><div class="n">03</div><h4>Liderança, comunicação e empreendedorismo</h4><p>Na grade, com a Geração Líder, e nos projetos da escola.</p></div>
+        </div>
+        <a class="btn btn-yellow go-r" href="#">Conhecer a proposta <svg class="i" aria-hidden="true"><use href="#i-r"/></svg></a>
+      </div>
+
+      <div class="two" style="margin-top:3rem">
+        <div>
+          <p class="sub-t" style="margin-top:0">Dúvidas frequentes · abrem e fecham também pelo teclado</p>
+          <details open><summary>A partir de que idade a escola recebe crianças?</summary><p>A partir de 1 ano, na Educação Infantil.</p></details>
+          <details><summary>Quais turnos a escola oferece? Tem período integral?</summary><p>Resposta a confirmar com a escola — no site, a pergunta só aparece depois de validada.</p></details>
+          <details><summary>Como os valores são informados?</summary><p>Resposta a confirmar com a escola.</p></details>
+        </div>
+        <div>
+          <p class="sub-t" style="margin-top:0">Formulário de visita · campo preenchido errado</p>
+          <form class="form" onsubmit="return false" novalidate>
+            <div><label for="f-nome">Nome do responsável</label><input id="f-nome" type="text" autocomplete="name"></div>
+            <div class="err"><label for="f-wa">WhatsApp <small>com DDD</small></label><input id="f-wa" type="tel" inputmode="tel" autocomplete="tel" value="(81) 9" aria-invalid="true" aria-describedby="f-wa-e"><p class="err-msg" id="f-wa-e"><svg class="i" aria-hidden="true"><use href="#i-alert"/></svg>Informe o WhatsApp com DDD, ex.: (81) 90000-0000.</p></div>
+            <label class="check"><input id="f-lgpd" type="checkbox"> <span>Li a <a href="#">Política de Privacidade</a> e autorizo o contato da equipe de matrículas.</span></label>
+            <button class="btn btn-primary go-r" type="submit">Agendar visita <svg class="i" aria-hidden="true"><use href="#i-r"/></svg></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="two" style="margin-top:3rem">
+        <figure>
+          <div class="ph" role="img" aria-label="Espaço reservado para foto real"><div><b>Foto: estudantes no Criatto Lab</b>Espaço reservado, já na proporção final (4:3). Só entra foto real, com autorização de imagem.</div></div>
+          <figcaption>Legenda no padrão: "Fotografia real · Criatto Lab, Tamarineira"</figcaption>
+        </figure>
+        <div>
+          <p class="sub-t" style="margin-top:0">Friso tricolor · a gola do uniforme</p>
+          <div class="stripe" style="height:8px;border-radius:2px"></div>
+          <p class="spec">Azul, amarelo e vermelho em 2 : 1 : 1, na ordem das pinceladas do logo. Aparece no topo do cabeçalho e do rodapé, antes da linha acima de cada título e no topo do "Encontre a série" e do formulário. Nunca como enfeite solto. <span class="pend">Validar com o manual</span></p>
+          <p class="sub-t">Sobre a faixa azul</p>
+          <div class="stripe" style="height:8px;border-radius:2px;background:var(--stripe-on-blue);box-shadow:0 0 0 6px var(--blue);margin:6px"></div>
+          <p class="spec">O azul do friso vira branco para não sumir no fundo azul.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 ESPAÇO E FORMA -->
+  <section class="t-section" aria-labelledby="s5">
+    <div class="wrap">
+      <div class="t-head">
+        <div><p class="eyebrow">05 · Espaço e forma</p><h2 id="s5">Muito respiro, cantos moderados, uma sombra só</h2></div>
+        <p>Base de 4 px. Seções com 64 → 128 px de respiro vertical, sempre mais espaço acima do título do que abaixo. Conteúdo em até 1200 px, margem lateral de 16 → 40 px.</p>
+      </div>
+      <div class="two">
+        <div class="scale" aria-label="Escala de espaçamento">
+          <div><span>4</span><i style="width:4px"></i></div><div><span>8</span><i style="width:8px"></i></div><div><span>12</span><i style="width:12px"></i></div><div><span>16</span><i style="width:16px"></i></div><div><span>24</span><i style="width:24px"></i></div><div><span>32</span><i style="width:32px"></i></div><div><span>48</span><i style="width:48px"></i></div><div><span>64</span><i style="width:64px"></i></div><div><span>96</span><i style="width:96px"></i></div><div><span>128</span><i style="width:128px"></i></div>
+        </div>
+        <div>
+          <div class="radii">
+            <div style="border-radius:8px">8 · campos, etiquetas</div>
+            <div style="border-radius:14px">14 · cards, vídeo</div>
+            <div style="border-radius:24px">24 · fotos, painéis</div>
+            <div style="border-radius:999px;width:160px;place-items:center">pílula · botões</div>
+          </div>
+          <div style="margin-top:1.5rem;padding:1.25rem;border-radius:14px;background:var(--surface);box-shadow:var(--shadow-float);font-size:var(--fs-small)"><b>Sombra</b> — só para o que flutua: o cabeçalho quando a página rola, o botão do WhatsApp e o painel do "Encontre a série". Cards usam só uma borda fina.</div>
+        </div>
+      </div>
+      <p class="sub-t">Grade de 12 colunas · primeira tela = texto em 5 + foto em 7</p>
+      <div class="grid-demo" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="spec">12 colunas a partir de 1024 px (espaço de 24 px; 32 a partir de 1280) · 8 colunas de 768 a 1023 · 4 colunas abaixo de 768 (16 px). Alvos de toque: botões com 48 px de altura; ícones e links de menu com pelo menos 44 × 44.</p>
+    </div>
+  </section>
+  <!-- PARA SEGUIR -->
+  <section class="t-section" aria-labelledby="s6">
+    <div class="wrap">
+      <div class="t-head">
+        <div><p class="eyebrow">Para seguir</p><h2 id="s6">O que precisamos da escola</h2></div>
+        <p>Com essas respostas, a próxima etapa monta a base do site — cabeçalho, rodapé e as peças desta página — já em código.</p>
+      </div>
+      <ul class="next">
+        <li><b>Escolher o título</b>A, B ou C, na primeira seção desta página.</li>
+        <li><b>Confirmar o nome oficial</b>Hoje o site usa cinco variações. A proposta é "Colégio Anglo Líder Tamarineira" — o mesmo nome precisa aparecer no Perfil da Empresa no Google.</li>
+        <li><b>Enviar os arquivos da marca</b>Logo em SVG e o manual da marca Anglo, para conferir as cores.</li>
+        <li><b>Enviar fotos reais</b>Da escola e das atividades. Foto de estudante só com autorização de uso de imagem assinada pelos responsáveis.</li>
+        <li><b>Validar a tabela de séries</b>A secretaria confere a tabela do "Encontre a série" e o nome de cada turma da Educação Infantil.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="doc-foot">
+  <div class="wrap">
+    <p>Cores da marca medidas no arquivo em uso (colegioanglotamarineira.com.br/img/logo_branca_colorida.png): amarelo e vermelho são preenchimentos chapados; o azul é um degradê de #036EA9 a #00279B. O logo em SVG e o manual do Sistema Anglo não chegaram — quando chegarem, o manual prevalece.</p>
+    <p>Fontes: Fraunces e Manrope (Google Fonts, licença SIL OFL). Contrastes calculados pela fórmula de luminância relativa da WCAG 2.2.</p>
+  </div>
+</footer>
+
+<script>
+  document.documentElement.lang = 'pt-BR';
+  // Protótipos em iframes: escala o viewport simulado para caber na coluna
+  const scalers = [...document.querySelectorAll('.scaler')];
+  function fit() {
+    scalers.forEach(s => {
+      const w = +s.dataset.w, h = +s.dataset.h, f = +s.dataset.fold || 0;
+      const k = Math.min(1, s.clientWidth / w);
+      const fr = s.querySelector('iframe');
+      fr.style.width = w + 'px'; fr.style.height = h + 'px'; fr.style.transform = `scale(${k})`;
+      s.style.height = h * k + 'px';
+      const fold = s.querySelector('.fold'); if (fold) fold.style.top = f * k + 'px';
+    });
+  }
+  new ResizeObserver(fit).observe(document.body);
+
+  const NOTES = {
+    a: 'A · recomendada — diz no próprio título o que diferencia a unidade: acompanhar a criança de 1 ano até o vestibular sem trocar de escola. "Primeiros passos" é literal (quem entra com 1 ano está aprendendo a andar) e figurado.',
+    b: 'B — a mais clara: a idade está no título e o paralelo desde/até junta as duas metades da decisão (acolhimento e preparo). Menos memorável. O subtítulo perde o "a partir de 1 ano" para não repetir.',
+    c: 'C — a sugestão inicial do projeto: amarra o "Líder" do nome e a Geração Líder, e fala com o estudante mais velho. Não diz idade nem fase: depende da linha acima do título e do subtítulo.',
+  };
+  const note = document.getElementById('h1-note');
+  const frames = [...document.querySelectorAll('.scaler iframe')];
+  // Os protótipos vêm de hero.html. Publicado, o arquivo é lido por fetch e embutido via srcdoc;
+  // aberto direto do disco (file://), o fetch falha e o iframe carrega o arquivo com parâmetros na URL.
+  const heroSrc = fetch('hero.html').then(r => (r.ok ? r.text() : null)).catch(() => null);
+  async function setH1(k) {
+    document.querySelectorAll('.switch button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.h1 === k)));
+    note.textContent = NOTES[k];
+    const html = await heroSrc;
+    frames.forEach(fr => {
+      const cfg = Object.fromEntries(new URLSearchParams(fr.dataset.src.split('?')[1] || ''));
+      cfg.h1 = k;
+      if (html) fr.srcdoc = html.replace('<head>', '<head><script>window.HERO_CFG = ' + JSON.stringify(cfg) + ';<\/script>');
+      else fr.src = 'hero.html?' + new URLSearchParams(cfg);
+    });
+  }
+  // Links de exemplo não navegam
+  document.addEventListener('click', e => { if (e.target.closest('a[href="#"]')) e.preventDefault(); });
+  document.querySelectorAll('.switch button').forEach(b => b.addEventListener('click', () => setH1(b.dataset.h1)));
+  setH1('a'); fit();
+</script>
+</body>
+</html>

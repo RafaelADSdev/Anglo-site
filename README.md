@@ -1,46 +1,38 @@
-# Colégio Anglo Tamarineira
+# Site do Colégio Anglo Líder Tamarineira
 
-Nova versão institucional em Astro, com a identidade, imagens e conteúdo do site original. Versão local de avaliação, com `noindex, nofollow`; não publicada no domínio do colégio.
+Next.js 16 (App Router) + TypeScript + Tailwind CSS 4 + Motion. Deploy previsto na Vercel.
 
-## Executar
+> Em construção — etapas 2 (design system) e 3 (Home) entregues. O README completo (como trocar fotos, virar o ano, publicar) sai na etapa 6.
 
-Requer Node.js 22.12+ (validado com Node 24).
+## Rodar
 
-```sh
+```bash
 npm install
-npm run dev
+npm run dev        # http://localhost:3000
+npm run build      # build de produção (inclui checagem de tipos)
+npm run lint
+npm run format     # Prettier (ordena as classes do Tailwind)
 ```
 
-Abra http://127.0.0.1:4321. No Astro 7 o servidor pode permanecer em segundo plano. Para pará-lo: `npx astro dev stop`.
+Variáveis: copie `.env.example` para `.env.local`. Sem configurar nada, o site roda em **homologação** (`noindex`, faixa amarela no topo e marcadores "A confirmar" visíveis).
 
-```sh
-npm run build
-npm run preview
-```
+## Onde fica cada coisa
 
-O build estático fica em `dist/`. Não precisa de banco de dados ou variáveis de ambiente.
+| O quê | Onde |
+|---|---|
+| Nome, ano da campanha, contatos, redes, vídeo | `site.config.ts` |
+| Textos da Home | `content/home.ts` |
+| Segmentos, projetos, dúvidas, passos da matrícula | `content/*.ts` |
+| Tabela "Encontre a série" (provisória) | `content/series.ts` |
+| Cores, tipografia, espaçamentos | `app/globals.css` (`@theme`) |
+| Fontes (Fraunces instanciada + Manrope) | `app/fonts.ts`, `app/fonts/README.md` |
+| Componentes | `components/ui`, `components/blocks`, `components/layout`, `components/home` |
+| Vitrine dos componentes (só em homologação) | `/design-system` |
 
-## Conteúdo e acervo
+## Regra de conteúdo
 
-- `src/data/content.ts`: textos integrais dos quatro segmentos, cinco projetos e mensagem de WhatsApp.
-- `src/assets/`: originais importados pelo Astro; `SchoolImage.astro` gera WebP responsivo sem alterar a composição.
-- `public/images/`: cópias dos originais para referência.
-- `.project/source/`: HTML e CSS originais capturados em 05/09/2026.
-- `.project/BRIEF.md`: direção, revisão visual e pendências editoriais.
+Nada é inventado. Dado que a escola ainda não confirmou vira `aConfirmar('o que falta')` (ver `lib/pending.ts`) e entra na lista de `PENDENCIAS.md`. Em homologação ele aparece com o marcador amarelo; em produção, o bloco que depende dele não aparece.
 
-As fontes Alegreya Sans e Lato são carregadas pelo Google Fonts. O vídeo é incorporado após clique na capa; sem JavaScript, há um link para o YouTube. Contatos abrem no WhatsApp; o site não envia mensagens automaticamente. Não foi copiado o rastreamento Google Tag Manager do site original para esta apresentação.
+## Virar o ano da matrícula
 
-## Verificação
-
-Com o servidor ativo:
-
-```sh
-npx playwright install chromium
-node scripts/verify.mjs
-```
-
-Se um Chromium já estiver instalado, indique seu executável em `PLAYWRIGHT_EXECUTABLE_PATH`. O script verifica conteúdo, destinos dos links, cinco abas, teclado, expansores móveis, menu, imagens, regras automáticas WCAG AA da interface própria (excluindo o iframe de terceiros) e overflow em 360, 390, 768 e 1440px. Também verifica leitura sem JavaScript e ativação do vídeo incorporado. Relatório e capturas ficam em `.impeccable/review/` (não versionados).
-
-## Antes de publicar
-
-Revisar com o colégio a mensagem de matrícula 2024, créditos 2023, domínio legado no rodapé e erros de digitação preservados. Confirmar a campanha do banner. Após aceite editorial e visual, configurar URL canônica e indexação para o domínio escolhido. A versão atual não modifica o site público.
+Mude `anoMatricula` em `site.config.ts`. A linha "Matrículas 2027 abertas" do hero, as mensagens do WhatsApp e o "Encontre a série" acompanham.

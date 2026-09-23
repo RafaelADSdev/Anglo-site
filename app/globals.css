@@ -1,0 +1,313 @@
+@import 'tailwindcss';
+
+/*
+ * Design tokens — aprovados na etapa 1 (docs/etapa-1/proposta.md §3).
+ * Cores da marca medidas no logo em uso; o manual do Sistema Anglo prevalece quando chegar.
+ * A paleta padrão do Tailwind foi zerada: só existem as cores abaixo.
+ */
+@theme {
+  --color-*: initial;
+  --color-white: #fff;
+
+  /* Marca */
+  --color-brand-blue: #00279b;
+  --color-brand-blue-hover: #001a81;
+  --color-brand-sky: #036ea9;
+  --color-brand-yellow: #fcfa03;
+  --color-brand-red: #db2c1b;
+
+  /* Neutros */
+  --color-paper: #fbf8f1;
+  --color-paper-2: #f3ede1;
+  --color-surface: #fffdf9;
+  --color-ink: #121d38;
+  --color-ink-muted: #4f586c;
+  --color-line: #e4dfd5;
+  --color-field: #868073;
+  --color-on-ink-muted: #bbc4d8;
+
+  /* Segmentos: base (cor do logo) · soft (fundo) · ink (texto e ícone, ≥ 4,5:1) */
+  --color-infantil: #fcfa03;
+  --color-infantil-soft: #f9f6bc;
+  --color-infantil-ink: #6d5900;
+  --color-fund1: #db2c1b;
+  --color-fund1-soft: #ffddd5;
+  --color-fund1-ink: #af2d1b;
+  --color-fund2: #036ea9;
+  --color-fund2-soft: #d3ecf9;
+  --color-fund2-ink: #09659f;
+  --color-medio: #00279b;
+  --color-medio-soft: #d8defa;
+  --color-medio-ink: #00279b;
+
+  /* Funcionais */
+  --color-whatsapp: #128c7e;
+  --color-whatsapp-ink: #075e54;
+  --color-error: #b3241f;
+  --color-success: #21763c;
+
+  /* Tipo — escala fluida de 360 a 1280 px, com base em rem (o zoom continua funcionando) */
+  --text-display: clamp(2.5rem, 1.5rem + 3.9vw, 4.25rem);
+  --text-display--line-height: 1.03;
+  --text-display--letter-spacing: -0.02em;
+  --text-h2: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
+  --text-h2--line-height: 1.06;
+  --text-h2--letter-spacing: -0.015em;
+  --text-h3: clamp(1.375rem, 1.2rem + 0.8vw, 1.75rem);
+  --text-h3--line-height: 1.18;
+  --text-lead: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+  --text-lead--line-height: 1.55;
+  --text-body: clamp(1.0625rem, 1.04rem + 0.1vw, 1.125rem);
+  --text-body--line-height: 1.6;
+  --text-small: 0.9375rem;
+  --text-small--line-height: 1.5;
+  --text-caption: 0.875rem;
+  --text-caption--line-height: 1.45;
+  --text-eyebrow: 0.8125rem;
+  --text-eyebrow--line-height: 1.3;
+  --text-eyebrow--letter-spacing: 0.12em;
+  --text-step: clamp(2.5rem, 2rem + 2vw, 3.5rem);
+  --text-step--line-height: 1;
+
+  --font-weight-book: 450;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+
+  --shadow-float: 0 1px 2px rgb(18 29 56 / 0.06), 0 12px 32px -8px rgb(18 29 56 / 0.18);
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@theme inline {
+  --font-display: var(--font-fraunces), Georgia, 'Times New Roman', serif;
+  --font-sans: var(--font-manrope), system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+/* Container: conteúdo até 1200 px, margem lateral de 16 a 40 px */
+@utility wrap {
+  width: 100%;
+  max-width: calc(75rem + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Respiro vertical de seção: 64 → 128 px */
+@utility section-y {
+  padding-block: var(--section-y);
+}
+
+/* Friso tricolor — a gola do uniforme: azul · amarelo · vermelho em 2 : 1 : 1 */
+@utility stripe {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-brand-blue) 0 50%,
+    var(--color-brand-yellow) 50% 75%,
+    var(--color-brand-red) 75% 100%
+  );
+}
+
+/* Sobre o azul, o azul do friso vira branco para não sumir */
+@utility stripe-invert {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-white) 0 50%,
+    var(--color-brand-yellow) 50% 75%,
+    var(--color-brand-red) 75% 100%
+  );
+}
+
+/* Campo de formulário (input e select): borda com 3,7:1 sobre o papel, 48 px de altura */
+@utility campo {
+  display: block;
+  width: 100%;
+  min-height: 3rem;
+  padding-inline: 0.875rem;
+  border: 1px solid var(--color-field);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: border-color 0.15s var(--ease-out-soft);
+
+  &:hover {
+    border-color: var(--color-ink);
+  }
+
+  &:focus-visible {
+    border-color: var(--color-brand-blue);
+    outline-offset: 1px;
+  }
+
+  &[aria-invalid='true'] {
+    border-color: var(--color-error);
+    box-shadow: inset 0 0 0 1px var(--color-error);
+  }
+}
+
+/* Seta do select desenhada em SVG (tinta #121D38) */
+@utility campo-select {
+  appearance: none;
+  padding-right: 2.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23121D38' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.875rem center;
+  background-size: 18px;
+  cursor: pointer;
+}
+
+@utility link-underline {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.32em;
+  text-decoration-color: color-mix(in srgb, currentColor 32%, transparent);
+}
+
+@layer components {
+  /* Menu em tela cheia no celular: <dialog> nativo (foco preso e Esc de graça) */
+  .menu-movel {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow-y: auto;
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    opacity: 0;
+    translate: 0 -0.5rem;
+    transition:
+      opacity 0.25s var(--ease-out-soft),
+      translate 0.25s var(--ease-out-soft),
+      overlay 0.25s allow-discrete,
+      display 0.25s allow-discrete;
+  }
+
+  .menu-movel[open] {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  @starting-style {
+    .menu-movel[open] {
+      opacity: 0;
+      translate: 0 -0.5rem;
+    }
+  }
+
+  /*
+   * Revelação ao rolar (components/layout/Revelar.tsx): só o JS marca
+   * data-revelar="pendente" no que está abaixo da dobra; sem JS, tudo visível.
+   */
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      transition:
+        opacity 0.6s var(--ease-out-soft),
+        translate 0.6s var(--ease-out-soft);
+      transition-delay: calc(var(--i, 0) * 60ms);
+    }
+
+    .reveal[data-revelar='pendente'] {
+      opacity: 0;
+      translate: 0 12px;
+    }
+  }
+
+  @media print {
+    .reveal {
+      opacity: 1 !important;
+      translate: none !important;
+    }
+  }
+
+  .menu-movel::backdrop {
+    background: transparent;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .menu-movel {
+      transition: none;
+    }
+  }
+}
+
+html:has(.menu-movel[open]) {
+  overflow: hidden;
+}
+
+@layer base {
+  :root {
+    --gutter: clamp(1rem, 0.4rem + 2.7vw, 2.5rem);
+    --section-y: clamp(4rem, 2.8rem + 5.3vw, 8rem);
+    color-scheme: light;
+    accent-color: var(--color-brand-blue);
+    caret-color: var(--color-brand-blue);
+    scrollbar-color: var(--color-field) var(--color-paper-2);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    /* âncoras não ficam escondidas atrás do cabeçalho fixo */
+    scroll-padding-top: 6rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-book);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p,
+  li,
+  dd,
+  figcaption {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-yellow);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-blue);
+    outline-offset: 3px;
+  }
+
+  /* Sobre fundos escuros, o foco fica amarelo (10,7:1 sobre o azul Anglo) */
+  [data-tone='blue'] :focus-visible,
+  [data-tone='ink'] :focus-visible {
+    outline-color: var(--color-brand-yellow);
+  }
+
+  [data-tone='blue'] ::selection,
+  [data-tone='ink'] ::selection {
+    background-color: var(--color-brand-yellow);
+    color: var(--color-ink);
+  }
+}

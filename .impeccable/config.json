@@ -1,0 +1,10 @@
+{
+  "buildPath": "code",
+  "detector": {
+    "ignoreRules": [
+      "overused-font",
+      "cream-palette"
+    ]
+  },
+  "_nota": "overused-font (Fraunces) e cream-palette (fundo off-white quente) foram fixados pelo briefing (docs/briefing.md §6) e aprovados na etapa 1; ver DESIGN.md."
+}

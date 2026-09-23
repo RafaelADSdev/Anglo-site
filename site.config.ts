@@ -31,14 +31,15 @@ export const siteConfig = {
       numero: '5581982541643',
       exibicao: '(81) 98254-1643',
     },
-    telefone: aConfirmar('telefone fixo — diretórios citam (81) 3304-8400') as Talvez<{
-      numero: string;
-      exibicao: string;
-    }>,
+    telefone: {
+      numero: '8133048400',
+      exibicao: '(81) 3304-8400',
+    },
     email: aConfirmar('e-mail de contato') as Talvez<string>,
-    endereco: aConfirmar(
-      'endereço — Instagram e Facebook oficiais citam Rua Visconde de Abaeté, 200, Tamarineira; falta o CEP e o ok da escola',
-    ) as Talvez<{ logradouro: string; cep: string }>,
+    endereco: {
+      logradouro: 'R. Visc. de Abaeté, 200',
+      cep: '52110-010',
+    },
     /** Link do Perfil da Empresa no Google (botão "Como chegar"). */
     mapa: aConfirmar('link do Perfil da Empresa no Google') as Talvez<string>,
     horario: [
@@ -53,10 +54,20 @@ export const siteConfig = {
   redes: {
     instagram: { url: 'https://www.instagram.com/anglolidertamarineira/', rotulo: 'Instagram' },
     facebook: { url: 'https://www.facebook.com/anglolidertamarineira', rotulo: 'Facebook' },
-    youtube: aConfirmar('canal do YouTube — @anglotamarineira5930 responde 404') as Talvez<{
-      url: string;
-      rotulo: string;
+    youtube: { url: 'https://www.youtube.com/@anglotamarineira/featured', rotulo: 'YouTube' },
+  },
+
+  /** Dados da Política de Privacidade (LGPD). O texto-base precisa de revisão jurídica antes da produção. */
+  juridico: {
+    controlador: aConfirmar('razão social e CNPJ da mantenedora') as Talvez<{ razaoSocial: string; cnpj: string }>,
+    encarregado: aConfirmar('nome e e-mail do encarregado pelo tratamento de dados (DPO)') as Talvez<{
+      nome: string;
+      email: string;
     }>,
+    /** Prazo de guarda dos pedidos de visita, por extenso (ex.: "por até 12 meses"). */
+    guardaDosPedidos: aConfirmar('por quanto tempo os pedidos de visita ficam guardados') as Talvez<string>,
+    /** Data de vigência da política, por extenso. */
+    atualizadaEm: aConfirmar('data de vigência, depois da revisão jurídica') as Talvez<string>,
   },
 
   /** ID do vídeo institucional no YouTube. */

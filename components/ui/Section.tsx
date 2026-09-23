@@ -2,7 +2,7 @@ import { cn } from '@/lib/cn';
 import { Eyebrow } from './Eyebrow';
 import { Heading } from './Heading';
 
-type Tom = 'papel' | 'areia' | 'azul' | 'tinta';
+export type Tom = 'papel' | 'areia' | 'azul' | 'tinta';
 
 const tons: Record<Tom, string> = {
   papel: 'bg-paper text-ink',

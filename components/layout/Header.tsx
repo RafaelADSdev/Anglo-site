@@ -52,7 +52,7 @@ export function Header() {
       )}
     >
       <div aria-hidden className="h-1 stripe" />
-      <div className="wrap flex h-16 items-center gap-4 lg:h-20 lg:gap-8">
+      <div className="wrap flex h-20 items-center gap-4 lg:h-24 lg:gap-8">
         <Logo />
 
         <nav aria-label="Principal" className="ml-auto hidden lg:block">
@@ -114,7 +114,7 @@ export function Header() {
       >
         <div className="flex min-h-full flex-col">
           <div aria-hidden className="h-1 stripe" />
-          <div className="wrap flex h-16 items-center justify-between">
+          <div className="wrap flex h-20 items-center justify-between">
             <Logo />
             <button
               type="button"

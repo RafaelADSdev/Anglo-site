@@ -7,67 +7,41 @@ import { cn } from '@/lib/cn';
 import { track } from '@/lib/track';
 import { lerUtms } from '@/lib/utm';
 import { linkWhatsApp } from '@/lib/whatsapp';
+import { siteConfig } from '@/site.config';
+import {
+  ORIGENS,
+  PERIODOS,
+  mascaraWhatsApp,
+  validarLead,
+  type DadosLead,
+  type ErroEnvio,
+  type Erros,
+  type ResultadoEnvio,
+} from '@/lib/lead';
 import { ButtonLink } from '@/components/ui/Button';
 import { Icon } from '@/components/ui/Icon';
 
-export type DadosLead = {
-  nome: string;
-  whatsapp: string;
-  email: string;
-  segmento: string;
-  periodo: string;
-  origem: string;
-  consentimento: boolean;
-  /** Honeypot: pessoas não veem este campo; se vier preenchido, é robô. */
-  empresa: string;
-  utm: Record<string, string>;
-  /** Página por onde a pessoa entrou no site (e de onde veio). */
-  paginaEntrada: string;
-  /** Página em que o formulário foi enviado. */
-  paginaFormulario: string;
-};
-
-export type ResultadoEnvio = { ok: true } | { ok: false; erro: string };
-
 type Props = {
-  /** Envio real (etapa 5: server action com Supabase + aviso por e-mail). */
+  /** Envio (server action `enviarLead`; gravação e aviso por e-mail entram na etapa 5). */
   onEnviar: (dados: DadosLead) => Promise<ResultadoEnvio>;
   segmentoInicial?: string;
 };
 
-const ORIGENS = ['Instagram', 'Google', 'Indicação de outra família', 'Anúncio', 'Passei em frente à escola', 'Outro'];
-const PERIODOS = ['Manhã', 'Tarde'];
-
-/** (81) 98254-1643 — aceita 10 ou 11 dígitos. */
-export function mascaraWhatsApp(valor: string) {
-  const d = valor.replace(/\D/g, '').slice(0, 11);
-  if (d.length <= 2) return d.length ? `(${d}` : '';
-  if (d.length <= 6) return `(${d.slice(0, 2)}) ${d.slice(2)}`;
-  if (d.length <= 10) return `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}`;
-  return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
-}
-
-type Erros = Partial<Record<'nome' | 'whatsapp' | 'email' | 'segmento' | 'periodo' | 'consentimento', string>>;
-
-export function validarLead(
-  d: Pick<DadosLead, 'nome' | 'whatsapp' | 'email' | 'segmento' | 'periodo' | 'consentimento'>,
-): Erros {
-  const erros: Erros = {};
-  if (d.nome.trim().length < 2) erros.nome = 'Informe seu nome.';
-  const digitos = d.whatsapp.replace(/\D/g, '');
-  if (digitos.length < 10 || digitos.length > 11) erros.whatsapp = 'Informe o WhatsApp com DDD, ex.: (81) 90000-0000.';
-  if (d.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.email.trim()))
-    erros.email = 'Confira o e-mail — ele parece incompleto.';
-  if (!d.segmento) erros.segmento = 'Escolha o segmento de interesse.';
-  if (!d.periodo) erros.periodo = 'Escolha o melhor período para a visita.';
-  if (!d.consentimento) erros.consentimento = 'Para enviar, marque a autorização de contato.';
-  return erros;
-}
+/** Cada mensagem termina no conector do link "WhatsApp" que vem logo depois. */
+const MENSAGEM_FALHA: Record<ErroEnvio, string> = {
+  'dados-invalidos': 'Confira os campos do formulário e tente de novo, ou fale direto pelo',
+  limite: 'Recebemos vários envios seguidos deste aparelho. Aguarde alguns minutos ou fale direto pelo',
+  'nao-configurado': siteConfig.emHomologacao
+    ? 'Homologação: o envio para a equipe de matrículas ainda não está ligado — entra na próxima etapa. Para agendar agora, chame no'
+    : 'Não conseguimos enviar agora. Tente de novo em instantes ou fale direto pelo',
+  falha: 'Não conseguimos enviar agora. Tente de novo em instantes ou fale direto pelo',
+};
 
 export function LeadForm({ onEnviar, segmentoInicial = '' }: Props) {
   const id = useId();
   const formulario = useRef<HTMLFormElement>(null);
   const [estado, setEstado] = useState<'editando' | 'enviando' | 'enviado' | 'falhou'>('editando');
+  const [erroEnvio, setErroEnvio] = useState<ErroEnvio>('falha');
   const [erros, setErros] = useState<Erros>({});
   const [whatsapp, setWhatsapp] = useState('');
   const [nomeEnviado, setNomeEnviado] = useState('');
@@ -97,7 +71,12 @@ export function LeadForm({ onEnviar, segmentoInicial = '' }: Props) {
       return;
     }
     setEstado('enviando');
-    const resultado = await onEnviar(dados);
+    let resultado: ResultadoEnvio;
+    try {
+      resultado = await onEnviar(dados);
+    } catch {
+      resultado = { ok: false, erro: 'falha' };
+    }
     if (resultado.ok) {
       setNomeEnviado(dados.nome.trim().split(' ')[0]);
       setEstado('enviado');
@@ -107,6 +86,7 @@ export function LeadForm({ onEnviar, segmentoInicial = '' }: Props) {
         origem: dados.origem || 'não informado',
       });
     } else {
+      setErroEnvio(resultado.erro);
       setEstado('falhou');
     }
   }
@@ -278,7 +258,7 @@ export function LeadForm({ onEnviar, segmentoInicial = '' }: Props) {
 
       {estado === 'falhou' ? (
         <div role="alert" className="rounded-sm bg-fund1-soft p-4 text-small text-ink">
-          Não conseguimos enviar agora. Tente de novo em instantes ou fale direto pelo{' '}
+          {MENSAGEM_FALHA[erroEnvio]}{' '}
           <a
             href={linkWhatsApp('Olá! Tentei pedir uma visita pelo site, mas o formulário não enviou.')}
             target="_blank"
@@ -296,7 +276,7 @@ export function LeadForm({ onEnviar, segmentoInicial = '' }: Props) {
           type="submit"
           disabled={estado === 'enviando'}
           className={cn(
-            'group inline-flex min-h-12 w-full cursor-pointer items-center justify-center gap-2.5 rounded-full bg-brand-blue px-6 font-bold text-white transition-colors duration-150 hover:bg-brand-blue-hover sm:w-auto',
+            'group inline-flex min-h-12 w-full cursor-pointer items-center justify-center gap-2.5 rounded-full bg-brand-blue px-6 text-base font-bold text-white transition-colors duration-150 hover:bg-brand-blue-hover sm:w-auto',
             'disabled:cursor-progress disabled:opacity-70',
           )}
         >

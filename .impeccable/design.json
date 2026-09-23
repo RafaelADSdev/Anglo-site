@@ -1,0 +1,729 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-23T11:57:58.541Z",
+  "title": "Design System: Colégio Anglo Líder Tamarineira",
+  "extensions": {
+    "colorMeta": {
+      "brand-blue": {
+        "role": "primary",
+        "displayName": "Azul Anglo",
+        "canonical": "#00279b",
+        "tonalRamp": [
+          "oklch(15% 0.081 263.6)",
+          "oklch(26.4% 0.142 263.6)",
+          "oklch(37.9% 0.189 263.6)",
+          "oklch(49.3% 0.189 263.6)",
+          "oklch(60.7% 0.189 263.6)",
+          "oklch(72.1% 0.144 263.6)",
+          "oklch(83.6% 0.081 263.6)",
+          "oklch(95% 0.024 263.6)"
+        ]
+      },
+      "brand-blue-hover": {
+        "role": "primary",
+        "displayName": "Azul Anglo profundo",
+        "canonical": "#001a81",
+        "tonalRamp": [
+          "oklch(15% 0.085 263.9)",
+          "oklch(26.4% 0.15 263.9)",
+          "oklch(37.9% 0.171 263.9)",
+          "oklch(49.3% 0.171 263.9)",
+          "oklch(60.7% 0.171 263.9)",
+          "oklch(72.1% 0.144 263.9)",
+          "oklch(83.6% 0.081 263.9)",
+          "oklch(95% 0.024 263.9)"
+        ]
+      },
+      "brand-yellow": {
+        "role": "secondary",
+        "displayName": "Amarelo",
+        "canonical": "#fcfa03",
+        "tonalRamp": [
+          "oklch(15% 0.033 109.2)",
+          "oklch(26.4% 0.057 109.2)",
+          "oklch(37.9% 0.082 109.2)",
+          "oklch(49.3% 0.107 109.2)",
+          "oklch(60.7% 0.132 109.2)",
+          "oklch(72.1% 0.157 109.2)",
+          "oklch(83.6% 0.181 109.2)",
+          "oklch(95% 0.206 109.2)"
+        ]
+      },
+      "brand-red": {
+        "role": "tertiary",
+        "displayName": "Vermelho",
+        "canonical": "#db2c1b",
+        "tonalRamp": [
+          "oklch(15% 0.06 30.1)",
+          "oklch(26.4% 0.106 30.1)",
+          "oklch(37.9% 0.151 30.1)",
+          "oklch(49.3% 0.197 30.1)",
+          "oklch(60.7% 0.212 30.1)",
+          "oklch(72.1% 0.174 30.1)",
+          "oklch(83.6% 0.091 30.1)",
+          "oklch(95% 0.025 30.1)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Papel",
+        "canonical": "#fbf8f1",
+        "tonalRamp": [
+          "oklch(15% 0.01 87.5)",
+          "oklch(26.4% 0.01 87.5)",
+          "oklch(37.9% 0.01 87.5)",
+          "oklch(49.3% 0.01 87.5)",
+          "oklch(60.7% 0.01 87.5)",
+          "oklch(72.1% 0.01 87.5)",
+          "oklch(83.6% 0.01 87.5)",
+          "oklch(95% 0.01 87.5)"
+        ]
+      },
+      "paper-2": {
+        "role": "neutral",
+        "displayName": "Areia",
+        "canonical": "#f3ede1",
+        "tonalRamp": [
+          "oklch(15% 0.017 84.6)",
+          "oklch(26.4% 0.017 84.6)",
+          "oklch(37.9% 0.017 84.6)",
+          "oklch(49.3% 0.017 84.6)",
+          "oklch(60.7% 0.017 84.6)",
+          "oklch(72.1% 0.017 84.6)",
+          "oklch(83.6% 0.017 84.6)",
+          "oklch(95% 0.017 84.6)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Superfície",
+        "canonical": "#fffdf9",
+        "tonalRamp": [
+          "oklch(15% 0.006 84.6)",
+          "oklch(26.4% 0.006 84.6)",
+          "oklch(37.9% 0.006 84.6)",
+          "oklch(49.3% 0.006 84.6)",
+          "oklch(60.7% 0.006 84.6)",
+          "oklch(72.1% 0.006 84.6)",
+          "oklch(83.6% 0.006 84.6)",
+          "oklch(95% 0.006 84.6)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Tinta",
+        "canonical": "#121d38",
+        "tonalRamp": [
+          "oklch(15% 0.054 265.7)",
+          "oklch(26.4% 0.054 265.7)",
+          "oklch(37.9% 0.054 265.7)",
+          "oklch(49.3% 0.054 265.7)",
+          "oklch(60.7% 0.054 265.7)",
+          "oklch(72.1% 0.054 265.7)",
+          "oklch(83.6% 0.054 265.7)",
+          "oklch(95% 0.024 265.7)"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Tinta suave",
+        "canonical": "#4f586c",
+        "tonalRamp": [
+          "oklch(15% 0.035 266)",
+          "oklch(26.4% 0.035 266)",
+          "oklch(37.9% 0.035 266)",
+          "oklch(49.3% 0.035 266)",
+          "oklch(60.7% 0.035 266)",
+          "oklch(72.1% 0.035 266)",
+          "oklch(83.6% 0.035 266)",
+          "oklch(95% 0.024 266)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Linha",
+        "canonical": "#e4dfd5",
+        "tonalRamp": [
+          "oklch(15% 0.015 84.6)",
+          "oklch(26.4% 0.015 84.6)",
+          "oklch(37.9% 0.015 84.6)",
+          "oklch(49.3% 0.015 84.6)",
+          "oklch(60.7% 0.015 84.6)",
+          "oklch(72.1% 0.015 84.6)",
+          "oklch(83.6% 0.015 84.6)",
+          "oklch(95% 0.015 84.6)"
+        ]
+      },
+      "field": {
+        "role": "neutral",
+        "displayName": "Borda de campo",
+        "canonical": "#868073",
+        "tonalRamp": [
+          "oklch(15% 0.021 86.2)",
+          "oklch(26.4% 0.021 86.2)",
+          "oklch(37.9% 0.021 86.2)",
+          "oklch(49.3% 0.021 86.2)",
+          "oklch(60.7% 0.021 86.2)",
+          "oklch(72.1% 0.021 86.2)",
+          "oklch(83.6% 0.021 86.2)",
+          "oklch(95% 0.021 86.2)"
+        ]
+      },
+      "on-ink-muted": {
+        "role": "neutral",
+        "displayName": "Névoa",
+        "canonical": "#bbc4d8",
+        "tonalRamp": [
+          "oklch(15% 0.03 266.3)",
+          "oklch(26.4% 0.03 266.3)",
+          "oklch(37.9% 0.03 266.3)",
+          "oklch(49.3% 0.03 266.3)",
+          "oklch(60.7% 0.03 266.3)",
+          "oklch(72.1% 0.03 266.3)",
+          "oklch(83.6% 0.03 266.3)",
+          "oklch(95% 0.024 266.3)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Branco",
+        "canonical": "#fff",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26.4% 0 0)",
+          "oklch(37.9% 0 0)",
+          "oklch(49.3% 0 0)",
+          "oklch(60.7% 0 0)",
+          "oklch(72.1% 0 0)",
+          "oklch(83.6% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "infantil": {
+        "role": "segment",
+        "displayName": "Educação Infantil · base",
+        "canonical": "#fcfa03",
+        "tonalRamp": [
+          "oklch(15% 0.033 109.2)",
+          "oklch(26.4% 0.057 109.2)",
+          "oklch(37.9% 0.082 109.2)",
+          "oklch(49.3% 0.107 109.2)",
+          "oklch(60.7% 0.132 109.2)",
+          "oklch(72.1% 0.157 109.2)",
+          "oklch(83.6% 0.181 109.2)",
+          "oklch(95% 0.206 109.2)"
+        ]
+      },
+      "infantil-soft": {
+        "role": "segment",
+        "displayName": "Educação Infantil · suave",
+        "canonical": "#f9f6bc",
+        "tonalRamp": [
+          "oklch(15% 0.032 105.2)",
+          "oklch(26.4% 0.056 105.2)",
+          "oklch(37.9% 0.074 105.2)",
+          "oklch(49.3% 0.074 105.2)",
+          "oklch(60.7% 0.074 105.2)",
+          "oklch(72.1% 0.074 105.2)",
+          "oklch(83.6% 0.074 105.2)",
+          "oklch(95% 0.074 105.2)"
+        ]
+      },
+      "infantil-ink": {
+        "role": "segment",
+        "displayName": "Educação Infantil · tinta",
+        "canonical": "#6d5900",
+        "tonalRamp": [
+          "oklch(15% 0.031 93.7)",
+          "oklch(26.4% 0.054 93.7)",
+          "oklch(37.9% 0.078 93.7)",
+          "oklch(49.3% 0.096 93.7)",
+          "oklch(60.7% 0.096 93.7)",
+          "oklch(72.1% 0.096 93.7)",
+          "oklch(83.6% 0.096 93.7)",
+          "oklch(95% 0.075 93.7)"
+        ]
+      },
+      "fund1": {
+        "role": "segment",
+        "displayName": "Fundamental 1 · base",
+        "canonical": "#db2c1b",
+        "tonalRamp": [
+          "oklch(15% 0.06 30.1)",
+          "oklch(26.4% 0.106 30.1)",
+          "oklch(37.9% 0.151 30.1)",
+          "oklch(49.3% 0.197 30.1)",
+          "oklch(60.7% 0.212 30.1)",
+          "oklch(72.1% 0.174 30.1)",
+          "oklch(83.6% 0.091 30.1)",
+          "oklch(95% 0.025 30.1)"
+        ]
+      },
+      "fund1-soft": {
+        "role": "segment",
+        "displayName": "Fundamental 1 · suave",
+        "canonical": "#ffddd5",
+        "tonalRamp": [
+          "oklch(15% 0.039 33.4)",
+          "oklch(26.4% 0.039 33.4)",
+          "oklch(37.9% 0.039 33.4)",
+          "oklch(49.3% 0.039 33.4)",
+          "oklch(60.7% 0.039 33.4)",
+          "oklch(72.1% 0.039 33.4)",
+          "oklch(83.6% 0.039 33.4)",
+          "oklch(95% 0.025 33.4)"
+        ]
+      },
+      "fund1-ink": {
+        "role": "segment",
+        "displayName": "Fundamental 1 · tinta",
+        "canonical": "#af2d1b",
+        "tonalRamp": [
+          "oklch(15% 0.058 31.2)",
+          "oklch(26.4% 0.102 31.2)",
+          "oklch(37.9% 0.147 31.2)",
+          "oklch(49.3% 0.169 31.2)",
+          "oklch(60.7% 0.169 31.2)",
+          "oklch(72.1% 0.169 31.2)",
+          "oklch(83.6% 0.091 31.2)",
+          "oklch(95% 0.025 31.2)"
+        ]
+      },
+      "fund2": {
+        "role": "segment",
+        "displayName": "Fundamental 2 · base",
+        "canonical": "#036ea9",
+        "tonalRamp": [
+          "oklch(15% 0.036 243)",
+          "oklch(26.4% 0.064 243)",
+          "oklch(37.9% 0.092 243)",
+          "oklch(49.3% 0.119 243)",
+          "oklch(60.7% 0.124 243)",
+          "oklch(72.1% 0.124 243)",
+          "oklch(83.6% 0.089 243)",
+          "oklch(95% 0.026 243)"
+        ]
+      },
+      "fund2-soft": {
+        "role": "segment",
+        "displayName": "Fundamental 2 · suave",
+        "canonical": "#d3ecf9",
+        "tonalRamp": [
+          "oklch(15% 0.03 230.3)",
+          "oklch(26.4% 0.032 230.3)",
+          "oklch(37.9% 0.032 230.3)",
+          "oklch(49.3% 0.032 230.3)",
+          "oklch(60.7% 0.032 230.3)",
+          "oklch(72.1% 0.032 230.3)",
+          "oklch(83.6% 0.032 230.3)",
+          "oklch(95% 0.03 230.3)"
+        ]
+      },
+      "fund2-ink": {
+        "role": "segment",
+        "displayName": "Fundamental 2 · tinta",
+        "canonical": "#09659f",
+        "tonalRamp": [
+          "oklch(15% 0.038 245)",
+          "oklch(26.4% 0.067 245)",
+          "oklch(37.9% 0.095 245)",
+          "oklch(49.3% 0.12 245)",
+          "oklch(60.7% 0.12 245)",
+          "oklch(72.1% 0.12 245)",
+          "oklch(83.6% 0.088 245)",
+          "oklch(95% 0.026 245)"
+        ]
+      },
+      "medio": {
+        "role": "segment",
+        "displayName": "Ensino Médio · base",
+        "canonical": "#00279b",
+        "tonalRamp": [
+          "oklch(15% 0.081 263.6)",
+          "oklch(26.4% 0.142 263.6)",
+          "oklch(37.9% 0.189 263.6)",
+          "oklch(49.3% 0.189 263.6)",
+          "oklch(60.7% 0.189 263.6)",
+          "oklch(72.1% 0.144 263.6)",
+          "oklch(83.6% 0.081 263.6)",
+          "oklch(95% 0.024 263.6)"
+        ]
+      },
+      "medio-soft": {
+        "role": "segment",
+        "displayName": "Ensino Médio · suave",
+        "canonical": "#d8defa",
+        "tonalRamp": [
+          "oklch(15% 0.039 276)",
+          "oklch(26.4% 0.039 276)",
+          "oklch(37.9% 0.039 276)",
+          "oklch(49.3% 0.039 276)",
+          "oklch(60.7% 0.039 276)",
+          "oklch(72.1% 0.039 276)",
+          "oklch(83.6% 0.039 276)",
+          "oklch(95% 0.024 276)"
+        ]
+      },
+      "medio-ink": {
+        "role": "segment",
+        "displayName": "Ensino Médio · tinta",
+        "canonical": "#00279b",
+        "tonalRamp": [
+          "oklch(15% 0.081 263.6)",
+          "oklch(26.4% 0.142 263.6)",
+          "oklch(37.9% 0.189 263.6)",
+          "oklch(49.3% 0.189 263.6)",
+          "oklch(60.7% 0.189 263.6)",
+          "oklch(72.1% 0.144 263.6)",
+          "oklch(83.6% 0.081 263.6)",
+          "oklch(95% 0.024 263.6)"
+        ]
+      },
+      "whatsapp": {
+        "role": "functional",
+        "displayName": "WhatsApp",
+        "canonical": "#128c7e",
+        "tonalRamp": [
+          "oklch(15% 0.027 182.4)",
+          "oklch(26.4% 0.047 182.4)",
+          "oklch(37.9% 0.068 182.4)",
+          "oklch(49.3% 0.088 182.4)",
+          "oklch(60.7% 0.1 182.4)",
+          "oklch(72.1% 0.1 182.4)",
+          "oklch(83.6% 0.1 182.4)",
+          "oklch(95% 0.072 182.4)"
+        ]
+      },
+      "whatsapp-ink": {
+        "role": "functional",
+        "displayName": "WhatsApp escuro",
+        "canonical": "#075e54",
+        "tonalRamp": [
+          "oklch(15% 0.027 182.2)",
+          "oklch(26.4% 0.047 182.2)",
+          "oklch(37.9% 0.068 182.2)",
+          "oklch(49.3% 0.075 182.2)",
+          "oklch(60.7% 0.075 182.2)",
+          "oklch(72.1% 0.075 182.2)",
+          "oklch(83.6% 0.075 182.2)",
+          "oklch(95% 0.072 182.2)"
+        ]
+      },
+      "error": {
+        "role": "functional",
+        "displayName": "Erro",
+        "canonical": "#b3241f",
+        "tonalRamp": [
+          "oklch(15% 0.061 28)",
+          "oklch(26.4% 0.108 28)",
+          "oklch(37.9% 0.155 28)",
+          "oklch(49.3% 0.18 28)",
+          "oklch(60.7% 0.18 28)",
+          "oklch(72.1% 0.173 28)",
+          "oklch(83.6% 0.091 28)",
+          "oklch(95% 0.025 28)"
+        ]
+      },
+      "success": {
+        "role": "functional",
+        "displayName": "Sucesso",
+        "canonical": "#21763c",
+        "tonalRamp": [
+          "oklch(15% 0.041 149.9)",
+          "oklch(26.4% 0.073 149.9)",
+          "oklch(37.9% 0.105 149.9)",
+          "oklch(49.3% 0.121 149.9)",
+          "oklch(60.7% 0.121 149.9)",
+          "oklch(72.1% 0.121 149.9)",
+          "oklch(83.6% 0.121 149.9)",
+          "oklch(95% 0.083 149.9)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Só o H1 do hero. Fraunces em instância fixa (opsz 72 · SOFT 50); a segunda batida vai em itálico (WONK 1), em linha própria, na cor de ação."
+      },
+      "h2": {
+        "displayName": "H2",
+        "purpose": "Título de seção, sempre com eyebrow acima; duas batidas só quando há duas frases ou um arremate."
+      },
+      "h3": {
+        "displayName": "H3",
+        "purpose": "Título de bloco: Encontre a série, projeto na aba, confirmação do formulário."
+      },
+      "step": {
+        "displayName": "Numeral de passo",
+        "purpose": "Numerais 01–04 em itálico (font-style: italic), azul Anglo (amarelo sobre o azul), aria-hidden; só em sequência real."
+      },
+      "h4": {
+        "displayName": "H4",
+        "purpose": "Título de passo e de pilar, logo abaixo do numeral."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Subtítulo do hero e introdução de seção, em ink-muted, até 33–36em."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto corrido (peso 450), até cerca de 60ch por linha."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Texto de card, listas do rodapé, microcopy de confiança sob o CTA."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Notas; legenda \"Fotografia real · {lugar}\" em 500; erro e marcador \"A confirmar:\" em 600."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Rótulo de campo; \"opcional\" e dicas em 500 ink-muted."
+      },
+      "eyebrow": {
+        "displayName": "Eyebrow",
+        "purpose": "Rótulo em maiúsculas acima de todo título de seção, precedido pelo traço do friso de 24 × 3 px (fixado pelo briefing §5)."
+      },
+      "tag": {
+        "displayName": "Tag",
+        "purpose": "Etiqueta de segmento, em maiúsculas, na tinta do segmento."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Texto de botão (15 px no tamanho compacto)."
+      }
+    },
+    "shadows": [
+      {
+        "name": "float",
+        "value": "0 1px 2px rgb(18 29 56 / 0.06), 0 12px 32px -8px rgb(18 29 56 / 0.18)",
+        "purpose": "A única sombra (shadow-float): cabeçalho depois de 8 px de rolagem, botão flutuante do WhatsApp, painel \"Encontre a série\", botão de play do vídeo e card de segmento no hover. Tingida com a tinta, nunca preta."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-soft",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "A única curva do site, em todas as transições (--ease-out-soft)."
+      },
+      {
+        "name": "duration-150",
+        "value": "150ms",
+        "purpose": "Hover e pressão: cor de botão, seta que anda 3 px na direção do destino, sublinhado do menu, borda de campo."
+      },
+      {
+        "name": "duration-250",
+        "value": "250ms",
+        "purpose": "O que abre, fecha ou muda de estado: menu do celular, FAQ, traço da aba ativa, sombra do cabeçalho, subida do card, botão flutuante."
+      },
+      {
+        "name": "reveal",
+        "value": "600ms",
+        "purpose": "Revelação ao rolar: opacidade + 12 px de subida, uma vez, só abaixo da dobra; sem JavaScript tudo aparece; desligada com prefers-reduced-motion."
+      },
+      {
+        "name": "reveal-stagger",
+        "value": "60ms",
+        "purpose": "Escalonamento entre itens revelados de uma mesma lista (--i × 60 ms)."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botão primário",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "O CTA do site (Agendar visita): pílula azul Anglo, texto branco, seta → que anda 3 px no hover. Microcopy de confiança logo abaixo.",
+      "html": "<a class=\"ds-btn-primario\" href=\"#agendar\">Agendar visita<svg class=\"ds-btn-primario__seta\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a>",
+      "css": ".ds-btn-primario { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 24px; border-radius: 9999px; font-family: var(--font-manrope, 'Manrope'), system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 1rem; line-height: 1.5; font-weight: 700; text-decoration: none; cursor: pointer; transition: background-color 150ms var(--ease-out-soft, cubic-bezier(0.22, 1, 0.36, 1)); } .ds-btn-primario { background-color: var(--color-brand-blue, #00279b); color: var(--color-white, #fff); } .ds-btn-primario:hover { background-color: var(--color-brand-blue-hover, #001a81); } .ds-btn-primario:focus-visible { outline: 2px solid var(--color-brand-blue, #00279b); outline-offset: 3px; } .ds-btn-primario__seta { flex-shrink: 0; transition: translate 150ms var(--ease-out-soft, cubic-bezier(0.22, 1, 0.36, 1)); } :hover > .ds-btn-primario__seta { translate: 3px 0; } @media (prefers-reduced-motion: reduce) { .ds-btn-primario__seta { transition: none; } }"
+    },
+    {
+      "name": "Botão amarelo (sobre o campo azul)",
+      "kind": "button",
+      "refersTo": "button-yellow",
+      "description": "O único botão amarelo do site: só existe dentro do campo azul (uma seção por página). Hover em branco; foco amarelo.",
+      "html": "<div class=\"ds-campo-azul\"><a class=\"ds-btn-amarelo\" href=\"#proposta\">Conhecer a proposta<svg class=\"ds-btn-amarelo__seta\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a></div>",
+      "css": ".ds-campo-azul { padding: 32px; background-color: var(--color-brand-blue, #00279b); } .ds-btn-amarelo { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 24px; border-radius: 9999px; font-family: var(--font-manrope, 'Manrope'), system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 1rem; line-height: 1.5; font-weight: 700; text-decoration: none; cursor: pointer; transition: background-color 150ms var(--ease-out-soft, cubic-bezier(0.22, 1, 0.36, 1)); } .ds-btn-amarelo { background-color: var(--color-brand-yellow, #fcfa03); color: var(--color-ink, #121d38); } .ds-btn-amarelo:hover { background-color: var(--color-white, #fff); } .ds-btn-amarelo:focus-visible { outline: 2px solid var(--color-brand-yellow, #fcfa03); outline-offset: 3px; } .ds-btn-amarelo__seta { flex-shrink: 0; transition: translate 150ms var(--ease-out-soft, cubic-bezier(0.22, 1, 0.36, 1)); } :hover > .ds-btn-amarelo__seta { translate: 3px 0; } @media (prefers-reduced-motion: reduce) { .ds-btn-amarelo__seta { transition: none; } }"
+    },
+    {
+      "name": "Botão de contorno (WhatsApp)",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "O par do primário para o WhatsApp: contorno de 1,5 px em tinta, ícone em whatsapp-ink, seta ↗ e aviso de nova aba para leitor de tela.",
+      "html": "<a class=\"ds-btn-contorno\" href=\"https://wa.me/\" target=\"_blank\" rel=\"noopener noreferrer\"><svg class=\"ds-btn-contorno__marca\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z\"/></svg>Falar no WhatsApp<span class=\"ds-sr-only\"> (abre em nova aba)</span><svg class=\"ds-btn-contorno__seta\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M7 17 17 7M8 7h9v9\"/></svg></a>",
+      "css": ".ds-btn-contorno { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 24px; border-radius: 9999px; font-family: var(--font-manrope, 'Manrope'), system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 1rem; line-height: 1.5; font-weight: 700; text-decoration: none; cursor: pointer; transition: background-color 150ms var(--ease-out-soft, cubic-bezier(0.22, 1, 0.36, 1)); } .ds-btn-contorno { background-color: transparent; color: var(--color-ink, #121d38); box-shadow: inset 0 0 0 1.5px var(--color-ink, #121d38); } .ds-btn-contorno:hover { background-color: var(--color-paper-2, #f3ede1); } .ds-btn-contorno__marca { flex-shrink: 0; color: var(--color-whatsapp-ink, #075e54); } .ds-btn-contorno:focus-visible { outline: 2px solid var(--color-brand-blue, #00279b); outline-offset: 3px; } .ds-btn-contorno__seta { flex-shrink: 0; transition: translate 150ms var(--ease-out-soft, cubic-bezier(0.22, 1, 0.36, 1)); } :hover > .ds-btn-contorno__seta { translate: 2px -2px; } @media (prefers-reduced-motion: reduce) { .ds-btn-contorno__seta { transition: none; } } .ds-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }"
+    },
+    {
+      "name": "Link com seta",
+      "kind": "button",
+      "refersTo": "link-arrow",
+      "description": "CTA secundário: texto em negrito com sublinhado a 32% que fica azul no hover; a seta diz o destino (aqui ↓, rolar a página).",
+      "html": "<a class=\"ds-link-seta\" href=\"#segmentos\">Conhecer os segmentos<svg class=\"ds-link-seta__seta\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M12 5v14M6 13l6 6 6-6\"/></svg></a>",
+      "css": ".ds-link-seta { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--color-ink, #121d38); font-family: var(--font-manrope, 'Manrope'), system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: clamp(1.0625rem, 1.04rem + 0.1vw, 1.125rem); font-weight: 700; text-decoration-line: underline; text-decoration-thickness: 1.5px; text-underline-offset: 0.32em; text-decoration-color: color-mix(in srgb, currentColor 32%, transparent); transition: text-decoration-color 150ms var(--ease-out-soft, cubic-bezier(0.22, 1, 0.36, 1)); } .ds-link-seta:hover { text-decoration-color: var(--color-brand-blue, #00279b); } .ds-link-seta__seta { color: var(--color-brand-blue, #00279b); } .ds-link-seta:focus-visible { outline: 2px solid var(--color-brand-blue, #00279b); outline-offset: 3px; } .ds-link-seta__seta { flex-shrink: 0; transition: translate 150ms var(--ease-out-soft, cubic-bezier(0.22, 1, 0.36, 1)); } :hover > .ds-link-seta__seta { translate: 0 3px; } @media (prefers-reduced-motion: reduce) { .ds-link-seta__seta { transition: none; } }"
+    },
+    {
+      "name": "Campo de formulário",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Input e select de 48 px com borda field (3,7:1), foco azul e estado inválido com borda dupla em error e mensagem com ícone.",
+      "html": "<div class=\"ds-campos\"><div class=\"ds-campo-grupo\"><label class=\"ds-rotulo\" for=\"ds-nome\">Nome do responsável</label><input class=\"ds-campo\" id=\"ds-nome\" type=\"text\" autocomplete=\"name\"></div><div class=\"ds-campo-grupo\"><label class=\"ds-rotulo\" for=\"ds-segmento\">Segmento de interesse</label><select class=\"ds-campo ds-campo-select\" id=\"ds-segmento\"><option value=\"\">Escolha</option><option>Educação Infantil</option><option>Fundamental 1</option><option>Fundamental 2</option><option>Ensino Médio</option></select></div><div class=\"ds-campo-grupo\"><label class=\"ds-rotulo\" for=\"ds-whatsapp\">WhatsApp <span>com DDD</span></label><input class=\"ds-campo\" id=\"ds-whatsapp\" type=\"tel\" inputmode=\"numeric\" placeholder=\"(81) 90000-0000\" aria-invalid=\"true\" aria-describedby=\"ds-whatsapp-erro\"><p class=\"ds-erro\" id=\"ds-whatsapp-erro\"><svg class=\"ds-erro__icone\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 7.5V13M12 16.5v.01\"/></svg>Informe o WhatsApp com DDD, ex.: (81) 90000-0000.</p></div></div>",
+      "css": ".ds-campos { display: grid; gap: 20px; max-width: 360px; font-family: var(--font-manrope, 'Manrope'), system-ui, -apple-system, 'Segoe UI', sans-serif; } .ds-campo-grupo { display: grid; gap: 6px; } .ds-rotulo { font-size: 0.875rem; font-weight: 700; color: var(--color-ink, #121d38); } .ds-rotulo span { font-weight: 500; color: var(--color-ink-muted, #4f586c); } .ds-campo { display: block; box-sizing: border-box; width: 100%; min-height: 48px; padding: 0 14px; border: 1px solid var(--color-field, #868073); border-radius: 8px; background-color: var(--color-surface, #fffdf9); color: var(--color-ink, #121d38); font-family: var(--font-manrope, 'Manrope'), system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 1rem; font-weight: 500; transition: border-color 150ms var(--ease-out-soft, cubic-bezier(0.22, 1, 0.36, 1)); } .ds-campo::placeholder { color: var(--color-ink-muted, #4f586c); } .ds-campo:hover { border-color: var(--color-ink, #121d38); } .ds-campo:focus-visible { border-color: var(--color-brand-blue, #00279b); outline: 2px solid var(--color-brand-blue, #00279b); outline-offset: 1px; } .ds-campo[aria-invalid='true'] { border-color: var(--color-error, #b3241f); box-shadow: inset 0 0 0 1px var(--color-error, #b3241f); } .ds-campo-select { appearance: none; padding-right: 44px; background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23121D38' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E\"); background-repeat: no-repeat; background-position: right 14px center; background-size: 18px; cursor: pointer; } .ds-erro { display: flex; align-items: center; gap: 6px; margin: 0; font-size: 0.875rem; line-height: 1.45; font-weight: 600; color: var(--color-error, #b3241f); } .ds-erro__icone { flex-shrink: 0; }"
+    },
+    {
+      "name": "Cabeçalho e menu",
+      "kind": "nav",
+      "refersTo": "header",
+      "description": "Cabeçalho fixo em papel com o friso de 4 px no topo; links com sublinhado azul que cresce da esquerda (hover e página atual) e o botão primário compacto.",
+      "html": "<header class=\"ds-cabecalho\"><div class=\"ds-friso\" aria-hidden=\"true\"></div><div class=\"ds-cabecalho__barra\"><a class=\"ds-marca\" href=\"#\">Colégio Anglo Líder<em>Tamarineira</em></a><nav class=\"ds-menu\" aria-label=\"Principal\"><ul><li><a href=\"#\">A Escola</a></li><li><a href=\"#\" aria-current=\"page\">Segmentos</a></li><li><a href=\"#\">Projetos</a></li><li><a href=\"#\">Estrutura</a></li><li><a href=\"#\">Matrículas</a></li><li><a href=\"#\">Contato</a></li></ul></nav><a class=\"ds-btn-compacto\" href=\"#agendar\">Agendar visita<svg class=\"ds-btn-compacto__seta\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a></div></header>",
+      "css": ".ds-cabecalho { background-color: var(--color-paper, #fbf8f1); color: var(--color-ink, #121d38); box-shadow: 0 1px 0 var(--color-line, #e4dfd5); font-family: var(--font-manrope, 'Manrope'), system-ui, -apple-system, 'Segoe UI', sans-serif; } .ds-friso { height: 4px; background-image: linear-gradient(90deg, var(--color-brand-blue, #00279b) 0 50%, var(--color-brand-yellow, #fcfa03) 50% 75%, var(--color-brand-red, #db2c1b) 75% 100%); } .ds-cabecalho__barra { display: flex; align-items: center; gap: 32px; height: 80px; padding: 0 clamp(1rem, 0.4rem + 2.7vw, 2.5rem); } .ds-marca { display: block; flex-shrink: 0; font-family: var(--font-fraunces, 'Fraunces'), Georgia, 'Times New Roman', serif; font-size: 1.0625rem; line-height: 1.1; font-weight: 600; color: var(--color-ink, #121d38); text-decoration: none; } .ds-marca em { display: block; font-style: italic; color: var(--color-brand-blue, #00279b); } .ds-menu { margin-left: auto; } .ds-menu ul { display: flex; align-items: center; gap: clamp(1rem, 0.2rem + 1.2vw, 1.75rem); margin: 0; padding: 0; list-style: none; } .ds-menu a { position: relative; display: inline-flex; align-items: center; min-height: 44px; font-size: 0.9375rem; font-weight: 600; color: var(--color-ink, #121d38); text-decoration: none; } .ds-menu a::after { content: ''; position: absolute; left: 0; right: 0; bottom: 8px; height: 2px; background-color: var(--color-brand-blue, #00279b); transform: scaleX(0); transform-origin: left; transition: transform 150ms var(--ease-out-soft, cubic-bezier(0.22, 1, 0.36, 1)); } .ds-menu a:hover::after, .ds-menu a[aria-current='page']::after { transform: scaleX(1); } .ds-menu a:focus-visible, .ds-marca:focus-visible, .ds-btn-compacto:focus-visible { outline: 2px solid var(--color-brand-blue, #00279b); outline-offset: 3px; } .ds-btn-compacto { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 18px; border-radius: 9999px; background-color: var(--color-brand-blue, #00279b); color: var(--color-white, #fff); font-size: 0.9375rem; font-weight: 700; text-decoration: none; white-space: nowrap; transition: background-color 150ms var(--ease-out-soft, cubic-bezier(0.22, 1, 0.36, 1)); } .ds-btn-compacto:hover { background-color: var(--color-brand-blue-hover, #001a81); } .ds-btn-compacto__seta { flex-shrink: 0; transition: translate 150ms var(--ease-out-soft, cubic-bezier(0.22, 1, 0.36, 1)); } :hover > .ds-btn-compacto__seta { translate: 3px 0; } @media (prefers-reduced-motion: reduce) { .ds-btn-compacto__seta { transition: none; } } @media (prefers-reduced-motion: reduce) { .ds-menu a::after { transition: none; } }"
+    },
+    {
+      "name": "Etiquetas de segmento",
+      "kind": "chip",
+      "refersTo": "segment-tag-infantil",
+      "description": "Fundo suave + tinta do segmento + ponto na cor-base, sempre com o nome escrito (a cor nunca é a única pista). Ordem fixa: amarelo → vermelho → azul-claro → azul.",
+      "html": "<div class=\"ds-tags\"><span class=\"ds-tag ds-tag--infantil\"><span class=\"ds-tag__ponto\" aria-hidden=\"true\"></span>Educação Infantil</span><span class=\"ds-tag ds-tag--fund1\"><span class=\"ds-tag__ponto\" aria-hidden=\"true\"></span>Fundamental 1</span><span class=\"ds-tag ds-tag--fund2\"><span class=\"ds-tag__ponto\" aria-hidden=\"true\"></span>Fundamental 2</span><span class=\"ds-tag ds-tag--medio\"><span class=\"ds-tag__ponto\" aria-hidden=\"true\"></span>Ensino Médio</span></div>",
+      "css": ".ds-tags { display: flex; flex-wrap: wrap; gap: 8px; } .ds-tag { display: inline-flex; align-items: center; gap: 8px; min-height: 32px; padding: 0 12px; border-radius: 8px; font-family: var(--font-manrope, 'Manrope'), system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; } .ds-tag__ponto { width: 10px; height: 10px; border-radius: 9999px; box-shadow: 0 0 0 1px rgb(18 29 56 / 0.15); } .ds-tag--infantil { background-color: var(--color-infantil-soft, #f9f6bc); color: var(--color-infantil-ink, #6d5900); } .ds-tag--infantil .ds-tag__ponto { background-color: var(--color-infantil, #fcfa03); } .ds-tag--fund1 { background-color: var(--color-fund1-soft, #ffddd5); color: var(--color-fund1-ink, #af2d1b); } .ds-tag--fund1 .ds-tag__ponto { background-color: var(--color-fund1, #db2c1b); } .ds-tag--fund2 { background-color: var(--color-fund2-soft, #d3ecf9); color: var(--color-fund2-ink, #09659f); } .ds-tag--fund2 .ds-tag__ponto { background-color: var(--color-fund2, #036ea9); } .ds-tag--medio { background-color: var(--color-medio-soft, #d8defa); color: var(--color-medio-ink, #00279b); } .ds-tag--medio .ds-tag__ponto { background-color: var(--color-medio, #00279b); }"
+    },
+    {
+      "name": "Card de segmento",
+      "kind": "card",
+      "refersTo": "segment-card",
+      "description": "Superfície plana com borda de 1 px e faixa de 8 px na cor-base do segmento; o card inteiro é clicável e, no hover, sobe 2 px e ganha a sombra de flutuação.",
+      "html": "<article class=\"ds-card-segmento ds-card-segmento--fund2\"><p class=\"ds-card-segmento__faixa\">6º ao 9º ano</p><h3 class=\"ds-card-segmento__nome\">Fundamental 2</h3><p class=\"ds-card-segmento__frase\">Um novo ciclo: as disciplinas do currículo e as habilidades que as profissões do futuro pedem.</p><a class=\"ds-card-segmento__link\" href=\"#\">Conhecer<span class=\"ds-sr-only\"> o Fundamental 2</span><svg class=\"ds-card-segmento__seta\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a></article>",
+      "css": ".ds-card-segmento { position: relative; display: flex; flex-direction: column; max-width: 280px; overflow: hidden; padding: 32px 24px 24px; border-radius: 14px; background-color: var(--color-surface, #fffdf9); box-shadow: 0 0 0 1px var(--color-line, #e4dfd5); font-family: var(--font-manrope, 'Manrope'), system-ui, -apple-system, 'Segoe UI', sans-serif; transition: translate 250ms var(--ease-out-soft, cubic-bezier(0.22, 1, 0.36, 1)), box-shadow 250ms var(--ease-out-soft, cubic-bezier(0.22, 1, 0.36, 1)); } .ds-card-segmento::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 8px; } .ds-card-segmento--fund2::before { background-color: var(--color-fund2, #036ea9); } .ds-card-segmento:hover { translate: 0 -2px; box-shadow: 0 0 0 1px var(--color-line, #e4dfd5), var(--shadow-float, 0 1px 2px rgb(18 29 56 / 0.06), 0 12px 32px -8px rgb(18 29 56 / 0.18)); } .ds-card-segmento__faixa { margin: 0; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-fund2-ink, #09659f); } .ds-card-segmento__nome { margin: 8px 0 0; font-family: var(--font-fraunces, 'Fraunces'), Georgia, 'Times New Roman', serif; font-size: 1.625rem; line-height: 1.15; font-weight: 600; color: var(--color-ink, #121d38); } .ds-card-segmento__frase { margin: 12px 0 24px; font-size: 0.9375rem; line-height: 1.5; color: var(--color-ink-muted, #4f586c); } .ds-card-segmento__link { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 700; color: var(--color-ink, #121d38); text-decoration-line: underline; text-decoration-thickness: 1.5px; text-underline-offset: 0.32em; text-decoration-color: color-mix(in srgb, currentColor 32%, transparent); } .ds-card-segmento__link::after { content: ''; position: absolute; inset: 0; border-radius: 14px; } .ds-card-segmento__link:focus-visible { outline: 2px solid var(--color-brand-blue, #00279b); outline-offset: 3px; } .ds-card-segmento__seta { color: var(--color-fund2-ink, #09659f); transition: translate 150ms var(--ease-out-soft, cubic-bezier(0.22, 1, 0.36, 1)); } .ds-card-segmento:hover .ds-card-segmento__seta { translate: 3px 0; } @media (prefers-reduced-motion: reduce) { .ds-card-segmento, .ds-card-segmento__seta { transition: none; } .ds-card-segmento:hover { translate: none; } } .ds-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }"
+    },
+    {
+      "name": "Eyebrow + título em duas batidas",
+      "kind": "custom",
+      "refersTo": "section-head",
+      "description": "A cabeça de toda seção (fixada pelo briefing §5): eyebrow com o traço do friso de 24 × 3 px e título Fraunces; a segunda batida em itálico azul, em linha própria, só quando o título tem duas frases ou um arremate.",
+      "html": "<div class=\"ds-cabeca\"><p class=\"ds-eyebrow\"><span class=\"ds-eyebrow__friso\" aria-hidden=\"true\"></span><span>Segmentos</span></p><h2 class=\"ds-titulo\">Quatro fases. <em>Cada uma no seu tempo.</em></h2></div>",
+      "css": ".ds-cabeca { max-width: 42rem; } .ds-eyebrow { display: flex; align-items: center; gap: 12px; margin: 0; font-family: var(--font-manrope, 'Manrope'), system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 0.8125rem; line-height: 1.3; letter-spacing: 0.12em; font-weight: 800; text-transform: uppercase; color: var(--color-ink, #121d38); } .ds-eyebrow__friso { flex-shrink: 0; width: 24px; height: 3px; border-radius: 2px; background-image: linear-gradient(90deg, var(--color-brand-blue, #00279b) 0 50%, var(--color-brand-yellow, #fcfa03) 50% 75%, var(--color-brand-red, #db2c1b) 75% 100%); } .ds-titulo { margin: 16px 0 0; font-family: var(--font-fraunces, 'Fraunces'), Georgia, 'Times New Roman', serif; font-size: clamp(2rem, 1.4rem + 2.6vw, 3.25rem); line-height: 1.06; letter-spacing: -0.015em; font-weight: 600; color: var(--color-ink, #121d38); text-wrap: balance; } .ds-titulo em { display: block; font-style: italic; color: var(--color-brand-blue, #00279b); }"
+    },
+    {
+      "name": "Estados honestos: foto pendente e \"A confirmar\"",
+      "kind": "custom",
+      "refersTo": "photo-placeholder",
+      "description": "Placeholder neutro na proporção final com a descrição da foto real (estado do sistema, não enfeite) e o marcador \"A confirmar:\", que só existe em homologação; em produção o bloco dependente não renderiza.",
+      "html": "<figure class=\"ds-foto\"><div class=\"ds-foto__reserva\" role=\"img\" aria-label=\"Espaço reservado para foto real: famílias chegando pela entrada da escola, de manhã\"><p><span class=\"ds-foto__rotulo\">Foto real</span>Famílias chegando pela entrada da escola, de manhã.<span class=\"ds-foto__proporcao\">Proporção final 16:9 (4:3 no celular).</span></p></div></figure><p class=\"ds-pendente-linha\"><span class=\"ds-pendente\"><strong>A confirmar:</strong> tabela provisória — a secretaria valida as séries e os nomes das turmas</span></p>",
+      "css": ".ds-foto { margin: 0; max-width: 560px; font-family: var(--font-manrope, 'Manrope'), system-ui, -apple-system, 'Segoe UI', sans-serif; } .ds-foto__reserva { display: grid; place-items: center; aspect-ratio: 16 / 9; padding: 24px; border-radius: 24px; background-color: var(--color-paper-2, #f3ede1); box-shadow: inset 0 0 0 1px var(--color-line, #e4dfd5); text-align: center; } .ds-foto__reserva p { max-width: 26em; margin: 0; font-size: 0.9375rem; line-height: 1.5; color: var(--color-ink-muted, #4f586c); } .ds-foto__rotulo { display: block; margin-bottom: 8px; font-size: 0.8125rem; line-height: 1.3; letter-spacing: 0.12em; font-weight: 800; text-transform: uppercase; color: var(--color-ink, #121d38); } .ds-foto__proporcao { display: block; margin-top: 4px; } .ds-pendente-linha { max-width: 560px; margin: 16px 0 0; font-family: var(--font-manrope, 'Manrope'), system-ui, -apple-system, 'Segoe UI', sans-serif; } .ds-pendente { display: inline; padding: 2px 6px; border-radius: 4px; background-color: var(--color-infantil-soft, #f9f6bc); color: var(--color-ink, #121d38); font-size: 0.875rem; line-height: 1.9; font-weight: 600; -webkit-box-decoration-break: clone; box-decoration-break: clone; } .ds-pendente strong { font-weight: 800; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Papel, tinta e a gola do uniforme",
+    "overview": "O site é uma página editorial impressa em papel quente, escrita em tinta azul-noite e costurada por um único ornamento: o friso tricolor da gola do uniforme, azul, amarelo e vermelho em 2 : 1 : 1, a ordem das pinceladas do logo. Todo o resto é contido: uma cor de ação (o azul Anglo), uma sombra, quatro raios, duas famílias tipográficas. O caráter, na frase do briefing, é editorial, caloroso e confiante: acolhedor para uma família com criança de 1 ano, sério para quem se prepara para o vestibular.\n\nA identidade se organiza pela trajetória da criança, \"do primeiro passo ao vestibular\" (proposta aprovada em 23/09/2026). A paleta amadurece com ela: amarelo na Educação Infantil, vermelho no Fundamental 1, azul-claro no Fundamental 2, azul Anglo no Ensino Médio; do quente ao sério, só com as cores do logo. A densidade é de revista, não de portal: seções com 64 a 128 px de respiro, títulos grandes em Fraunces com a segunda batida em itálico, texto em Manrope num corpo de 17 a 18 px.\n\nO movimento é discreto e tem gramática própria: 150 ms para hover e pressão, 250 ms para o que abre e fecha, 600 ms para a revelação ao rolar (opacidade e 12 px de subida, uma vez, escalonada em 60 ms, só abaixo da dobra), sempre na curva `ease-out-soft`. O hero nunca espera animação, todo o conteúdo aparece sem JavaScript e `prefers-reduced-motion` desliga todo deslocamento. A honestidade também é visual: conteúdo pendente, foto que ainda não existe e logo que não chegou têm estados próprios, e nada é preenchido com imagem de banco. Rejeições confirmadas pelo briefing (§6): foto de banco ou gerada por IA representando alunos, professores ou a estrutura; carrossel automático; parallax pesado; preto puro no texto.",
+    "keyCharacteristics": [
+      "Fundo off-white quente e texto azul-noite, nunca preto (fixado pelo briefing §6).",
+      "Azul Anglo como única cor de ação; o amarelo só age sobre o campo azul.",
+      "O friso tricolor da gola do uniforme como único ornamento, sempre em lugares fixos.",
+      "Fraunces nos títulos e Manrope no texto (fixados pelo briefing §6), a Fraunces numa instância fixa opsz 72 · SOFT 50.",
+      "Eyebrow com o traço do friso acima de todo título de seção; títulos em duas batidas quando há duas frases ou um arremate (fixado pelo briefing §5).",
+      "Plano por padrão: cards com borda de 1 px e uma única sombra para o que flutua.",
+      "Setas em SVG que dizem o destino: → ação no site, ↓ rolar, ↗ sair do site (fixado pelo briefing §5).",
+      "Estados honestos: \"A confirmar:\" só em homologação; placeholder de foto na proporção final."
+    ],
+    "rules": [
+      {
+        "name": "A Regra da Cor Única de Ação",
+        "body": "Todo botão preenchido é azul Anglo, e o azul marca o que responde ao toque: seta, sublinhado ativo, foco. Links de texto ficam em tinta e ganham o azul no sublinhado ao passar o mouse. Sobre o campo azul, o amarelo assume esse papel. A única exceção é funcional: o botão flutuante do WhatsApp, no verde oficial.",
+        "section": "colors"
+      },
+      {
+        "name": "A Regra do Campo Azul Único",
+        "body": "No máximo uma seção de largura total em azul Anglo por página (na Home, a Proposta). É o único lugar onde existe botão amarelo.",
+        "section": "colors"
+      },
+      {
+        "name": "A Regra da Paleta que Amadurece",
+        "body": "Os segmentos aparecem sempre na ordem amarelo → vermelho → azul-claro → azul Anglo e só orientam: nunca preenchem botão. A cor nunca é a única pista (toda etiqueta escreve o nome do segmento), e texto na cor de um segmento usa o tom `-ink`, nunca a base.",
+        "section": "colors"
+      },
+      {
+        "name": "A Regra das Duas Batidas",
+        "body": "Fixada pelo briefing (§5). O título pode ter duas batidas: a primeira em romano; a segunda em itálico, sempre em linha própria, na cor de ação (azul Anglo no claro, amarelo sobre o azul). Só quando o título tem duas frases (\"Quatro fases. / Cada uma no seu tempo.\") ou um arremate (\"A melhor forma de escolher / é conhecer.\"). Título de uma frase vai inteiro em romano (\"Veja a escola antes da visita.\"). O briefing pede \"às vezes\": na Home, seis títulos têm duas batidas e três não.",
+        "section": "typography"
+      },
+      {
+        "name": "A Regra do Eyebrow",
+        "body": "Fixada pelo briefing (§5). Todo título de seção tem acima um eyebrow: rótulo curto em Eyebrow, precedido pelo traço do friso de 24 × 3 px (sobre o azul, `stripe-invert`). Do eyebrow ao título: 16 px (20 px no hero).",
+        "section": "typography"
+      },
+      {
+        "name": "A Regra da Instância Fixa",
+        "body": "A Fraunces não recebe `font-variation-settings`: `opsz` e `SOFT` estão gravados no arquivo. Para mudar o desenho, gere outra instância (receita em `app/fonts/README.md`); não troque pela família variável completa (271 KB contra 82 KB).",
+        "section": "typography"
+      },
+      {
+        "name": "A Regra da Sombra Única",
+        "body": "Uma sombra só, para o que flutua. Cards em repouso são planos, com borda de 1 px em `line`; a sombra aparece como resposta (rolagem, hover) ou em quem se sobrepõe a outro conteúdo.",
+        "section": "elevation"
+      },
+      {
+        "name": "A Regra do Friso",
+        "body": "O friso é uma faixa reta azul · amarelo · vermelho em 2 : 1 : 1, com cortes secos, sem degradê (`stripe`). Aparece só em lugares fixos: 4 px no topo do cabeçalho, do rodapé e do menu do celular; 4 px no topo dos três contêineres de ação (painel \"Encontre a série\", formulário de visita, card do CTA final); o traço de 24 × 3 px antes de cada eyebrow; o mesmo traço marcando a aba ativa dos projetos no desktop. Sobre o azul Anglo, o terço azul vira branco (`stripe-invert`). Nunca como decoração solta.",
+        "section": "shapes"
+      },
+      {
+        "name": "A Regra da Seta de Destino",
+        "body": "Fixada pelo briefing (§5). → leva a uma ação no site; ↓ desce na mesma página; ↗ sai do site, abre em nova aba e leva \"(abre em nova aba)\" para leitor de tela. As setas são ícones SVG (`components/ui/Icon.tsx`: 24 × 24, traço de 2 px, pontas arredondadas), nunca caracteres, porque a Fraunces não tem → nem ↗ no subconjunto latino. Botão sem seta só onde falta espaço (o \"Agendar\" compacto do cabeçalho no celular).",
+        "section": "components"
+      },
+      {
+        "name": "A Regra do Processo Real",
+        "body": "Fixada pelo briefing (§5 e §8). Numeração 01, 02, 03… só em sequência real: os passos da matrícula (01 a 04) e os três pilares da Proposta, que o briefing numera explicitamente (sobre o azul, numerais em amarelo). Fora disso, número grande em destaque só com dado real e fonte.",
+        "section": "components"
+      },
+      {
+        "name": "A Regra do Conteúdo Pendente",
+        "body": "Fixada pelo briefing (§5). Dado que depende da escola é declarado com `aConfirmar('o que falta')` (`lib/pending.ts`). Em homologação, aparece o marcador `Pending`: inline, fundo `infantil-soft`, cantos de 4 px, Caption 600 em tinta com \"A confirmar:\" em 800, e o fundo acompanha cada linha quando o texto quebra. Em produção, o marcador não renderiza e o bloco que depende do dado também não: pergunta sem resposta sai do FAQ, passo sem título sai e a numeração se refaz, o \"Encontre a série\" só aparece com a tabela validada, vídeo e mapa só com o dado confirmado. Em homologação, uma faixa `infantil-soft` no topo da página avisa \"Ambiente de homologação\".",
+        "section": "components"
+      },
+      {
+        "name": "A Regra da Foto Real",
+        "body": "Fixada pelo briefing (§5 e §6). Sem foto real, entra o placeholder, que é um estado do sistema e não um enfeite: caixa neutra na proporção final (areia sobre o papel, superfície sobre a areia; linha interna de 1 px em `line`; cantos de 24 ou 14 px) com \"Foto real\" em Eyebrow, a descrição do que a foto vai mostrar e \"Proporção final …\" em Small `ink-muted`, anunciada como \"Espaço reservado para foto real: …\". Foto real ganha a legenda \"Fotografia real · {lugar}\" em Caption 500 `ink-muted`, 12 px abaixo; quando algo sobrepõe a base da imagem (o hero), a legenda vai para o canto superior esquerdo, sobre superfície a 90%. Placeholder nunca leva essa legenda.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do tirar toda cor dos tokens de `app/globals.css`; cor nova entra no `@theme` com o contraste medido e anotado.",
+      "Do abrir toda seção com `SectionHead`: eyebrow com o traço do friso e título (fixado pelo briefing §5).",
+      "Do usar a segunda batida em itálico só quando o título tem duas frases ou um arremate; título de uma frase vai inteiro em romano.",
+      "Do escolher a seta pelo destino (→ ação no site, ↓ rolar, ↗ fora do site com \"(abre em nova aba)\") e desenhá-la com `Icon`.",
+      "Do pôr a microcopy de confiança (Small, `ink-muted`) logo abaixo do CTA principal.",
+      "Do declarar todo dado pendente com `aConfirmar()` e deixar a produção esconder o bloco; foto ausente vira placeholder na proporção final, com a descrição.",
+      "Do usar `Section tom=\"azul\"` ou `tom=\"tinta\"` em fundos escuros, para o foco e a seleção ficarem amarelos.",
+      "Do manter alvos de toque de 44 px ou mais (botões de 48 px).",
+      "Do usar 150 ms para hover, 250 ms para abrir e fechar e 600 ms para a revelação, sempre em `ease-out-soft`, e respeitar `prefers-reduced-motion`."
+    ],
+    "donts": [
+      "Don't usar cor fora da paleta (a padrão do Tailwind foi zerada), preto puro no texto ou branco puro como fundo de página.",
+      "Don't usar amarelo como texto sobre fundo claro, nem o vermelho do logo (`brand-red`) como texto; use `fund1-ink`.",
+      "Don't preencher botão ou CTA com cor de segmento; a ação é azul Anglo (amarelo só sobre o campo azul).",
+      "Don't pôr um segundo campo azul na mesma página, nem usar o botão amarelo fora dele.",
+      "Don't criar outra sombra, nem pôr sombra em card em repouso que não se sobreponha a nada.",
+      "Don't numerar o que não é sequência real, nem destacar número sem dado real e fonte.",
+      "Don't digitar setas como caracteres (→ ↓ ↗), nem abrir link externo sem o aviso para leitor de tela.",
+      "Don't usar foto de banco ou imagem gerada por IA representando alunos, professores ou a estrutura, nem a legenda \"Fotografia real\" num placeholder.",
+      "Don't usar o friso como enfeite solto, nem mudar a ordem ou a proporção das cores (2 : 1 : 1).",
+      "Don't usar carrossel automático, parallax pesado ou animação que faça o hero esperar.",
+      "Don't usar o verde claro do WhatsApp (#25D366): dá 2:1 com branco.",
+      "Don't aplicar `font-variation-settings` na Fraunces, nem trocar a instância fixa pela família variável completa."
+    ]
+  }
+}

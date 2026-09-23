@@ -1,6 +1,5 @@
-import type { Duvida } from '@/content/faq';
+import { duvidasVisiveis, type Duvida } from '@/content/faq';
 import { isPendente } from '@/lib/pending';
-import { siteConfig } from '@/site.config';
 import { Icon } from '@/components/ui/Icon';
 import { Pending } from '@/components/ui/Pending';
 
@@ -9,7 +8,7 @@ import { Pending } from '@/components/ui/Pending';
  * Em produção, só entram perguntas com resposta validada pela escola.
  */
 export function FAQ({ duvidas }: { duvidas: readonly Duvida[] }) {
-  const itens = duvidas.filter((d) => siteConfig.emHomologacao || !isPendente(d.resposta));
+  const itens = duvidasVisiveis(duvidas);
   if (itens.length === 0) return null;
 
   return (

@@ -14,12 +14,11 @@ const linkRodape =
 
 export function Footer() {
   const { contato, redes } = siteConfig;
-  const telefone = confirmado(contato.telefone);
+  const telefone = contato.telefone;
   const email = confirmado(contato.email);
-  const endereco = confirmado(contato.endereco);
-  const youtube = confirmado(redes.youtube);
+  const endereco = contato.endereco;
   const familias = confirmado(paraFamilias);
-  const listaRedes = [redes.instagram, redes.facebook, ...(youtube ? [youtube] : [])];
+  const listaRedes = [redes.instagram, redes.facebook, redes.youtube];
   const iconeRede = { Instagram: 'instagram', Facebook: 'facebook', YouTube: 'youtube' } as const;
 
   return (
@@ -48,7 +47,6 @@ export function Footer() {
               </li>
             ))}
           </ul>
-          {isPendente(redes.youtube) ? <Pending className="mt-3">{redes.youtube.aConfirmar}</Pending> : null}
         </div>
 
         <div className="lg:col-span-3">
@@ -70,14 +68,10 @@ export function Footer() {
               </a>
             </li>
             <li>
-              {telefone ? (
-                <a href={`tel:+55${telefone.numero}`} className={`${linkRodape} gap-2`}>
-                  <Icon name="phone" size={16} />
-                  {telefone.exibicao}
-                </a>
-              ) : (
-                <Pending>{isPendente(contato.telefone) ? contato.telefone.aConfirmar : ''}</Pending>
-              )}
+              <a href={`tel:+55${telefone.numero}`} className={`${linkRodape} gap-2`}>
+                <Icon name="phone" size={16} />
+                {telefone.exibicao}
+              </a>
             </li>
             <li>
               {email ? (
@@ -90,17 +84,12 @@ export function Footer() {
               )}
             </li>
             <li className="mt-1">
-              {endereco ? (
-                <p className="flex gap-2 text-white/90">
-                  <Icon name="map-pin" size={16} className="mt-1" />
-                  <span>
-                    {endereco.logradouro} · {siteConfig.bairro}, {siteConfig.cidade}/{siteConfig.uf} · CEP{' '}
-                    {endereco.cep}
-                  </span>
-                </p>
-              ) : (
-                <Pending>endereço completo</Pending>
-              )}
+              <p className="flex gap-2 text-white/90">
+                <Icon name="map-pin" size={16} className="mt-1" />
+                <span>
+                  {endereco.logradouro} · {siteConfig.bairro}, {siteConfig.cidade}/{siteConfig.uf} · CEP {endereco.cep}
+                </span>
+              </p>
             </li>
           </ul>
           <dl className="mt-5 grid gap-1 text-small">

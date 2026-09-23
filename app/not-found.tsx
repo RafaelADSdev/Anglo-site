@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { hrefAgendar } from '@/content/navegacao';
 import { hrefSegmento, segmentos } from '@/content/segmentos';
-import { siteConfig } from '@/site.config';
 import { ArrowLink, ButtonLink } from '@/components/ui/Button';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Heading } from '@/components/ui/Heading';
@@ -24,12 +23,6 @@ export default function NotFound() {
             destaque="A escola continua aqui."
             className="mt-4"
           />
-          {siteConfig.emHomologacao ? (
-            <p className="mt-6 max-w-[36em] rounded-sm bg-infantil-soft px-4 py-3 text-small text-ink">
-              Em homologação: as páginas internas (A Escola, Segmentos, Projetos, Estrutura, Matrículas, Contato e
-              Privacidade) entram na próxima etapa.
-            </p>
-          ) : null}
           <p className="mt-6 text-lead text-ink-muted">Escolha por onde seguir:</p>
           <ul className="mt-4 grid gap-1 sm:grid-cols-2">
             {segmentos.map((s) => (

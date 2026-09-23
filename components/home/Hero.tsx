@@ -49,7 +49,7 @@ export function Hero() {
                 {h.ctaSecundario}
               </ArrowLink>
             </div>
-            <p className="mt-4 text-small font-medium text-ink-muted">{h.microcopy}</p>
+            <p className="mt-4 text-small text-ink-muted">{h.microcopy}</p>
           </div>
 
           <Figure

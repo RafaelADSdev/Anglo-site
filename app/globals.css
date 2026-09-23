@@ -255,7 +255,7 @@ html:has(.menu-movel[open]) {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     /* âncoras não ficam escondidas atrás do cabeçalho fixo */
-    scroll-padding-top: 6rem;
+    scroll-padding-top: 7rem;
   }
 
   @media (prefers-reduced-motion: no-preference) {

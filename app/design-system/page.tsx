@@ -248,7 +248,7 @@ export default function DesignSystem() {
           <h2 id="ds-cards" className="font-display text-h2 font-semibold">
             Cards de segmento
           </h2>
-          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-8 grid gap-x-10 gap-y-12 border-t border-line pt-8 sm:grid-cols-2 lg:grid-cols-4">
             {segmentos.map((s) => (
               <li key={s.id}>
                 <SegmentCard segmento={s} />

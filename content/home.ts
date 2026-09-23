@@ -43,8 +43,7 @@ export const home = {
       },
       {
         titulo: 'Preparação para os principais vestibulares',
-        texto: 'No Ensino Médio, o foco está nos principais vestibulares.',
-        pendente: 'quais vestibulares (ex.: ENEM, SSA/UPE)',
+        texto: 'No Ensino Médio, o foco está no ENEM e no SSA.',
       },
       {
         titulo: 'Liderança, comunicação e empreendedorismo',

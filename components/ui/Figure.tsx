@@ -1,7 +1,8 @@
-import Image, { type StaticImageData } from 'next/image';
+import Image from 'next/image';
 import { cn } from '@/lib/cn';
+import type { Foto } from '@/lib/foto';
 
-export type Foto = { src: StaticImageData | string; alt: string };
+export type { Foto };
 
 type Props = {
   /** Foto real. Sem ela, entra o placeholder neutro na proporção final (briefing §6). */

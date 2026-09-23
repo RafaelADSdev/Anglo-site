@@ -39,7 +39,7 @@ Uma unidade que acompanha a criança da Educação Infantil (a partir de 1 ano) 
 - Mensalidades não são publicadas.
 - Performance: Lighthouse mobile ≥ 90 (com tags ativas), Acessibilidade/Boas Práticas/SEO ≥ 95; LCP < 2,5 s, CLS < 0,1, INP < 200 ms.
 - Acessibilidade WCAG 2.2 AA; SEO local com JSON-LD `School`; homologação com `noindex` + faixa de aviso até a aprovação.
-- **Em aberto (não inventar):** nome oficial, endereço, telefone fixo, e-mail, turnos, alimentação, transporte, anos de história, outras unidades da rede, aprovações, itens de estrutura e acessibilidade — lista viva em `PENDENCIAS.md`.
+- **Em aberto (não inventar):** nome oficial, e-mail, turnos, alimentação, transporte, anos de história, outras unidades da rede, aprovações, itens de estrutura e acessibilidade — lista viva em `PENDENCIAS.md`.
 
 ## Brand Commitments
 

@@ -21,3 +21,13 @@ export function Pending({ children, className }: Props) {
     </span>
   );
 }
+
+/** O marcador em parágrafo próprio, para ficar como bloco (com margem). Também some em produção. */
+export function PendingBloco({ children, className }: Props) {
+  if (!siteConfig.emHomologacao) return null;
+  return (
+    <p className={className}>
+      <Pending>{children}</Pending>
+    </p>
+  );
+}

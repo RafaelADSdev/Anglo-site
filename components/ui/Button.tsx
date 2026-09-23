@@ -5,17 +5,24 @@ import { Icon } from './Icon';
 
 /**
  * Setas dizem para onde o clique leva (briefing §5):
- * → ação no site · ↓ rolar a página · ↗ sai do site (com aviso de nova aba para leitor de tela).
+ * → ação no site · ↓ desce na página · ↑ volta para cima na mesma página ·
+ * ↗ sai do site (com aviso de nova aba para leitor de tela).
  */
-export type Seta = 'direita' | 'baixo' | 'externa' | 'nenhuma';
+export type Seta = 'direita' | 'baixo' | 'cima' | 'externa' | 'nenhuma';
 
 const movimento: Record<Exclude<Seta, 'nenhuma'>, string> = {
   direita: 'group-hover:translate-x-[3px]',
   baixo: 'group-hover:translate-y-[3px]',
+  cima: 'group-hover:-translate-y-[3px]',
   externa: 'group-hover:translate-x-[2px] group-hover:-translate-y-[2px]',
 };
 
-const iconeDaSeta = { direita: 'arrow-right', baixo: 'arrow-down', externa: 'arrow-up-right' } as const;
+const iconeDaSeta = {
+  direita: 'arrow-right',
+  baixo: 'arrow-down',
+  cima: 'arrow-up',
+  externa: 'arrow-up-right',
+} as const;
 
 function IconeSeta({ seta, className }: { seta: Seta; className?: string }) {
   if (seta === 'nenhuma') return null;

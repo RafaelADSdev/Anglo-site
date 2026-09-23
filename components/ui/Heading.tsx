@@ -8,6 +8,8 @@ type Props = {
   destaque?: string;
   tamanho?: 'display' | 'h2' | 'h3';
   tom?: 'claro' | 'escuro';
+  /** Cor da segunda batida quando não é a padrão (páginas de segmento usam a tinta do segmento). */
+  corDestaque?: string;
   id?: string;
   className?: string;
 };
@@ -15,7 +17,16 @@ type Props = {
 const tamanhos = { display: 'text-display', h2: 'text-h2', h3: 'text-h3' } as const;
 
 /** Título editorial em duas batidas (DNA do briefing §5). */
-export function Heading({ as: Tag = 'h2', titulo, destaque, tamanho = 'h2', tom = 'claro', id, className }: Props) {
+export function Heading({
+  as: Tag = 'h2',
+  titulo,
+  destaque,
+  tamanho = 'h2',
+  tom = 'claro',
+  corDestaque,
+  id,
+  className,
+}: Props) {
   return (
     <Tag
       id={id}
@@ -30,7 +41,11 @@ export function Heading({ as: Tag = 'h2', titulo, destaque, tamanho = 'h2', tom 
       {destaque ? (
         <>
           {' '}
-          <em className={cn('block italic', tom === 'escuro' ? 'text-brand-yellow' : 'text-brand-blue')}>{destaque}</em>
+          <em
+            className={cn('block italic', corDestaque ?? (tom === 'escuro' ? 'text-brand-yellow' : 'text-brand-blue'))}
+          >
+            {destaque}
+          </em>
         </>
       ) : null}
     </Tag>

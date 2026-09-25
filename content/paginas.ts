@@ -1,3 +1,4 @@
+import { aConfirmar, type Talvez } from '@/lib/pending';
 import { siteConfig } from '@/site.config';
 
 /**
@@ -42,15 +43,58 @@ export const paginas = {
       ],
     },
     projetos: { eyebrow: 'Projetos próprios', titulo: 'Cinco projetos da escola.', cta: 'Ver os projetos' },
-    historia: {
-      eyebrow: 'História',
-      titulo: `A unidade ${bairro} e a rede Anglo Líder.`,
-      pendente: 'anos de história da unidade e outras unidades da rede Anglo Líder',
+    /** A unidade: a história entra quando a escola mandar o texto; a ficha já traz o que está confirmado. */
+    unidade: {
+      eyebrow: 'A unidade',
+      titulo: 'A unidade em poucas linhas.',
+      historia: aConfirmar(
+        'um parágrafo com a história da unidade, nas palavras da escola (ano de fundação, como começou)',
+      ) as Talvez<string>,
+      rotuloFicha: 'Ficha da unidade',
+      ficha: [
+        {
+          rotulo: 'Onde fica',
+          valor: `${siteConfig.contato.endereco.logradouro} · ${bairro}, Zona Norte do ${cidade}`,
+        },
+        { rotulo: 'Quem estuda aqui', valor: 'Da Educação Infantil, a partir de 1 ano, ao 3º ano do Ensino Médio' },
+        { rotulo: 'Sistema de ensino', valor: 'Sistema Anglo, com os livros didáticos da SOMOS Educação' },
+        {
+          rotulo: 'Projetos próprios',
+          valor: 'Google for Education, Criatto Lab, Geração Líder, Além do Vest e Pod Criar',
+        },
+        { rotulo: 'Desde', valor: aConfirmar('ano de fundação da unidade') },
+        { rotulo: 'Rede Anglo Líder', valor: aConfirmar('outras unidades da rede Anglo Líder') },
+      ] as ReadonlyArray<{ rotulo: string; valor: Talvez<string> }>,
     },
     inclusao: {
       eyebrow: 'Inclusão e acessibilidade',
       titulo: 'Inclusão e acessibilidade.',
-      pendente: 'práticas de inclusão e itens de acessibilidade — diretórios citam elevador, rampas e sala de AEE',
+      texto: aConfirmar(
+        'como a escola acompanha estudantes com deficiência (práticas de inclusão e AEE)',
+      ) as Talvez<string>,
+      /** Itens citados em diretórios; cada um só entra em produção quando a escola confirmar. */
+      itens: [
+        { id: 'elevador', icone: 'elevador', nome: 'Elevador', texto: aConfirmar('elevador (citado em diretórios)') },
+        { id: 'rampas', icone: 'rampa', nome: 'Rampas de acesso', texto: aConfirmar('rampas (citadas em diretórios)') },
+        {
+          id: 'aee',
+          icone: 'apoio',
+          nome: 'Sala de AEE',
+          detalhe: 'Atendimento Educacional Especializado',
+          texto: aConfirmar('sala de AEE (citada em diretórios)'),
+        },
+      ] as ReadonlyArray<{
+        id: string;
+        icone: 'elevador' | 'rampa' | 'apoio';
+        nome: string;
+        detalhe?: string;
+        texto: Talvez<string>;
+      }>,
+      pergunta: {
+        titulo: 'Alguma necessidade específica?',
+        texto: 'Pergunte direto à escola, antes da visita. A mensagem já vai escrita.',
+        botao: 'Perguntar no WhatsApp',
+      },
     },
   },
 
@@ -63,18 +107,15 @@ export const paginas = {
     titulo: 'Quatro fases.',
     destaque: 'Cada uma no seu tempo.',
     lead: 'Da Educação Infantil, a partir de 1 ano, ao 3º ano do Ensino Médio.',
-    tabela: {
-      eyebrow: `Séries em ${ano}`,
-      titulo: 'Data de nascimento e série.',
-      lead: 'Pela data de corte de 31 de março. A secretaria confirma a série na matrícula.',
-    },
+    /** Um capítulo por fase, na ordem da trajetória (a sequência é real: é a idade da criança). */
+    fases: ['Primeira fase', 'Segunda fase', 'Terceira fase', 'Quarta fase'],
+    series: 'Séries',
   },
 
   /** Rótulos comuns às quatro páginas de segmento. */
   segmento: {
     eyebrow: `Matrículas ${ano} abertas`,
     series: 'Séries',
-    serieNascimento: 'Ver a série pela data de nascimento',
     vive: { eyebrow: 'No dia a dia' },
     projetos: { eyebrow: 'Projetos', tituloGeral: 'Projetos da escola.', cta: 'Ver os cinco projetos' },
     duvidas: { eyebrow: 'Dúvidas frequentes', titulo: 'Perguntas de quem está escolhendo escola.' },
@@ -90,6 +131,13 @@ export const paginas = {
     eyebrow: 'Projetos próprios',
     titulo: 'Do Chromebook ao podcast.',
     destaque: 'Aprender também é criar.',
+    eventos: {
+      eyebrow: 'Eventos',
+      titulo: 'Além dos projetos,',
+      destaque: 'os eventos do ano.',
+      intro: 'Encontros que fazem parte do calendário da escola.',
+      indice: 'Eventos',
+    },
     lead: 'Tecnologia, criação, liderança e carreiras em cinco projetos da escola.',
   },
 
@@ -128,7 +176,10 @@ export const paginas = {
       botao: 'Agendar visita pelo WhatsApp',
       microcopy: 'Nada é enviado sem você: a mensagem só sai quando você toca em enviar.',
     },
-    conversa: 'Prefere conversar antes?',
+    contato: {
+      eyebrow: 'Entrar em contato',
+      titulo: 'Prefere conversar antes?',
+    },
     passos: { eyebrow: 'Como funciona', titulo: 'Da primeira visita à vaga garantida.' },
     documentos: {
       eyebrow: 'Documentos',

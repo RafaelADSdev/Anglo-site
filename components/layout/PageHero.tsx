@@ -21,6 +21,8 @@ type Props = {
   corDestaque?: string;
   /** Conteúdo no pé do hero: índice da página, régua de séries, percurso. */
   children?: React.ReactNode;
+  /** Papel de caderno no fundo, desfeito para baixo (como no topo da Home). */
+  caderno?: boolean;
 };
 
 /**
@@ -39,6 +41,7 @@ export function PageHero({
   fundo = 'bg-paper',
   corDestaque,
   children,
+  caderno,
 }: Props) {
   const cabeca = (
     <>
@@ -70,8 +73,14 @@ export function PageHero({
   return (
     <section
       aria-labelledby="pagina-titulo"
-      className={cn('pt-[clamp(0.25rem,0.1rem+0.8vw,1rem)] pb-(--section-y)', fundo)}
+      className={cn('pt-[clamp(0.25rem,0.1rem+0.8vw,1rem)] pb-(--section-y)', caderno && 'relative isolate', fundo)}
     >
+      {caderno ? (
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 caderno [mask-image:linear-gradient(to_bottom,black_30%,transparent_85%)]"
+        />
+      ) : null}
       <div className="wrap">
         <Breadcrumbs itens={migalhas} />
         {midia ? (

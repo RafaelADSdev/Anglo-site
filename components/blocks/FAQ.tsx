@@ -6,6 +6,8 @@ import { Pending } from '@/components/ui/Pending';
 
 /**
  * Acordeão com <details> nativo: abre e fecha pelo teclado sem JavaScript.
+ * A abertura é animada só em CSS (`.faq-item`, app/globals.css); o "+" gira
+ * para "×" e fica azul cheio enquanto a resposta está aberta.
  * Em produção, só entram perguntas com resposta validada pela escola.
  */
 export function FAQ({ duvidas }: { duvidas: readonly Duvida[] }) {
@@ -15,17 +17,17 @@ export function FAQ({ duvidas }: { duvidas: readonly Duvida[] }) {
   return (
     <div className="border-t border-line">
       {itens.map((d) => (
-        <details key={d.id} className="group border-b border-line">
+        <details key={d.id} className="faq-item group border-b border-line">
           <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-4 text-[1.0625rem] leading-snug font-bold text-ink marker:hidden [&::-webkit-details-marker]:hidden">
             {d.pergunta}
             <span
               aria-hidden
-              className="grid size-8 shrink-0 place-items-center rounded-full bg-medio-soft text-brand-blue transition-transform duration-250 ease-out-soft group-open:rotate-45 motion-reduce:transition-none"
+              className="grid size-8 shrink-0 place-items-center rounded-full bg-medio-soft text-brand-blue transition-[rotate,background-color,color] duration-250 ease-out-soft group-open:rotate-45 group-open:bg-brand-blue group-open:text-white motion-reduce:transition-none"
             >
               <Icon name="plus" size={16} />
             </span>
           </summary>
-          <div className="pr-12 pb-5 text-ink-muted">
+          <div className="faq-resposta pr-12 pb-5 text-ink-muted">
             {isPendente(d.resposta) ? (
               <Pending>{d.resposta.aConfirmar}</Pending>
             ) : (

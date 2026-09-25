@@ -30,7 +30,7 @@ Uma unidade que acompanha a criança da Educação Infantil (a partir de 1 ano) 
 - Campanha anual de matrícula; o ano da campanha muda em um único lugar (`site.config.ts`).
 - Atendimento de segunda a sexta, das 8h às 17h; fechado em fins de semana e feriados.
 - Conversão pelo WhatsApp (+55 81 98254-1643): o botão verde "Agendar visita pelo WhatsApp" (em /matriculas#agendar, mensagem fixa de agendamento) e o "Falar no WhatsApp" (contorno, mensagem contextual por página e segmento).
-- Medição: GTM-W9QMS4S2, meta `facebook-domain-verification`, eventos `whatsapp_click`, `cta_click`, `video_play` (o agendamento é o `whatsapp_click` com `origem=agendar-matriculas`); tags de marketing só após consentimento (LGPD).
+- Medição: GTM-W9QMS4S2, meta `facebook-domain-verification`, eventos `whatsapp_click`, `cta_click`, `video_play` (o agendamento é o `whatsapp_click` com `origem` começando por `agendar-`: `agendar-matriculas` no bloco de /matriculas e `agendar-<origem do card>` no "Agendar visita" do card de fecho de cada página, que abre o WhatsApp direto desde 25/09/2026); tags de marketing só após consentimento (LGPD).
 
 ## Capabilities and Constraints
 

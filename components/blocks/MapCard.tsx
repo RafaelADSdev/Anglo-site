@@ -1,13 +1,19 @@
+import { cn } from '@/lib/cn';
 import { Icon } from '@/components/ui/Icon';
 
-type Props = { endereco: string; linkComoChegar?: string | null };
+type Props = {
+  endereco: string;
+  linkComoChegar?: string | null;
+  /** Classes de proporção (padrão 4:3). */
+  proporcao?: string;
+};
 
 /** Mapa do Google incorporado. O vídeo institucional continua só no clique. */
-export function MapCard({ endereco, linkComoChegar }: Props) {
+export function MapCard({ endereco, linkComoChegar, proporcao = 'aspect-[4/3]' }: Props) {
   const busca = encodeURIComponent(endereco);
 
   return (
-    <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-paper-2 ring-1 ring-line">
+    <div className={cn('relative overflow-hidden rounded-md bg-paper-2 ring-1 ring-line', proporcao)}>
       <iframe
         src={`https://www.google.com/maps?q=${busca}&hl=pt-BR&z=16&output=embed`}
         title={`Mapa: ${endereco}`}

@@ -7,7 +7,7 @@ import { siteConfig } from '@/site.config';
 import { AgendarWhatsApp } from '@/components/blocks/AgendarWhatsApp';
 import { FAQ } from '@/components/blocks/FAQ';
 import { MapCard } from '@/components/blocks/MapCard';
-import { SegmentCard } from '@/components/blocks/SegmentCard';
+import { TrilhaSegmentos } from '@/components/blocks/SegmentCard';
 import { Steps } from '@/components/blocks/Steps';
 import { ArrowLink, ButtonLink } from '@/components/ui/Button';
 import { Eyebrow } from '@/components/ui/Eyebrow';
@@ -262,13 +262,7 @@ export default function DesignSystem() {
           <h2 id="ds-cards" className="font-display text-h2 font-semibold">
             Cards de segmento
           </h2>
-          <ul className="mt-8 grid gap-x-10 gap-y-12 border-t border-line pt-8 sm:grid-cols-2 lg:grid-cols-4">
-            {segmentos.map((s) => (
-              <li key={s.id}>
-                <SegmentCard segmento={s} />
-              </li>
-            ))}
-          </ul>
+          <TrilhaSegmentos segmentos={segmentos} className="mt-8" />
           <h2 className="mt-16 font-display text-h2 font-semibold">Passos numerados</h2>
           <div className="mt-8">
             <Steps passos={passosMatricula} />

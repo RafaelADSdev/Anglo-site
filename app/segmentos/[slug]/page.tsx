@@ -7,7 +7,6 @@ import { hrefAgendar } from '@/content/navegacao';
 import { paginas } from '@/content/paginas';
 import { projetos } from '@/content/projetos';
 import { doSegmento, hrefSegmento, segmentoPorSlug, segmentos, type Segmento } from '@/content/segmentos';
-import { tabelaSeries } from '@/content/series';
 import { cn } from '@/lib/cn';
 import { metadadosDaPagina } from '@/lib/metadata';
 import { confirmado, isPendente } from '@/lib/pending';
@@ -46,23 +45,16 @@ export async function generateMetadata({ params }: PageProps<'/segmentos/[slug]'
 }
 
 /** As séries do segmento numa régua na tinta do segmento: a sequência que a criança percorre. */
-function ReguaSeries({ segmento, mostrarTabela }: { segmento: Segmento; mostrarTabela: boolean }) {
+function ReguaSeries({ segmento }: { segmento: Segmento }) {
   const series = confirmado(segmento.pagina.series);
   const tons = tonsSegmento[segmento.id];
   if (!series && !siteConfig.emHomologacao) return null;
 
   return (
     <div className="mt-[clamp(2.75rem,2rem+2.5vw,4.5rem)]">
-      <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-2">
-        <p id="series-rotulo" className="text-eyebrow font-extrabold tracking-[0.12em] text-ink uppercase">
-          {r.series}
-        </p>
-        {mostrarTabela ? (
-          <ArrowLink href="/segmentos#series" className="text-small">
-            {r.serieNascimento}
-          </ArrowLink>
-        ) : null}
-      </div>
+      <p id="series-rotulo" className="text-eyebrow font-extrabold tracking-[0.12em] text-ink uppercase">
+        {r.series}
+      </p>
       {series ? (
         <ol aria-labelledby="series-rotulo" className={cn('mt-3 flex border-t-2', tons.linha)}>
           {series.map((serie) => (
@@ -94,7 +86,6 @@ export default async function SegmentoPage({ params }: PageProps<'/segmentos/[sl
 
   const pg = s.pagina;
   const tons = tonsSegmento[s.id];
-  const mostrarTabela = siteConfig.emHomologacao || tabelaSeries.validadaPelaSecretaria;
   const temFotos = fotosVisiveis(pg.fotos).length > 0;
 
   // Projetos do segmento: só com a relação confirmada pela escola. Em homologação, os cinco, com o aviso.
@@ -218,7 +209,7 @@ export default async function SegmentoPage({ params }: PageProps<'/segmentos/[sl
         }
         microcopy={home.hero.microcopy}
       >
-        <ReguaSeries segmento={s} mostrarTabela={mostrarTabela} />
+        <ReguaSeries segmento={s} />
       </PageHero>
 
       {secoes.map((secao, i) => (

@@ -1,3 +1,4 @@
+import { eventos } from '@/content/eventos';
 import { home } from '@/content/home';
 import { hrefAgendar } from '@/content/navegacao';
 import { paginas } from '@/content/paginas';
@@ -8,7 +9,7 @@ import { confirmado, isPendente } from '@/lib/pending';
 import { tomAlternado, type TomClaro } from '@/lib/tons';
 import { linkWhatsApp, mensagens } from '@/lib/whatsapp';
 import { siteConfig } from '@/site.config';
-import { CtaVisita } from '@/components/blocks/CtaVisita';
+import { CarrosselEventos } from '@/components/blocks/CarrosselEventos';
 import { fotosVisiveis } from '@/components/blocks/Galeria';
 import { PageHero } from '@/components/layout/PageHero';
 import { ArrowLink, ButtonLink } from '@/components/ui/Button';
@@ -43,6 +44,10 @@ function ProjetoSection({ projeto: pr, tom, invertido }: { projeto: Projeto; tom
             comFoto && invertido && 'lg:col-start-8',
           )}
         >
+          {/* O ícone do tema abre o bloco: cada projeto ganha um sinal próprio, sem cor nova. */}
+          <span className="mb-6 grid size-14 place-items-center rounded-full bg-brand-blue text-white">
+            <Icon name={pr.icone} size={26} />
+          </span>
           <SectionHead eyebrow={pr.tema} titulo={pr.nome} intro={pr.resumo} id={`${pr.id}-titulo`} />
           {mostrarSegmentos ? (
             <div className="mt-6 flex flex-wrap items-center gap-2">
@@ -93,6 +98,7 @@ export default function ProjetosPage() {
   return (
     <>
       <PageHero
+        caderno
         migalhas={[{ rotulo: 'Projetos', href: '/projetos' }]}
         eyebrow={p.eyebrow}
         titulo={p.titulo}
@@ -116,8 +122,11 @@ export default function ProjetosPage() {
               <li key={pr.id}>
                 <a
                   href={`#${pr.id}`}
-                  className="group inline-flex min-h-11 items-center gap-2 rounded-full bg-surface px-4 text-small font-bold text-ink ring-1 ring-line transition-shadow duration-150 hover:ring-ink"
+                  className="group inline-flex min-h-11 items-center gap-2 rounded-full bg-surface pr-4 pl-1.5 text-small font-bold text-ink ring-1 ring-line transition-shadow duration-150 hover:ring-ink"
                 >
+                  <span className="grid size-8 place-items-center rounded-full bg-medio-soft text-brand-blue">
+                    <Icon name={pr.icone} size={16} />
+                  </span>
                   {pr.nome}
                   <Icon
                     name="arrow-down"
@@ -126,6 +135,18 @@ export default function ProjetosPage() {
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href="#eventos"
+                className="group inline-flex min-h-11 items-center gap-2 rounded-full bg-ink px-4 text-small font-bold text-white transition-colors duration-150 hover:bg-brand-blue"
+              >
+                {p.eventos.indice}
+                <Icon
+                  name="arrow-down"
+                  className="text-brand-yellow transition-transform duration-150 group-hover:translate-y-[3px] motion-reduce:transition-none"
+                />
+              </a>
+            </li>
           </ul>
         </nav>
       </PageHero>
@@ -134,7 +155,25 @@ export default function ProjetosPage() {
         <ProjetoSection key={pr.id} projeto={pr} tom={tomAlternado(i)} invertido={i % 2 === 1} />
       ))}
 
-      <CtaVisita origem="cta-projetos" tom={tomAlternado(projetos.length)} />
+      {/* Eventos: a seção em tinta fecha a página antes da visita, com o carrossel. */}
+      <Section id="eventos" tom="tinta" labelledBy="eventos-titulo" className="overflow-hidden">
+        <div className="wrap">
+          <CarrosselEventos
+            eventos={eventos}
+            rotulo="Eventos da escola"
+            cabeca={
+              <SectionHead
+                eyebrow={p.eventos.eyebrow}
+                titulo={p.eventos.titulo}
+                destaque={p.eventos.destaque}
+                intro={p.eventos.intro}
+                id="eventos-titulo"
+                tom="escuro"
+              />
+            }
+          />
+        </div>
+      </Section>
     </>
   );
 }

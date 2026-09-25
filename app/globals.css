@@ -44,6 +44,8 @@
   --color-whatsapp: #128c7e;
   --color-whatsapp-ink: #075e54;
   --color-whatsapp-ink-hover: #05473f;
+  /* Balão da mensagem pronta (tinta sobre ele: 14,6:1) */
+  --color-whatsapp-soft: #dcf2ec;
   --color-error: #b3241f;
   --color-success: #21763c;
 
@@ -117,6 +119,27 @@
     var(--color-brand-yellow) 50% 75%,
     var(--color-brand-red) 75% 100%
   );
+}
+
+/*
+ * Papel de caderno: quadriculado de 28 px em azul Anglo a 7%. É o "papel" da
+ * marca ganhando textura — no topo da Home e no espaço de foto que ainda não chegou.
+ */
+@utility caderno {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--color-brand-blue) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-brand-blue) 7%, transparent) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: -1px -1px;
+}
+
+/* Sobre a tinta, o quadriculado vira branco a 6% */
+@utility caderno-escuro {
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: -1px -1px;
 }
 
 /* Campo de formulário (input e select): borda com 3,7:1 sobre o papel, 48 px de altura */
@@ -224,6 +247,46 @@
     .reveal {
       opacity: 1 !important;
       translate: none !important;
+    }
+  }
+
+  /*
+   * FAQ (components/blocks/FAQ.tsx): a resposta abre deslizando a altura
+   * (::details-content + interpolate-size, 300 ms) e o conteúdo entra com
+   * opacidade e 6 px de descida; os itens da lista de documentos entram em
+   * sequência, 40 ms cada. Navegador sem ::details-content abre sem animar.
+   */
+  @media (prefers-reduced-motion: no-preference) {
+    .faq-item {
+      interpolate-size: allow-keywords;
+    }
+
+    .faq-item::details-content {
+      block-size: 0;
+      overflow-y: clip;
+      transition:
+        block-size 0.3s var(--ease-out-soft),
+        content-visibility 0.3s allow-discrete;
+    }
+
+    .faq-item[open]::details-content {
+      block-size: auto;
+    }
+
+    .faq-item[open] .faq-resposta {
+      animation: faq-entra 0.35s var(--ease-out-soft) both;
+    }
+
+    .faq-item[open] .faq-sequencia {
+      animation: faq-entra 0.35s var(--ease-out-soft) both;
+      animation-delay: calc(80ms + var(--i, 0) * 40ms);
+    }
+  }
+
+  @keyframes faq-entra {
+    from {
+      opacity: 0;
+      translate: 0 -6px;
     }
   }
 

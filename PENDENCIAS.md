@@ -34,10 +34,10 @@ Atualizado em 24/09/2026 (livros didáticos da SOMOS Educação).
 
 ## Segmentos e rotina
 
-- [ ] **Tabela ano de nascimento → série 2027** (secretaria), com a nomenclatura oficial das turmas da Educação Infantil (o banner atual diz "Infantil I ao Ensino Médio"). Enquanto não for validada, o "Encontre a série" (Home) e a tabela "Data de nascimento e série" (/segmentos#series) só aparecem em homologação (`validadaPelaSecretaria` em `content/series.ts`). A bio do Instagram diz "Ed Infantil 1 ao Ens Médio", o que apoia "Infantil I" para 1 ano.
+- [ ] **Tabela ano de nascimento → série 2027** (secretaria), com a nomenclatura oficial das turmas da Educação Infantil (o banner atual diz "Infantil I ao Ensino Médio"). Enquanto não for validada, o "Encontre a série" (Home) só aparece em homologação (a tabela "Data de nascimento e série" de /segmentos saiu em 25/09/2026, a pedido) (`validadaPelaSecretaria` em `content/series.ts`). A bio do Instagram diz "Ed Infantil 1 ao Ens Médio", o que apoia "Infantil I" para 1 ano.
 - [ ] Nomes oficiais das turmas da Educação Infantil: sem eles, a régua "Séries" do topo de /segmentos/educacao-infantil não aparece em produção.
 - [ ] Regra para quem completa 1 ano ao longo de 2027: pode entrar? Em qual turma?
-- [ ] Turnos e período integral, por segmento.
+- [ ] Turnos e período integral, por segmento. (Desde 25/09/2026, o FAQ responde encaminhando para a equipe de matrículas, sem citar turnos — trocar pela resposta real quando chegar. O mesmo vale para as perguntas de visita, alimentação e transporte, inclusão e matrícula no meio do ano, em `content/faq.ts`.)
 - [ ] Rotina de cada segmento (horários, atividades fixas) — bloco "No dia a dia" das 4 páginas de segmento (hoje, uma frase da base de conteúdo).
 - [ ] Alimentação.
 - [ ] Transporte.
@@ -54,8 +54,9 @@ Atualizado em 24/09/2026 (livros didáticos da SOMOS Educação).
 
 ## A escola
 
-- [ ] Anos de história da unidade e outras unidades da rede Anglo Líder (seção "História" de /a-escola — só em homologação até chegar o texto).
-- [ ] Inclusão: práticas, sala de AEE, acompanhamento de estudantes com deficiência (seção de /a-escola e pergunta do FAQ).
+- [ ] História da unidade: um parágrafo curto, nas palavras da escola, e o ano de fundação (seção "A unidade" de /a-escola; a ficha da unidade já aparece em produção só com os dados confirmados — `content/paginas.ts`, `escola.unidade`).
+- [ ] Outras unidades da rede Anglo Líder (linha "Rede Anglo Líder" da ficha).
+- [ ] Inclusão: como a escola acompanha estudantes com deficiência (práticas, AEE) e a confirmação de cada item citado em diretórios: elevador, rampas de acesso, sala de AEE (seção de /a-escola e pergunta do FAQ). Em produção, a seção só aparece com algum item ou texto confirmado; cada item entra sozinho (`escola.inclusao.itens`).
 
 ## Estrutura e acessibilidade
 
@@ -80,6 +81,7 @@ Atualizado em 24/09/2026 (livros didáticos da SOMOS Educação).
 
 ## Fotos
 
+- [ ] **Eventos** (carrossel no fim de /projetos, lista passada em 25/09/2026): FIC, Jogos Internos, Literatuando, Natal Sertanejo Solidário e Dia da Árvore. Para cada um: o que é (o FIC por extenso), quem participa, a época do ano e uma foto. As descrições no ar são provisórias, escritas a partir do nome a pedido do cliente (25/09/2026), com o marcador "texto provisório" em homologação — a do FIC é um palpite (apresentação de trabalhos) e precisa de atenção (`content/eventos.ts`, campo `provisorio`).
 - [ ] Fotos reais por ambiente, segmento e projeto. De estudantes, só com autorização de uso de imagem assinada pelos responsáveis. Cada espaço já tem a descrição do que a foto deve mostrar (placeholders em homologação): 3 por segmento (`content/segmentos.ts`), 1 por projeto (`content/projetos.ts`), 1 por ambiente (`content/estrutura.ts`). Em produção, galerias e cards mostram só fotos reais.
   - [x] Criatto Lab, recebida em 24/09/2026 (`public/fotos/criatto-lab.jpg`): Home, `/projetos#criatto-lab` e `/estrutura#criatto-lab`. O detalhe circular mostra estudantes; a autorização de uso de imagem segue pendente antes da produção.
   - [x] Ensino Médio, recebida em 24/09/2026 (`public/fotos/ensino-medio.jpg`): galeria de `/segmentos/ensino-medio`. A foto é de estudantes; a autorização de uso de imagem segue pendente antes da produção. O arquivo tem 275×243 px — fica nítida só em tela pequena até chegar uma versão maior.
@@ -88,7 +90,7 @@ Atualizado em 24/09/2026 (livros didáticos da SOMOS Educação).
 ## Plataformas, medição e dados
 
 - [ ] Links do bloco "Para famílias" (rodapé e /contato).
-- [ ] Acesso ao GTM-W9QMS4S2 para configurar consentimento (LGPD) e os eventos `whatsapp_click`, `cta_click`, `video_play`. O agendamento de visita é o `whatsapp_click` com `origem=agendar-matriculas` (sem formulário desde 2026-09-24, não há mais `generate_lead` nem Supabase/Resend).
+- [ ] Acesso ao GTM-W9QMS4S2 para configurar consentimento (LGPD) e os eventos `whatsapp_click`, `cta_click`, `video_play`. O agendamento de visita é o `whatsapp_click` com `origem` começando por `agendar-` (`agendar-matriculas` e os cards de fecho, como `agendar-visita` na Home) (sem formulário desde 2026-09-24, não há mais `generate_lead` nem Supabase/Resend).
 
 ## Política de privacidade (/privacidade)
 

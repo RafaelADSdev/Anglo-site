@@ -1,19 +1,19 @@
 import { Fragment } from 'react';
 import { ambientesProjetos, outrosAmbientes, type Ambiente } from '@/content/estrutura';
 import { home } from '@/content/home';
-import { hrefAgendar } from '@/content/navegacao';
 import { paginas } from '@/content/paginas';
 import { cn } from '@/lib/cn';
 import { metadadosDaPagina } from '@/lib/metadata';
 import { confirmado, isPendente } from '@/lib/pending';
 import { tomAlternado, type TomClaro } from '@/lib/tons';
+import { linkWhatsApp, mensagens } from '@/lib/whatsapp';
 import { siteConfig } from '@/site.config';
-import { CtaVisita } from '@/components/blocks/CtaVisita';
 import { fotosVisiveis } from '@/components/blocks/Galeria';
 import { temVideoInstitucional, VideoInstitucional } from '@/components/blocks/VideoInstitucional';
 import { PageHero } from '@/components/layout/PageHero';
 import { ArrowLink, ButtonLink } from '@/components/ui/Button';
 import { Figure } from '@/components/ui/Figure';
+import { Icon } from '@/components/ui/Icon';
 import { PendingBloco } from '@/components/ui/Pending';
 import { Section, SectionHead } from '@/components/ui/Section';
 
@@ -30,12 +30,13 @@ function AmbienteCard({ ambiente: a, tom, indice }: { ambiente: Ambiente; tom: T
   const texto = confirmado(a.texto);
   const comFoto = fotosVisiveis([{ descricao: a.foto, legenda: a.legenda, foto: a.imagem }]).length > 0;
   return (
-    <li id={a.id} className="reveal" style={{ '--i': indice } as React.CSSProperties}>
+    <li id={a.id} className="reveal flex h-full flex-col" style={{ '--i': indice } as React.CSSProperties}>
       {comFoto ? (
         <Figure
           foto={a.imagem}
           descricao={a.foto}
           legenda={a.legenda}
+          legendaDentro
           proporcao="aspect-[4/3]"
           fundoPlaceholder={tom === 'areia' ? 'claro' : 'areia'}
           sizes="(min-width: 1280px) 380px, (min-width: 768px) 33vw, 100vw"
@@ -46,7 +47,12 @@ function AmbienteCard({ ambiente: a, tom, indice }: { ambiente: Ambiente; tom: T
       {texto ? <p className="mt-2 max-w-[34em] text-ink-muted">{texto}</p> : null}
       {isPendente(a.texto) ? <PendingBloco className="mt-2">{a.texto.aConfirmar}</PendingBloco> : null}
       {a.href ? (
-        <ArrowLink href={a.href} className="mt-2" data-track="cta_click" data-track-origem="estrutura-ambiente">
+        <ArrowLink
+          href={a.href}
+          className="mt-auto self-start pt-5"
+          data-track="cta_click"
+          data-track-origem="estrutura-ambiente"
+        >
           Conhecer o projeto
           <span className="sr-only"> {a.nome}</span>
         </ArrowLink>
@@ -104,7 +110,6 @@ export default function EstruturaPage() {
           ),
         ]
       : []),
-    (tom) => <CtaVisita origem="cta-estrutura" tom={tom} />,
   ];
 
   return (
@@ -116,12 +121,16 @@ export default function EstruturaPage() {
         lead={e.lead}
         acoes={
           <ButtonLink
-            href={hrefAgendar()}
+            href={linkWhatsApp(mensagens.visita())}
+            externo
+            variante="whatsapp"
             className="w-full sm:w-auto"
-            data-track="cta_click"
+            icone={<Icon name="whatsapp" size={20} className="shrink-0" />}
+            data-track="whatsapp_click"
+            data-track-segmento="geral"
             data-track-origem="hero-estrutura"
           >
-            Agendar visita
+            WhatsApp
           </ButtonLink>
         }
         microcopy={home.hero.microcopy}

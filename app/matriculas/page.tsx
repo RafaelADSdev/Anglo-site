@@ -7,7 +7,6 @@ import { tomAlternado, type TomClaro } from '@/lib/tons';
 import { linkWhatsApp, mensagens } from '@/lib/whatsapp';
 import { siteConfig } from '@/site.config';
 import { AgendarWhatsApp } from '@/components/blocks/AgendarWhatsApp';
-import { CtaVisita } from '@/components/blocks/CtaVisita';
 import { FAQ } from '@/components/blocks/FAQ';
 import { ListaDocumentos } from '@/components/blocks/ListaDocumentos';
 import { Steps } from '@/components/blocks/Steps';
@@ -73,54 +72,46 @@ export default function MatriculasPage() {
           ),
         ]
       : []),
-    (tom) => (
-      <CtaVisita
-        origem="cta-matriculas"
-        tom={tom}
-        agendar={{ href: '#agendar', rotulo: 'Agendar visita', seta: 'cima' }}
-      />
-    ),
   ];
 
   return (
     <>
-      {/* Hero com o agendamento: título em largura total; abaixo, texto e WhatsApp (5) e o agendamento (7). */}
+      {/* Título com a introdução; abaixo, contato (5) e agendar visita (7) na mesma linha. */}
       <section aria-labelledby="pagina-titulo" className="pt-[clamp(0.25rem,0.1rem+0.8vw,1rem)] pb-(--section-y)">
         <div className="wrap">
           <Breadcrumbs itens={[{ rotulo: 'Matrículas', href: '/matriculas' }]} />
-          <div className="mt-[clamp(1rem,0.6rem+1.5vw,2rem)] grid gap-y-[clamp(2.5rem,2rem+1.5vw,3rem)] lg:grid-cols-12 lg:gap-x-8">
-            <div className="lg:col-span-12">
-              <Eyebrow>{m.eyebrow}</Eyebrow>
-              <Heading
-                as="h1"
-                id="pagina-titulo"
-                titulo={m.titulo}
-                destaque={m.destaque}
-                tamanho="display"
-                className="mt-5"
-              />
-            </div>
+          <div className="mt-[clamp(1rem,0.6rem+1.5vw,2rem)]">
+            <Eyebrow>{m.eyebrow}</Eyebrow>
+            <Heading
+              as="h1"
+              id="pagina-titulo"
+              titulo={m.titulo}
+              destaque={m.destaque}
+              tamanho="display"
+              className="mt-5"
+            />
+            <p className="mt-6 max-w-[36em] text-lead text-ink-muted">{m.lead}</p>
+          </div>
 
-            <div className="lg:col-span-5">
-              <p className="max-w-[33em] text-lead text-ink-muted">{m.lead}</p>
-              <div data-fab-oculta className="mt-8 border-t border-line pt-7">
-                <p className="font-bold text-ink">{m.conversa}</p>
-                <ButtonLink
-                  href={linkWhatsApp(mensagens.padrao())}
-                  externo
-                  variante="contorno"
-                  className="mt-4"
-                  icone={<Icon name="whatsapp" size={20} className="text-whatsapp-ink" />}
-                  data-track="whatsapp_click"
-                  data-track-segmento="geral"
-                  data-track-origem="hero-matriculas"
-                >
-                  Falar no WhatsApp
-                </ButtonLink>
-                <p className="mt-3 text-small text-ink-muted">
-                  {siteConfig.contato.whatsapp.exibicao} · {siteConfig.contato.horarioCurto}
-                </p>
-              </div>
+          <div className="mt-12 grid gap-y-12 lg:mt-16 lg:grid-cols-12 lg:items-start lg:gap-x-8">
+            <div data-fab-oculta className="lg:col-span-5">
+              <Eyebrow>{m.contato.eyebrow}</Eyebrow>
+              <h2 className="mt-4 font-display text-h3 font-semibold text-ink">{m.contato.titulo}</h2>
+              <ButtonLink
+                href={linkWhatsApp(mensagens.padrao())}
+                externo
+                variante="contorno"
+                className="mt-6"
+                icone={<Icon name="whatsapp" size={20} className="text-whatsapp-ink" />}
+                data-track="whatsapp_click"
+                data-track-segmento="geral"
+                data-track-origem="hero-matriculas"
+              >
+                Falar no WhatsApp
+              </ButtonLink>
+              <p className="mt-3 text-small text-ink-muted">
+                {siteConfig.contato.whatsapp.exibicao} · {siteConfig.contato.horarioCurto}
+              </p>
             </div>
 
             <div id="agendar" data-fab-oculta className="lg:col-span-7">

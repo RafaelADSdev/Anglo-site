@@ -1,12 +1,12 @@
 import { home } from '@/content/home';
-import { hrefAgendar } from '@/content/navegacao';
 import type { Segmento } from '@/content/segmentos';
 import { cn } from '@/lib/cn';
 import { confirmado } from '@/lib/pending';
 import { linkWhatsApp, mensagens } from '@/lib/whatsapp';
 import { siteConfig } from '@/site.config';
-import { ButtonLink, type Seta } from '@/components/ui/Button';
+import { ButtonLink } from '@/components/ui/Button';
 import { Icon } from '@/components/ui/Icon';
+import { Pinceladas } from '@/components/ui/Pinceladas';
 import { Section, SectionHead, type Tom } from '@/components/ui/Section';
 import { MapCard } from './MapCard';
 
@@ -16,17 +16,18 @@ type Props = {
   tom?: Extract<Tom, 'papel' | 'areia'>;
   /** Página de segmento: o WhatsApp fala dele. */
   segmento?: Segmento;
-  /** Na própria página de Matrículas, o botão volta ao agendamento. */
-  agendar?: { href: string; rotulo: string; seta: Seta };
   /** Mapa e horário ao lado do card (padrão). Sem eles, o card ocupa a largura toda. */
   comMapa?: boolean;
 };
 
 /**
  * O fecho de toda página (composição da Home, invertida: card do CTA 7 · mapa 5).
- * O card é um dos três contêineres de ação com o friso no topo.
+ * "Agendar visita" abre o WhatsApp direto, com a mensagem de agendamento já escrita;
+ * "Falar no WhatsApp" continua com a mensagem da página (ou do segmento).
+ * O card é um dos contêineres de ação com o friso no topo; ao lado do mapa, as
+ * pinceladas do logo fecham a página no canto do card, como abriram o hero.
  */
-export function CtaVisita({ origem, tom = 'papel', segmento, agendar, comMapa = true }: Props) {
+export function CtaVisita({ origem, tom = 'papel', segmento, comMapa = true }: Props) {
   const v = home.visita;
   const endereco = siteConfig.contato.endereco;
   const mapa = confirmado(siteConfig.contato.mapa);
@@ -43,6 +44,9 @@ export function CtaVisita({ origem, tom = 'papel', segmento, agendar, comMapa = 
             comMapa ? 'lg:col-span-7' : 'lg:grid lg:grid-cols-12 lg:items-end lg:gap-8',
           )}
         >
+          {comMapa ? (
+            <Pinceladas className="absolute right-6 -bottom-px hidden w-28 sm:block lg:right-10 lg:w-36" />
+          ) : null}
           <SectionHead
             eyebrow={v.eyebrow}
             titulo={v.titulo}
@@ -53,13 +57,14 @@ export function CtaVisita({ origem, tom = 'papel', segmento, agendar, comMapa = 
           <div className={comMapa ? undefined : 'lg:col-span-5'}>
             <div className={cn('mt-8 flex flex-wrap gap-3', !comMapa && 'lg:mt-0')}>
               <ButtonLink
-                href={agendar?.href ?? hrefAgendar()}
-                seta={agendar?.seta}
-                data-track="cta_click"
-                data-track-origem={origem}
-                data-track-segmento={segmento?.id}
+                href={linkWhatsApp(mensagens.visita())}
+                externo
+                icone={<Icon name="whatsapp" size={20} className="shrink-0" />}
+                data-track="whatsapp_click"
+                data-track-origem={`agendar-${origem}`}
+                data-track-segmento={segmento?.id ?? 'geral'}
               >
-                {agendar?.rotulo ?? v.cta}
+                {v.cta}
               </ButtonLink>
               <ButtonLink
                 href={linkWhatsApp(mensagem)}

@@ -1,5 +1,5 @@
 import { documentosMatricula, type GrupoDocumentos } from '@/content/matricula';
-import { aConfirmar, isPendente, type Talvez } from '@/lib/pending';
+import { isPendente, type Talvez } from '@/lib/pending';
 import { siteConfig } from '@/site.config';
 
 /** Dúvidas frequentes. Em produção, só aparecem perguntas com resposta validada pela escola. */
@@ -19,11 +19,13 @@ const todas = {
   },
   turnos: {
     pergunta: 'Quais turnos a escola oferece? Tem período integral?',
-    resposta: aConfirmar('turnos e período integral por segmento'),
+    resposta:
+      'A equipe de matrículas informa os turnos de cada segmento e se há período integral para a série da criança. Pergunte pelo WhatsApp ou na visita.',
   },
   visita: {
     pergunta: 'Como funciona a visita?',
-    resposta: aConfirmar('formato e duração da visita'),
+    resposta:
+      'Você agenda pelo WhatsApp e combina o dia com a equipe. Na visita guiada, você conhece os espaços da escola e tira as dúvidas sobre a série da criança. Sem compromisso.',
   },
   documentos: {
     pergunta: 'Quais documentos preciso para a matrícula?',
@@ -33,7 +35,7 @@ const todas = {
   },
   'alimentacao-transporte': {
     pergunta: 'A escola oferece alimentação e transporte?',
-    resposta: aConfirmar('alimentação e transporte'),
+    resposta: 'Essas informações são passadas pela equipe de matrículas, na visita ou pelo WhatsApp.',
   },
   valores: {
     pergunta: 'Como os valores são informados?',
@@ -49,11 +51,13 @@ const todas = {
   },
   inclusao: {
     pergunta: 'Como a escola acompanha estudantes com deficiência?',
-    resposta: aConfirmar('práticas de inclusão e sala de AEE'),
+    resposta:
+      'Quando o estudante tem deficiência ou alguma necessidade especial, o laudo médico entra nos documentos da matrícula. Para saber como a escola acompanha cada caso, converse com a equipe pelo WhatsApp antes da visita.',
   },
   transferencia: {
     pergunta: 'Dá para entrar no meio do ano?',
-    resposta: aConfirmar('matrícula e transferência ao longo do ano'),
+    resposta:
+      'Depende da série e das vagas. Fale com a equipe de matrículas pelo WhatsApp: ela confirma se há vaga. Quem vem de outra escola leva o histórico escolar ou a declaração de transferência.',
   },
 } satisfies Record<string, Omit<Duvida, 'id'>>;
 

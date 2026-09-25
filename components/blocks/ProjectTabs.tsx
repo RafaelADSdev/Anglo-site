@@ -13,7 +13,14 @@ import { SegmentTag } from '@/components/ui/SegmentTag';
  * Projetos em abas (padrão de abas da WAI-ARIA: setas, Home e End; nada troca
  * sozinho). No celular a lista vira uma fileira de chips com rolagem horizontal.
  */
-export function ProjectTabs({ projetos }: { projetos: readonly Projeto[] }) {
+export function ProjectTabs({
+  projetos,
+  fundoPlaceholder,
+}: {
+  projetos: readonly Projeto[];
+  /** Fundo do espaço de foto: 'claro' quando a seção é areia. */
+  fundoPlaceholder?: 'areia' | 'claro';
+}) {
   const [ativo, setAtivo] = useState(0);
   const abas = useRef<Array<HTMLButtonElement | null>>([]);
   const base = useId();
@@ -92,6 +99,7 @@ export function ProjectTabs({ projetos }: { projetos: readonly Projeto[] }) {
                 legenda={p.legenda}
                 proporcao="aspect-[4/3]"
                 rotuloProporcao="4:3"
+                fundoPlaceholder={fundoPlaceholder}
                 sizes="(min-width: 1024px) 380px, (min-width: 768px) 45vw, 100vw"
                 arredondamento="md"
               />

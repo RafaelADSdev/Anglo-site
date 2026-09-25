@@ -1,6 +1,6 @@
 ---
 name: Colégio Anglo Líder Tamarineira
-description: "Site institucional editorial, caloroso e confiante: papel quente, tinta azul-noite, azul Anglo como única cor de ação e o friso tricolor da gola do uniforme."
+description: "Site institucional editorial, caloroso e confiante: papel de caderno quente, tinta azul-noite, azul Anglo como única cor de ação, o friso tricolor da gola do uniforme e as pinceladas do logo."
 colors:
   brand-blue: "#00279b"
   brand-blue-hover: "#001a81"
@@ -29,6 +29,7 @@ colors:
   medio-ink: "#00279b"
   whatsapp: "#128c7e"
   whatsapp-ink: "#075e54"
+  whatsapp-soft: "#dcf2ec"
   error: "#b3241f"
   success: "#21763c"
 typography:
@@ -206,9 +207,9 @@ components:
     typography: "{typography.h2}"
     width: "42rem"
   segment-card:
-    backgroundColor: "{colors.surface}"
+    backgroundColor: "{colors.infantil-soft}"
     rounded: "{rounded.md}"
-    padding: "32px 24px 24px"
+    padding: "36px 24px 20px"
   series-finder:
     backgroundColor: "{colors.surface}"
     rounded: "{rounded.md}"
@@ -275,7 +276,7 @@ components:
 
 **Creative North Star: "Papel, tinta e a gola do uniforme"**
 
-O site é uma página editorial impressa em papel quente, escrita em tinta azul-noite e costurada por um único ornamento: o friso tricolor da gola do uniforme, azul, amarelo e vermelho em 2 : 1 : 1, a ordem das pinceladas do logo. Todo o resto é contido: uma cor de ação (o azul Anglo), uma sombra, quatro raios, duas famílias tipográficas. O caráter, na frase do briefing, é editorial, caloroso e confiante: acolhedor para uma família com criança de 1 ano, sério para quem se prepara para o vestibular.
+O site é uma página editorial impressa em papel quente, escrita em tinta azul-noite e costurada por dois ornamentos da marca: o friso tricolor da gola do uniforme, azul, amarelo e vermelho em 2 : 1 : 1, e as três pinceladas do logo, redesenhadas em traço seco. O papel tem textura de caderno quadriculado no topo da Home e no espaço de foto que ainda não chegou. Todo o resto é contido: uma cor de ação (o azul Anglo), uma sombra, quatro raios, duas famílias tipográficas. O caráter, na frase do briefing, é editorial, caloroso e confiante: acolhedor para uma família com criança de 1 ano, sério para quem se prepara para o vestibular.
 
 A identidade se organiza pela trajetória da criança, "do primeiro passo ao vestibular" (proposta aprovada em 23/09/2026). A paleta amadurece com ela: amarelo na Educação Infantil, vermelho no Fundamental 1, azul-claro no Fundamental 2, azul Anglo no Ensino Médio; do quente ao sério, só com as cores do logo. A densidade é de revista, não de portal: seções com 64 a 128 px de respiro, títulos grandes em Fraunces com a segunda batida em itálico, texto em Manrope num corpo de 17 a 18 px.
 
@@ -284,7 +285,8 @@ O movimento é discreto e tem gramática própria: 150 ms para hover e pressão,
 **Key Characteristics:**
 - Fundo off-white quente e texto azul-noite, nunca preto (fixado pelo briefing §6).
 - Azul Anglo como única cor de ação; o amarelo só age sobre o campo azul.
-- O friso tricolor da gola do uniforme como único ornamento, sempre em lugares fixos.
+- O friso tricolor da gola do uniforme e as pinceladas do logo como os dois ornamentos, sempre em lugares fixos; o quadriculado de caderno como a textura do papel.
+- Cor por região, não por pingos: os segmentos vestem o próprio suave, a Proposta é o campo azul e a Estrutura é uma seção em tinta (revisão de 25/09/2026, pedido de "menos branco, mais temático").
 - Fraunces nos títulos e Manrope no texto (fixados pelo briefing §6), a Fraunces numa instância fixa opsz 72 · SOFT 50.
 - Eyebrow com o traço do friso acima de todo título de seção; títulos em duas batidas quando há duas frases ou um arremate (fixado pelo briefing §5).
 - Plano por padrão: cards com borda de 1 px e uma única sombra para o que flutua.
@@ -329,6 +331,7 @@ As bases aparecem no traço de 32 × 2 px que abre cada coluna de segmento, na r
 - **WhatsApp** (#128c7e · `whatsapp`): só o botão flutuante, com ícone branco (4,1:1, acima dos 3:1 exigidos para objeto gráfico). É o verde-azulado oficial; o verde claro #25D366 dá 2:1 com branco e reprova.
 - **WhatsApp escuro** (#075e54 · `whatsapp-ink`): o ícone do WhatsApp dentro de botões de contorno e o fundo do botão "Agendar visita pelo WhatsApp" (branco sobre ele: 7,7:1).
 - **WhatsApp profundo** (#05473f · `whatsapp-ink-hover`): só o hover desse botão.
+- **WhatsApp suave** (#dcf2ec · `whatsapp-soft`): só o balão da mensagem pronta no painel "Primeiro passo" da Home (tinta sobre ele: 14,6:1).
 - **Erro** (#b3241f · `error`): borda e mensagem de campo inválido (6,2:1).
 - **Sucesso** (#21763c · `success`): reservado (5,3:1); era o círculo da confirmação do formulário, que saiu.
 
@@ -379,8 +382,9 @@ Celular primeiro (cada decisão é testada em 360 a 390 px antes do desktop), co
 - **Container** (`wrap`): conteúdo até 1200 px (`container`, 75rem), centralizado, com a margem lateral fluida `gutter` (16 → 40 px).
 - **Respiro de seção** (`section-y`, 64 → 128 px), em cima e embaixo, igual em todas as seções. Seções se separam por respiro e troca de fundo (papel, areia, azul), nunca por linha divisória.
 - **Grade:** 12 colunas a partir de `lg` (1024 px), com 32 px entre colunas; abaixo disso, uma coluna. Listas de cards: 2 por linha a partir de `sm` (640 px) e 4 a partir de `lg`, com 16 px de espaço; os três pilares da Proposta ficam lado a lado a partir de `md` (768 px). A proposta previa 8 colunas entre 768 e 1023 px; o código entregue empilha, e vale o código.
-- **A divisão 5 / 7:** a composição que se repete. Texto e CTAs (5) com a foto (7) no hero, título (5) com os campos (7) no "Encontre a série", cabeça (5) com o FAQ (7) em Dúvidas; invertida no fim (card do CTA 7, mapa 5). Nas páginas internas: texto e WhatsApp (5) com o agendamento (7) em Matrículas, cabeça fixa (5) com a tabela (7) nas séries, texto (5) com a foto (7) em cada projeto (o lado alterna), endereço (5) com o mapa (7) em Contato.
+- **A divisão 5 / 7:** a composição que se repete. Texto e CTAs (5) com a foto (7) no hero, título (5) com os campos (7) no "Encontre a série", cabeça (5) com o FAQ (7) em Dúvidas; invertida no fecho das páginas de segmento (card do CTA 7, mapa 5). Nas páginas internas: texto e WhatsApp (5) com o agendamento (7) em Matrículas, texto (5) com a foto (7) em cada projeto e em cada fase de /segmentos (o lado alterna), endereço (5) com o mapa (7) em Contato.
 - **Alternância de fundo:** depois do topo, papel e areia se alternam (`tomAlternado`, `lib/tons.ts`); quando um bloco sai em produção por falta de dado, a alternância se refaz e duas seções vizinhas nunca repetem o fundo.
+- **Sequência da Home:** topo em papel de caderno → Segmentos (papel, com os painéis coloridos) → Proposta (azul) → Projetos (areia) → Estrutura (tinta) → Matrículas (papel) → Dúvidas (areia) → rodapé (tinta). A Estrutura é a única seção em tinta fora do rodapé: o vídeo e as fotos ganham moldura escura, de sala de projeção.
 - **Cabeça de seção:** até 42rem de largura; eyebrow → título 16 px; título → introdução 20 px; cabeça → conteúdo 48 px.
 - **Primeiro viewport:** eyebrow e H1 em largura total; abaixo, a divisão 5 / 7 com a foto em 16:9 (4:3 no celular); o painel "Encontre a série" sobe 40 px (64 px no desktop) sobre a base da foto.
 - **Topo das páginas internas** (`PageHero`): trilha, eyebrow e H1 em Display. Sem mídia, título (7) e texto (5) dividem a linha, com o lead, os CTAs e a microcopy alinhados pela base do título; com mídia (o vídeo de Estrutura), vale a composição da Home. O pé do topo recebe o que orienta a página: a régua do percurso (A Escola), os cards de segmento (Segmentos), a régua de séries (página de segmento), o índice de projetos (Projetos).
@@ -405,13 +409,17 @@ Linhas de 1 px desenhadas com `box-shadow`, como a do cabeçalho em repouso (`0 
 Cantos moderados, numa escala de quatro:
 - **Suave, 8 px** (`rounded-sm`): campos, etiquetas de segmento, resultado do "Encontre a série", legenda sobre a foto, mensagem pronta do agendamento.
 - **Médio, 14 px** (`rounded-md`): cards, painéis, card do agendamento, vídeo, mapa e fotos menores.
-- **Amplo, 24 px** (`rounded-lg`): a foto do hero e o card do CTA final (o fecho de todas as páginas, menos Privacidade).
+- **Amplo, 24 px** (`rounded-lg`): a foto do hero e o card do CTA final (`CtaVisita`).
 - **Pílula** (`rounded-full`): botões, chips, botão flutuante e os botões de ícone redondos (menu, redes sociais, "+" do FAQ).
+
+**Papel de caderno** (`caderno`; `caderno-escuro` sobre a tinta): quadriculado de 28 px em azul Anglo a 7% (branco a 6% no escuro). Aparece em quatro lugares: o fundo do topo da Home, de /segmentos e de /projetos (`PageHero` com `caderno`), desfeito para baixo por máscara; a capa dos eventos sem foto; o espaço de foto ou vídeo que ainda não chegou; o fundo da "tela" onde o balão da mensagem pronta aparece. Nunca atrás de texto corrido longo.
 
 Micro-raios pertencem a dois elementos só: 2 px no traço do friso e 4 px no marcador "A confirmar:". Bordas: 1 px em `line` para cards e divisórias (desenhadas por dentro quando o elemento tem fundo); 1 px em `field` para campos; 1,5 px em tinta no botão de contorno. Não há forma recortada, diagonal ou orgânica: a geometria de assinatura é a faixa reta.
 
 ### Named Rules
-**A Regra do Friso.** O friso é uma faixa reta azul · amarelo · vermelho em 2 : 1 : 1, com cortes secos, sem degradê (`stripe`). Aparece só em lugares fixos: 4 px no topo do cabeçalho, do rodapé e do menu do celular; 4 px no topo dos três contêineres de ação (painel "Encontre a série", card do agendamento pelo WhatsApp, card do CTA final); o traço de 24 × 3 px antes de cada eyebrow; o mesmo traço marcando a aba ativa dos projetos no desktop. Sobre o azul Anglo, o terço azul vira branco (`stripe-invert`). Nunca como decoração solta.
+**A Regra do Friso.** O friso é uma faixa reta azul · amarelo · vermelho em 2 : 1 : 1, com cortes secos, sem degradê (`stripe`). Aparece só em lugares fixos: 4 px no topo do cabeçalho, do rodapé e do menu do celular; 4 px no topo dos contêineres de ação (painel "Encontre a série", card do agendamento pelo WhatsApp, painel "Primeiro passo" de Matrículas na Home, card do CTA final); o traço de 24 × 3 px antes de cada eyebrow; o mesmo traço marcando a aba ativa dos projetos no desktop. Sobre o azul Anglo, o terço azul vira branco (`stripe-invert`). Nunca como decoração solta.
+
+**A Regra das Pinceladas.** As três pinceladas do logo (`Pinceladas`, SVG com máscara de cerdas: azul em degradê `brand-sky` → `brand-blue`, amarelo, vermelho) são o segundo ornamento e têm três lugares, sempre decorativos (`aria-hidden`) e nunca atrás de texto: saindo de trás da foto do hero, no canto vazio ao lado do título; subindo da base do campo azul da Proposta, alinhadas à margem do conteúdo (a azul vira branca, como no `stripe-invert`); no canto de baixo do card do CTA final, quando ele divide a linha com o mapa (some abaixo de 640 px). Nunca girar, recolorir ou mudar a ordem.
 
 ## Components
 
@@ -419,7 +427,7 @@ Micro-raios pertencem a dois elementos só: 2 px no traço do friso e 4 px no ma
 Pílulas firmes, em negrito, com a seta que diz o destino.
 - **Shape:** pílula (`rounded-full`); Manrope 700; ícone, texto e seta separados por 10 px.
 - **Tamanhos:** padrão com 48 px de altura, 24 px de padding lateral e texto de 16 px; compacto (`sm`) com 44 px, 18 px e 15 px, usado no cabeçalho.
-- **Primário** (`primario`): azul Anglo, texto branco; hover em azul Anglo profundo.
+- **Primário** (`primario`): azul Anglo, texto branco; hover em azul Anglo profundo. No card de fecho (`CtaVisita`), o "Agendar visita" é primário com o ícone do WhatsApp em branco e a seta ↗: abre o WhatsApp direto com `mensagens.visita` (desde 25/09/2026). O "Falar no WhatsApp" ao lado segue de contorno.
 - **Amarelo** (`amarelo`): amarelo, texto em tinta; hover em branco. Só sobre o campo azul.
 - **Contorno** (`contorno`): sem fundo, texto em tinta, borda interna de 1,5 px em tinta; hover em areia. É o par do primário para o WhatsApp, com o ícone em `whatsapp-ink`.
 - **WhatsApp** (`whatsapp`): fundo `whatsapp-ink`, texto e ícone brancos; hover em `whatsapp-ink-hover`. Só o "Agendar visita pelo WhatsApp", que abre a conversa com a mensagem de agendamento já escrita; o "Falar no WhatsApp" continua de contorno.
@@ -427,7 +435,7 @@ Pílulas firmes, em negrito, com a seta que diz o destino.
 - **Hover / Focus:** cor em 150 ms; a seta anda 3 px na direção do destino (→ para a direita, ↓ para baixo, ↗ 2 px na diagonal), também em 150 ms. Foco: anel de 2 px em azul Anglo com 3 px de respiro; em seções azuis ou de tinta, amarelo.
 - **Microcopy de confiança** (fixada pelo briefing §5): logo abaixo do CTA principal, uma linha em Small `ink-muted`, com os itens separados por " · ", como "Visita guiada · sem compromisso · seg. a sex., 8h às 17h".
 
-**A Regra da Seta de Destino.** Fixada pelo briefing (§5). → leva a uma ação no site; ↓ desce na mesma página; ↑ volta para cima na mesma página (o "Agendar visita" do fecho de Matrículas, que sobe até o agendamento); ↗ sai do site, abre em nova aba e leva "(abre em nova aba)" para leitor de tela. As setas são ícones SVG (`components/ui/Icon.tsx`: 24 × 24, traço de 2 px, pontas arredondadas), nunca caracteres, porque a Fraunces não tem → nem ↗ no subconjunto latino. Botão sem seta só onde falta espaço (o "Agendar" compacto do cabeçalho no celular).
+**A Regra da Seta de Destino.** Fixada pelo briefing (§5). → leva a uma ação no site; ↓ desce na mesma página; ↑ volta para cima na mesma página (disponível no `Button`, sem uso hoje); ↗ sai do site, abre em nova aba e leva "(abre em nova aba)" para leitor de tela. As setas são ícones SVG (`components/ui/Icon.tsx`: 24 × 24, traço de 2 px, pontas arredondadas), nunca caracteres, porque a Fraunces não tem → nem ↗ no subconjunto latino. Botão sem seta só onde falta espaço (o "Agendar" compacto do cabeçalho no celular).
 
 ### Chips
 - **Etiqueta de segmento** (`SegmentTag`): 32 px de altura, cantos de 8 px, 12 px de padding lateral; fundo suave e texto em tinta do segmento, em Tag; ponto de 10 px na cor-base, com contorno de 1 px em tinta a 15%; sempre o nome do segmento escrito. Perde o fundo quando já está sobre o fundo suave do próprio segmento.
@@ -440,7 +448,8 @@ Pílulas firmes, em negrito, com a seta que diz o destino.
 - **Shadow Strategy:** planos, com borda de 1 px em `line`; só o painel "Encontre a série" tem sombra em repouso (ver Elevation & Depth).
 - **Border:** 1 px em `line`; os contêineres de ação ganham o friso de 4 px no topo (ver A Regra do Friso).
 - **Internal Padding:** 20 a 24 px no celular, 28 a 48 px no desktop. Card de segmento 24 px (32 no topo) → 28 px (36); card do agendamento 24 → 32 px; painel do "Encontre a série" 20 → 36 px (28 → 40 no topo); card do CTA final 28 → 40 → 48 px.
-- **Segmento** (`SegmentCard`): coluna de texto sobre o papel, sem caixa. Um traço de 32 × 2 px na cor-base abre a coluna (lado a lado, os quatro traços ainda formam a sequência da paleta); faixa etária em Tag, na tinta do segmento; nome em Fraunces 600; uma frase em Small `ink-muted`; o link "Conhecer →", com a seta na tinta do segmento. A coluna inteira é clicável. A seta anda 3 px no hover.
+- **Segmento** (`SegmentCard` dentro de `TrilhaSegmentos`): painel no suave do segmento, aberto por uma faixa de 6 px na cor-base. Os quatro painéis ficam colados, sem espaço, num bloco de cantos de 14 px: as faixas formam uma régua só (amarelo → vermelho → azul-claro → azul Anglo), e a lista se lê como um caminho, não como quatro cartões. Faixa etária em Tag, na tinta do segmento; nome em Fraunces 600 (28 → 32 px); uma frase em Small `ink-muted` (5,4:1 ou mais sobre os suaves); o link "Conhecer →" no pé do painel (`mt-auto`), alinhado entre as fases. O painel inteiro é clicável; no hover a faixa engrossa para 10 px e a seta anda 3 px. Usado na Home e em /segmentos.
+- **Primeiro passo** (Home, Matrículas, 5 colunas ao lado dos passos): contêiner de ação em superfície com o friso; mostra a mensagem de agendamento (`mensagens.visita`) num balão `whatsapp-soft` sobre o papel de caderno, com o CTA "Agendar visita →" e a microcopy logo abaixo.
 
 ### Inputs / Fields
 - **Style** (`campo`): 48 px de altura mínima, 14 px de padding lateral, borda de 1 px em `field`, cantos de 8 px, fundo superfície, texto em tinta de 16 px em 500. Rótulo acima, em Label, a 6 px.
@@ -469,7 +478,7 @@ Lista lida de cima para baixo, com no máximo 40 rem de largura. Linha `line` ac
 **A Regra do Processo Real.** Fixada pelo briefing (§5 e §8). Numeração 01, 02, 03… só em sequência real: os passos da matrícula (01 a 04) e os três pilares da Proposta, que o briefing numera explicitamente (sobre o azul, numerais em amarelo). Fora disso, número grande em destaque só com dado real e fonte.
 
 ### FAQ
-`<details>` nativo, que abre pelo teclado sem JavaScript. Pergunta em Manrope 700, em tinta, em linhas de 64 px separadas por `line`; à direita, um círculo de 32 px em `medio-soft` com "+" azul, que gira 45° ao abrir (250 ms). Resposta em `ink-muted`, até 60ch.
+`<details>` nativo, que abre pelo teclado sem JavaScript. Pergunta em Manrope 700, em tinta, em linhas de 64 px separadas por `line`; à direita, um círculo de 32 px em `medio-soft` com "+" azul, que gira 45° ao abrir e vira azul Anglo cheio com o "×" branco (250 ms). Resposta em `ink-muted`, até 60ch. A abertura é animada só em CSS (`.faq-item`): a altura desliza em 300 ms (`::details-content` com `interpolate-size`), a resposta entra com opacidade e 6 px de descida, e as linhas da lista de documentos ("Quais documentos preciso para a matrícula?") entram em sequência, 40 ms cada. Sem suporte a `::details-content`, abre sem animar; com movimento reduzido, também. Dentro do FAQ, nada usa `.reveal`: num `<details>` fechado a revelação ao rolar não dispara e o conteúdo ficaria invisível.
 
 ### Botão flutuante do WhatsApp
 Círculo de 56 px em `whatsapp`, ícone branco de 28 px, sombra de flutuação, a 16 px do canto (respeitando a área segura). Nunca cobre conteúdo: some (opacidade 0, 12 px abaixo, sem clique) enquanto algum elemento marcado com `data-fab-oculta` está na tela (os CTAs do hero, o card do CTA final, o agendamento, o rodapé) e enquanto um campo está em foco; transição de 250 ms. A mensagem pré-preenchida muda com a página.
@@ -480,14 +489,25 @@ Círculo de 56 px em `whatsapp`, ícone branco de 28 px, sombra de flutuação, 
 ### Régua do percurso e régua de séries
 Duas réguas da mesma família. A do percurso (`Percurso`) põe os quatro segmentos lado a lado, cada um sob a faixa de 8 px na cor-base (a paleta que amadurece numa linha só), com a faixa etária em Tag na tinta e o nome em Fraunces 600 com a seta; na página de segmento, marca "Você está aqui" no próprio segmento, sem link. A de séries mostra as séries do segmento como pontos de 12 px sobre uma linha de 2 px, ambos na tinta do segmento, com o rótulo em Small 700 embaixo; sem os nomes das turmas (Educação Infantil), vira uma linha tracejada com o marcador "A confirmar:".
 
-### Tabela de séries
-Tabela em superfície com borda `line` e cantos de 14 px: cabeçalho em areia, em Eyebrow; um grupo por segmento, aberto pela etiqueta do segmento; data de nascimento em Small 500 `ink-muted` com algarismos tabulares, série em tinta 700. Provisória: mesma regra do "Encontre a série".
+### Apresentação das fases (/segmentos)
+Desde 25/09/2026, a tabela de data de nascimento saiu de /segmentos (a série pela data continua só no "Encontre a série" da Home). A página tem o topo em papel de caderno com os quatro painéis como índice (`TrilhaSegmentos` com `ancora`: "Ver a fase ↓" desce até o capítulo) e, abaixo, um capítulo por fase (`CapituloSegmento`), alternando areia e papel e o lado da foto:
+- Eyebrow com a posição na trajetória ("Primeira fase" … "Quarta fase": sequência real, a idade da criança); título em duas batidas da página do segmento, com a segunda na tinta da fase; lead em `ink-muted`.
+- "Séries" em pílulas de 36 px no suave da fase com texto na tinta dela (Educação Infantil: marcador pendente até os nomes das turmas).
+- "O que a criança vive" em H4 com o texto confirmado e o marcador do que falta; link com seta "Conhecer … →" para a página do segmento.
+- Foto em 4:3 (a real primeiro; senão, o espaço reservado) sobre uma placa no suave da fase, deslocada 12 → 20 px para baixo e para fora, do lado oposto ao texto. Em produção, sem foto real, o texto fica sozinho na linha.
+
+### Projetos e eventos (/projetos)
+- **Ícone do tema:** cada projeto tem um ícone de traço (`content/projetos.ts`, `icone`): Tecnologia → notebook, Protagonismo → lâmpada, Liderança → bandeira, Carreiras → maleta, Comunicação → microfone. Na seção do projeto, abre o bloco num círculo de 56 px em azul Anglo com o ícone branco; no índice do topo, num círculo de 32 px em `medio-soft` com o ícone azul, antes do nome. O índice termina no chip "Eventos ↓", em tinta com a seta amarela.
+- **Eventos** (`CarrosselEventos`, seção em tinta antes do fecho): cabeça em duas batidas com as setas redondas (44 px, contorno branco a 35%) à direita; abaixo, uma faixa com rolagem horizontal e scroll-snap. No desktop, ela sangra até a borda direita da tela, e o último evento para alinhado à margem do conteúdo. Carrossel manual (o briefing veta o automático): setas que andam um evento e se desligam nas pontas, arrastar, teclado (a faixa recebe foco); `prefers-reduced-motion` tira a rolagem suave. Cada evento tem uma capa quadrada de cantos de 14 px. Sem foto real, a capa é tipográfica: cor do logo em rodízio (azul, amarelo, azul-claro, vermelho), com o quadriculado, o ícone do evento em 56 px e o nome em Fraunces 600 de 28 → 34 px (branco; tinta no amarelo). Com foto, a imagem com um escurecimento na base. Abaixo da capa: a época do ano em Eyebrow amarelo e a descrição em Small `on-ink-muted`. O que falta fica com o marcador em homologação; em produção, só o nome.
+- **Amarelo sobre a tinta:** como no campo azul, a segunda batida, as setas e o foco ficam amarelos nas seções em tinta (Estrutura na Home, Eventos em /projetos).
 
 ### Galeria, lista de projetos e canais
 - **Galeria** (`Galeria`): até três fotos, a primeira em 16:10 na largura toda, as outras em 4:3 lado a lado; no celular, uma embaixo da outra. Em produção, só fotos reais: sem nenhuma, o bloco some e o texto ocupa a linha.
 - **Lista de projetos** (`ListaProjetos`): linhas separadas por `line`, nome em H3 (4 colunas) e resumo em `ink-muted` (7), seta azul à direita; a linha inteira é o link e o nome fica azul no hover. Sem numeração (A Regra do Processo Real).
-- **Card de canal** (Contato): superfície, borda `line`, cantos de 14 px; ícone num círculo de 44 px em areia, nome do canal em Eyebrow e o contato em Fraunces 600 de 22 px.
-- **Card do CTA final sem mapa** (`CtaVisita` com `comMapa={false}`, em Contato, onde o mapa já está na página): o card ocupa a largura toda e divide título (7) e ações (5), alinhados pela base.
+- **Ficha da unidade** (`FichaUnidade`, A Escola): card em superfície com borda `line`, rótulo "Ficha da unidade" em Eyebrow e uma `<dl>` em linhas separadas por `line`: rótulo em Small 700 `ink-muted` (coluna de 10,5 rem a partir de `sm`) e o dado em tinta 500. Linha pendente só em homologação, com o marcador; em produção, a ficha mostra só o confirmado. Fica nas 7 colunas, ao lado da cabeça da seção (5).
+- **Itens de acessibilidade** (`ItensAcessibilidade`, A Escola): linhas separadas por `line`, ícone de 22 px em azul Anglo num círculo de 44 px em `medio-soft`, nome em Fraunces 600 de 22 px, detalhe e texto em Small `ink-muted`. Cada item só entra em produção quando a escola confirma. Ao lado (5 colunas), abaixo da cabeça, o convite "Alguma necessidade específica?" com o botão de contorno "Perguntar no WhatsApp" (`mensagens.inclusao`).
+- **Card de canal** (Contato, no pé do topo da página, em papel de caderno): superfície, borda `line`, cantos de 14 px, padding de 20 → 24 px; ícone num círculo de 40 px (`whatsapp-soft` com ícone `whatsapp-ink` no WhatsApp; `medio-soft` com ícone azul nos outros) na mesma linha do nome do canal em Eyebrow; abaixo, o contato em Fraunces 600 de 22 px e uma linha de apoio em Small. Os cards são as ações do topo (sem botões ali) e escondem o WhatsApp flutuante enquanto estão na tela. Depois vem Endereço (texto 5 · mapa 7, centralizados, mapa em 16:11 no desktop).
+- **Card do CTA final** (`CtaVisita`, "Visite a escola" com mapa e horário): desde 25/09/2026 fecha só as quatro páginas de segmento, onde o "Falar no WhatsApp" leva a mensagem da fase e não há outro bloco de visita. Saiu da Home (a seção Matrículas já termina no "Agendar visita"), de Matrículas, Contato, Estrutura, A Escola, /segmentos e /projetos: essas páginas já têm o agendamento no topo, no cabeçalho e no botão flutuante, e o rodapé traz endereço e horário. Não voltar a pô-lo "no fim de toda página". A variante sem mapa (`comMapa={false}`) continua disponível, sem uso.
 
 ### Página de leitura
 Privacidade é modo leitura: índice "Nesta página" fixo à esquerda no desktop (3 colunas, links em Small `ink-muted`) e o texto em até 62ch, em tinta, com subtítulos em H3 e listas com marcador em `field`.
@@ -495,7 +515,7 @@ Privacidade é modo leitura: índice "Nesta página" fixo à esquerda no desktop
 ### Estados honestos
 **A Regra do Conteúdo Pendente.** Fixada pelo briefing (§5). Dado que depende da escola é declarado com `aConfirmar('o que falta')` (`lib/pending.ts`). Em homologação, aparece o marcador `Pending`: inline, fundo `infantil-soft`, cantos de 4 px, Caption 600 em tinta com "A confirmar:" em 800, e o fundo acompanha cada linha quando o texto quebra. Em produção, o marcador não renderiza e o bloco que depende do dado também não: pergunta sem resposta sai do FAQ, passo sem título sai e a numeração se refaz, o "Encontre a série" só aparece com a tabela validada, vídeo e mapa só com o dado confirmado. Em homologação, uma faixa `infantil-soft` no topo da página avisa "Ambiente de homologação".
 
-**A Regra da Foto Real.** Fixada pelo briefing (§5 e §6). Sem foto real, entra o placeholder, que é um estado do sistema e não um enfeite: caixa neutra na proporção final (areia sobre o papel, superfície sobre a areia; linha interna de 1 px em `line`; cantos de 24 ou 14 px) com "Foto real" em Eyebrow, a descrição do que a foto vai mostrar e "Proporção final …" em Small `ink-muted`, anunciada como "Espaço reservado para foto real: …". Foto real ganha a legenda "Fotografia real · {lugar}" em Caption 500 `ink-muted`, 12 px abaixo; quando algo sobrepõe a base da imagem (o hero), a legenda vai para o canto superior esquerdo, sobre superfície a 90%. Placeholder nunca leva essa legenda.
+**A Regra da Foto Real.** Fixada pelo briefing (§5 e §6). Sem foto real, entra o placeholder, que é um estado do sistema e não um enfeite: folha de caderno na proporção final (quadriculado sobre areia no papel, sobre superfície na areia, sobre branco a 5% na tinta; linha interna de 1 px em `line`, ou branco a 15% na tinta; cantos de 24 ou 14 px) com "Foto real" em Eyebrow, a descrição do que a foto vai mostrar e "Proporção final …" em Small `ink-muted`, anunciada como "Espaço reservado para foto real: …". Foto real ganha a legenda "Fotografia real · {lugar}" em Caption 500 `ink-muted`, 12 px abaixo; quando algo sobrepõe a base da imagem (o hero), a legenda vai para o canto superior esquerdo, sobre superfície a 90%; na Estrutura da Home, isso vale só no desktop (`legendaDentro="lg"`), para a coluna de fotos terminar junto com o vídeo. Placeholder nunca leva essa legenda.
 
 ## Do's and Don'ts
 
@@ -519,7 +539,7 @@ Privacidade é modo leitura: índice "Nesta página" fixo à esquerda no desktop
 - **Don't** numerar o que não é sequência real, nem destacar número sem dado real e fonte.
 - **Don't** digitar setas como caracteres (→ ↓ ↗), nem abrir link externo sem o aviso para leitor de tela.
 - **Don't** usar foto de banco ou imagem gerada por IA representando alunos, professores ou a estrutura, nem a legenda "Fotografia real" num placeholder.
-- **Don't** usar o friso como enfeite solto, nem mudar a ordem ou a proporção das cores (2 : 1 : 1).
+- **Don't** usar o friso ou as pinceladas como enfeite solto, fora dos lugares fixos, nem mudar a ordem ou a proporção das cores (2 : 1 : 1).
 - **Don't** usar carrossel automático, parallax pesado ou animação que faça o hero esperar.
 - **Don't** usar o verde claro do WhatsApp (#25D366): dá 2:1 com branco.
 - **Don't** aplicar `font-variation-settings` na Fraunces, nem trocar a instância fixa pela família variável completa.

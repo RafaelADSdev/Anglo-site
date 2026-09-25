@@ -63,7 +63,7 @@ export function SeriesFinder({ anoCampanha, titulo, destaque, eyebrow, aviso }: 
       aria-labelledby={`${id}-titulo`}
       className="relative overflow-hidden rounded-md bg-surface shadow-float before:absolute before:inset-x-0 before:top-0 before:h-1 before:stripe"
     >
-      <div className="grid gap-6 p-5 pt-7 sm:p-7 sm:pt-9 lg:grid-cols-12 lg:items-end lg:gap-x-10 lg:p-9 lg:pt-10">
+      <div className="grid gap-8 p-6 pt-8 sm:p-8 sm:pt-10 lg:grid-cols-12 lg:items-end lg:gap-x-12 lg:p-10 lg:pt-12">
         <div className="lg:col-span-5">
           <Eyebrow>{eyebrow}</Eyebrow>
           <Heading as="h2" id={`${id}-titulo`} titulo={titulo} destaque={destaque} tamanho="h3" className="mt-3" />
@@ -109,7 +109,7 @@ export function SeriesFinder({ anoCampanha, titulo, destaque, eyebrow, aviso }: 
           </div>
         </div>
 
-        <div aria-live="polite" className="border-t border-line pt-5 lg:col-span-12">
+        <div aria-live="polite" className="border-t border-line pt-6 lg:col-span-12">
           {dica ? <p className="text-small text-ink-muted">{dica}</p> : null}
 
           {resultado?.tipo === 'muito-novo' ? (

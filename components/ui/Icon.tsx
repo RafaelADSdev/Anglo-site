@@ -11,6 +11,7 @@ const traco = {
   'arrow-down': <path d="M12 5v14M6 13l6 6 6-6" />,
   'arrow-up': <path d="M12 19V5M6 11l6-6 6 6" />,
   'arrow-up-right': <path d="M7 17 17 7M8 7h9v9" />,
+  'arrow-left': <path d="M19 12H5M11 6l-6 6 6 6" />,
   menu: <path d="M4 7h16M4 12h16M4 17h16" />,
   close: <path d="M6 6l12 12M18 6 6 18" />,
   plus: <path d="M12 6v12M6 12h12" />,
@@ -43,6 +44,54 @@ const traco = {
     </>
   ),
   play: <path d="M8 5.5v13l10.5-6.5L8 5.5Z" />,
+  elevador: (
+    <>
+      <rect x="5" y="3" width="14" height="18" rx="2" />
+      <path d="M9.5 9.5 12 7l2.5 2.5M9.5 14.5 12 17l2.5-2.5" />
+    </>
+  ),
+  rampa: <path d="M3 19h18V7L3 19Z" />,
+  /* Temas dos projetos */
+  laptop: (
+    <>
+      <rect x="4" y="5" width="16" height="11" rx="1.5" />
+      <path d="M2 19h20" />
+    </>
+  ),
+  lampada: <path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3Z" />,
+  bandeira: <path d="M5 21V4M5 4h11l-2 4 2 4H5" />,
+  maleta: (
+    <>
+      <rect x="3" y="7" width="18" height="13" rx="2" />
+      <path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18" />
+    </>
+  ),
+  microfone: (
+    <>
+      <rect x="9" y="3" width="6" height="11" rx="3" />
+      <path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M9 21h6" />
+    </>
+  ),
+  /* Eventos */
+  faisca: (
+    <path d="M11 3c.6 4.2 2.4 6 6.6 6.6-4.2.6-6 2.4-6.6 6.6-.6-4.2-2.4-6-6.6-6.6C8.6 9 10.4 7.2 11 3ZM18.5 15c.3 1.6 1 2.3 2.5 2.5-1.5.2-2.2.9-2.5 2.5-.3-1.6-1-2.3-2.5-2.5 1.5-.2 2.2-.9 2.5-2.5Z" />
+  ),
+  trofeu: (
+    <path d="M8 4h8v5a4 4 0 0 1-8 0V4ZM8 6H5.5a2.5 2.5 0 0 0 2.8 3.5M16 6h2.5a2.5 2.5 0 0 1-2.8 3.5M12 13v4M8 21h8M10 17h4v4h-4Z" />
+  ),
+  livro: <path d="M12 6.5C10.5 5 8 4.5 4 4.5v13c4 0 6.5.5 8 2 1.5-1.5 4-2 8-2v-13c-4 0-6.5.5-8 2ZM12 6.5v13" />,
+  estrela: <path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9Z" />,
+  arvore: (
+    <path d="M12 21v-5M9 21h6M12 16c-4 0-6.5-2.3-6.5-5.2 0-2 1.2-3.6 3-4.3A4 4 0 0 1 12 3a4 4 0 0 1 3.5 3.5c1.8.7 3 2.3 3 4.3 0 2.9-2.5 5.2-6.5 5.2Z" />
+  ),
+  apoio: (
+    <>
+      <circle cx="9" cy="8" r="3" />
+      <path d="M3.5 20a5.5 5.5 0 0 1 11 0" />
+      <circle cx="17" cy="9.5" r="2.5" />
+      <path d="M15.5 14.3A4.5 4.5 0 0 1 21 19" />
+    </>
+  ),
 } as const;
 
 const marca = {

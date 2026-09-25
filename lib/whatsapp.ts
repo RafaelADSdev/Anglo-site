@@ -10,8 +10,13 @@ export const mensagens = {
   segmento: (s: Segmento) => `Olá! Vim pelo site e gostaria de informações sobre ${s.artigo} ${s.nome} para ${ano}.`,
   serie: (serie: string) => `Olá! Vim pelo site e gostaria de informações sobre o ${serie} para ${ano}.`,
   projeto: (nome: string) => `Olá! Vim pelo site e gostaria de saber mais sobre o projeto ${nome}.`,
-  /** Botão "Agendar visita pelo WhatsApp" (/matriculas#agendar). Texto fixo, definido pela escola. */
-  visita: () => 'Olá, tudo bem? Quero agendar uma visita para conhecer o Colégio Anglo Tamarineira.',
+  /** Seção de inclusão e acessibilidade (/a-escola#inclusao). */
+  inclusao: () => 'Olá! Vim pelo site e gostaria de conversar sobre inclusão e acessibilidade na escola.',
+  /**
+   * Agendamento da visita: o "Agendar visita" do card de fecho de toda página e o botão verde de
+   * /matriculas#agendar. Texto fixo, definido em 25/09/2026.
+   */
+  visita: () => 'Olá! Gostaria de agendar uma visita para conhecer o Anglo Tamarineira.',
 };
 
 export function linkWhatsApp(mensagem: string) {

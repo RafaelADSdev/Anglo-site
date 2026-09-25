@@ -7,7 +7,6 @@ import {
   ProjetosSection,
   PropostaSection,
   SegmentosSection,
-  VisitaSection,
 } from '@/components/home/Sections';
 
 export const metadata: Metadata = {
@@ -28,7 +27,6 @@ export default function Home() {
       <EstruturaSection />
       <MatriculaSection />
       <DuvidasSection />
-      <VisitaSection />
     </>
   );
 }

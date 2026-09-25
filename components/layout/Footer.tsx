@@ -24,10 +24,10 @@ export function Footer() {
   return (
     <footer data-tone="ink" data-fab-oculta className="bg-ink text-white">
       <div aria-hidden className="h-1 stripe" />
-      <div className="wrap grid gap-12 py-16 lg:grid-cols-12 lg:gap-8 lg:py-20">
+      <div className="wrap grid gap-10 py-12 lg:grid-cols-12 lg:gap-8 lg:py-14">
         <div className="lg:col-span-4">
           <Link href="/" className="inline-block" aria-label={`${siteConfig.nome} — página inicial`}>
-            <Image src="/marca/logo-negativo.png" alt="" width={624} height={375} className="h-auto w-44" />
+            <Image src="/marca/logo-negativo.png" alt="" width={624} height={375} className="h-auto w-36" />
           </Link>
           <p className="mt-5 max-w-[22em] text-small text-on-ink-muted">
             Da Educação Infantil ao Ensino Médio, na {siteConfig.bairro}, {siteConfig.cidade}.
@@ -137,21 +137,30 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/12">
-        <div className="wrap flex flex-col gap-2 py-6 text-caption text-on-ink-muted sm:flex-row sm:items-center sm:justify-between">
+        <div className="wrap flex flex-col gap-2 py-4 text-caption text-on-ink-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
             © <AnoAtual anoDoBuild={new Date().getFullYear()} /> {siteConfig.nome}
           </p>
-          <p className="flex flex-wrap gap-x-4">
+          <div className="flex flex-wrap items-center gap-x-4 sm:justify-end">
+            <p className="flex flex-wrap gap-x-4">
+              <Link
+                href="/privacidade"
+                className="inline-flex min-h-11 items-center link-underline decoration-white/30 hover:text-white"
+              >
+                Política de privacidade
+              </Link>
+              {siteConfig.emHomologacao ? (
+                <span className="inline-flex min-h-11 items-center">Ambiente de homologação</span>
+              ) : null}
+            </p>
             <Link
-              href="/privacidade"
-              className="inline-flex min-h-11 items-center link-underline decoration-white/30 hover:text-white"
+              href="/contato"
+              className="inline-flex min-h-11 items-center self-end font-display text-[0.7rem] font-semibold tracking-[0.18em] text-white/55 uppercase transition-colors hover:text-white sm:self-auto"
+              aria-label="MAÍKA — contato"
             >
-              Política de privacidade
+              MAÍKA
             </Link>
-            {siteConfig.emHomologacao ? (
-              <span className="inline-flex min-h-11 items-center">Ambiente de homologação</span>
-            ) : null}
-          </p>
+          </div>
         </div>
       </div>
     </footer>

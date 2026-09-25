@@ -2,13 +2,26 @@ import type { Talvez } from '@/lib/pending';
 
 /** Passos da matrícula. */
 
-export type Passo = { titulo: Talvez<string>; texto: Talvez<string> };
+export type Passo = {
+  titulo: Talvez<string>;
+  texto: Talvez<string>;
+  /** Ícone do passo na trilha de /matriculas (components/ui/Icon.tsx). */
+  icone: 'whatsapp' | 'map-pin' | 'documento' | 'check';
+};
 
 export const passosMatricula: readonly Passo[] = [
-  { titulo: 'Agende a visita', texto: 'Pelo WhatsApp, com a mensagem já escrita.' },
-  { titulo: 'Conheça a escola', texto: 'Visita guiada pelos espaços da escola.' },
-  { titulo: 'Receba a proposta', texto: 'Depois da visita, a escola passa os valores e as condições.' },
-  { titulo: 'Garanta a vaga', texto: 'Na secretaria, com os documentos do estudante e do responsável.' },
+  { titulo: 'Agende a visita', texto: 'Pelo WhatsApp, com a mensagem já escrita.', icone: 'whatsapp' },
+  { titulo: 'Conheça a escola', texto: 'Visita guiada pelos espaços da escola.', icone: 'map-pin' },
+  {
+    titulo: 'Receba a proposta',
+    texto: 'Depois da visita, a escola passa os valores e as condições.',
+    icone: 'documento',
+  },
+  {
+    titulo: 'Garanta a vaga',
+    texto: 'Na secretaria, com os documentos do estudante e do responsável.',
+    icone: 'check',
+  },
 ];
 
 export type Documento = { readonly nome: string; readonly detalhe: string };

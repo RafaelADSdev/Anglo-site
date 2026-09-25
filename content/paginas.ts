@@ -176,15 +176,8 @@ export const paginas = {
       botao: 'Agendar visita pelo WhatsApp',
       microcopy: 'Nada é enviado sem você: a mensagem só sai quando você toca em enviar.',
     },
-    contato: {
-      eyebrow: 'Entrar em contato',
-      titulo: 'Prefere conversar antes?',
-    },
+    comoFunciona: 'Como funciona a matrícula',
     passos: { eyebrow: 'Como funciona', titulo: 'Da primeira visita à vaga garantida.' },
-    documentos: {
-      eyebrow: 'Documentos',
-      titulo: 'O que levar para a matrícula.',
-    },
     duvidas: { eyebrow: 'Dúvidas frequentes', titulo: 'Perguntas de quem está escolhendo escola.' },
   },
 

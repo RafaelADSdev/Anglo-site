@@ -54,15 +54,6 @@ export function PropostaSection() {
             </li>
           ))}
         </ul>
-        <ButtonLink
-          href="/a-escola#proposta"
-          variante="amarelo"
-          className="mt-12 lg:mt-16"
-          data-track="cta_click"
-          data-track-origem="proposta"
-        >
-          {p.cta}
-        </ButtonLink>
       </div>
     </Section>
   );

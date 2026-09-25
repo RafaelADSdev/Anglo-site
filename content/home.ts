@@ -51,7 +51,6 @@ export const home = {
         texto: 'Na grade, com a disciplina Geração Líder, e nos projetos da escola.',
       },
     ],
-    cta: 'Conhecer a proposta',
   },
   projetos: {
     eyebrow: 'Projetos próprios',

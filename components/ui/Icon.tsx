@@ -22,6 +22,7 @@ const traco = {
     </>
   ),
   check: <path d="M5.5 12.5l4 4 9-9" />,
+  documento: <path d="M7 3h7l5 5v13H7ZM14 3v5h5M10 13h6M10 17h6" />,
   clock: (
     <>
       <circle cx="12" cy="12" r="9" />

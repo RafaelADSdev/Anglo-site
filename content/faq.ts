@@ -45,7 +45,7 @@ const todas = {
   },
   material: {
     pergunta: 'O material didático é do Sistema Anglo?',
-    resposta: aConfirmar('material didático e plataforma usados em cada segmento'),
+    resposta: 'Sim. Os livros didáticos são do Sistema Anglo, da SOMOS Educação.',
   },
   inclusao: {
     pergunta: 'Como a escola acompanha estudantes com deficiência?',

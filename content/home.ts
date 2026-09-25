@@ -39,8 +39,8 @@ export const home = {
     pilares: [
       {
         titulo: 'Base acadêmica do Sistema Anglo',
-        texto: 'A base acadêmica da escola vem do Sistema Anglo.',
-        pendente: 'como o Sistema Anglo aparece em cada segmento (material, plataforma)',
+        texto: 'A base acadêmica da escola vem do Sistema Anglo. Os livros didáticos são da SOMOS Educação.',
+        pendente: 'plataforma, avaliações e em quais segmentos o Sistema Anglo entra',
       },
       {
         titulo: 'Preparação para os principais vestibulares',

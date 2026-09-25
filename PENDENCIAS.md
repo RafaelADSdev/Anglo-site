@@ -2,7 +2,7 @@
 
 Tudo que o site precisa e ainda não foi confirmado pela escola. Regra do projeto: nada daqui entra inventado. No código, o item é declarado com `aConfirmar('...')` (`lib/pending.ts`): em homologação aparece com o marcador amarelo "A confirmar"; em produção, o bloco que depende dele não aparece.
 
-Atualizado em 24/09/2026 (lista de documentos da matrícula confirmada).
+Atualizado em 24/09/2026 (livros didáticos da SOMOS Educação).
 
 ## Decisões da etapa 1 (aprovadas em 23/09/2026)
 
@@ -41,7 +41,8 @@ Atualizado em 24/09/2026 (lista de documentos da matrícula confirmada).
 - [ ] Rotina de cada segmento (horários, atividades fixas) — bloco "No dia a dia" das 4 páginas de segmento (hoje, uma frase da base de conteúdo).
 - [ ] Alimentação.
 - [ ] Transporte.
-- [ ] Sistema Anglo: presente em todos os segmentos? Qual material/plataforma a família usa?
+- [x] Material didático, confirmado em 24/09/2026: os livros são do Sistema Anglo, da [SOMOS Educação](https://somoseducacao.com.br/quemsomos).
+- [ ] Sistema Anglo: presente em todos os segmentos? Qual plataforma e quais avaliações a família usa?
 - [x] Ensino Médio: os principais vestibulares são ENEM e SSA (confirmado em 23/09/2026).
 - [ ] Itens que estão no banner atual mas **fora da base de conteúdo** do briefing: "Escolinha de esportes", "Formação integral", "Metodologias ativas", "Estrutura que acolhe" e o slogan "Criando pessoas autorais num mundo de cópias". Entram ou não?
 
@@ -68,7 +69,7 @@ Atualizado em 24/09/2026 (lista de documentos da matrícula confirmada).
 - [x] Passo 03, em 24/09/2026: "Receba a proposta" — depois da visita, a escola passa os valores e as condições.
 - [x] Documentos exigidos, confirmados em 24/09/2026 (seção "Documentos" de /matriculas e pergunta do FAQ). A CNH no lugar do RG e a conferência dos originais foram acrescentadas à lista recebida. O contrato em si continua sem descrição.
 - [x] Como os valores são informados à família, em 24/09/2026: depois da visita. As mensalidades não ficam no site.
-- [ ] Respostas validadas para o FAQ: 10 perguntas em `content/faq.ts`. Com resposta: idade de entrada, vestibulares (ENEM e SSA), documentos da matrícula e como os valores são informados. As outras 6 seguem pendentes e, em produção, cada uma aparece quando a resposta chegar.
+- [ ] Respostas validadas para o FAQ: 10 perguntas em `content/faq.ts`. Com resposta: idade de entrada, vestibulares (ENEM e SSA), documentos da matrícula, como os valores são informados e material didático (Sistema Anglo, SOMOS Educação). As outras 5 seguem pendentes e, em produção, cada uma aparece quando a resposta chegar.
 
 ## Prova e credibilidade (seções só aparecem com material real)
 

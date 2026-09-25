@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useId, useRef, useState } from 'react';
+import { useId, useRef, useState } from 'react';
 import type { Evento } from '@/content/eventos';
 import { cn } from '@/lib/cn';
 import { confirmado, isPendente } from '@/lib/pending';
@@ -9,256 +9,278 @@ import { Icon } from '@/components/ui/Icon';
 import { Pending } from '@/components/ui/Pending';
 
 /**
- * Capas nas cores do logo, alternando claro e escuro (a quinta volta ao azul, ao lado do vermelho). Sem foto real, a capa é tipográfica: a cor,
- * o quadriculado de caderno, o ícone do evento e o nome — não finge ser foto.
- * Texto sobre a capa é grande (≥ 24 px): branco no azul 11,9:1, no azul-claro
- * 5,3:1 e no vermelho 4,5:1; tinta no amarelo 14:1.
+ * Capas nas cores do logo, uma por evento (a quinta é o papel). Sem foto real, a
+ * capa é só a cor, o quadriculado de caderno e o ícone do evento em marca-d'água:
+ * não finge ser foto, e o nome fica no texto ao lado (não se repete na capa).
  */
 const capas = [
   { fundo: 'bg-brand-blue', texto: 'text-white', textura: 'caderno-escuro' },
   { fundo: 'bg-brand-yellow', texto: 'text-ink', textura: 'caderno' },
   { fundo: 'bg-brand-sky', texto: 'text-white', textura: 'caderno-escuro' },
   { fundo: 'bg-brand-red', texto: 'text-white', textura: 'caderno-escuro' },
+  { fundo: 'bg-paper', texto: 'text-ink', textura: 'caderno' },
 ] as const;
 
-/** Um evento por vez: a largura do cartão mais o vão de 16px entre eles. */
-function passoDo(el: HTMLElement) {
-  const slide = el.querySelector('li');
-  return slide ? slide.getBoundingClientRect().width + 16 : el.clientWidth * 0.8;
-}
+const doisDigitos = (n: number) => String(n).padStart(2, '0');
 
-/**
- * O `scrollBy` suave não move essa faixa (o scroll-snap obrigatório o anula).
- * A animação escreve o scroll na mão e solta o snap no fim, para o cartão parar no lugar.
- */
-function rolar(el: HTMLElement, destino: number, quadro: { current: number | null }) {
-  if (quadro.current !== null) {
-    cancelAnimationFrame(quadro.current);
-    el.style.scrollSnapType = '';
-  }
-  const reduzir = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduzir) {
-    el.scrollTo({ left: destino, behavior: 'auto' });
-    quadro.current = null;
-    return;
-  }
-  const inicio = el.scrollLeft;
-  const delta = destino - inicio;
-  if (Math.abs(delta) < 1) return;
-  const duracao = 500;
-  const t0 = performance.now();
-  el.style.scrollSnapType = 'none';
-  const frame = (agora: number) => {
-    const t = Math.min(1, (agora - t0) / duracao);
-    const e = 1 - (1 - t) ** 3;
-    el.scrollLeft = inicio + delta * e;
-    if (t < 1) {
-      quadro.current = requestAnimationFrame(frame);
-      return;
-    }
-    el.style.scrollSnapType = '';
-    quadro.current = null;
-  };
-  quadro.current = requestAnimationFrame(frame);
+/** O que falta de cada evento, no marcador de homologação. */
+function pendencias(ev: Evento) {
+  return [
+    ev.provisorio ? 'texto provisório' : null,
+    isPendente(ev.quando) ? ev.quando.aConfirmar : null,
+    ev.imagem ? null : 'foto',
+  ]
+    .filter(Boolean)
+    .join(', ');
 }
 
 type Props = {
   eventos: readonly Evento[];
   /** Nome do carrossel para leitor de tela. */
   rotulo: string;
-  /** Cabeça da seção; as setas ficam à direita dela. */
+  /** Cabeça da seção, acima do palco. */
   cabeca: React.ReactNode;
 };
 
 /**
- * A faixa rola na horizontal e para em cada evento (scroll-snap). Sozinha, anda
- * um evento a cada poucos segundos e volta ao início; para com o ponteiro ou o
- * foco em cima, e não anda se a pessoa pediu menos movimento. As setas andam um
- * evento por vez e se desligam nas pontas. Arrastar, rolar e o teclado (a faixa
- * recebe foco) também funcionam. Pensado para a seção em tinta.
+ * Um evento por vez: a foto grande à esquerda (no desktop, sangra até a borda
+ * da tela) e, à direita, o nome e a descrição do mesmo evento. A foto nova
+ * varre por cima da anterior, no sentido do friso, e o texto sobe logo depois.
+ * Manual (o briefing veta o automático): setas que dão a volta, o índice com
+ * todos os eventos, deslizar o dedo na foto e as setas do teclado. Com
+ * movimento reduzido, troca sem animar. Pensado para a seção em tinta.
  */
 export function CarrosselEventos({ eventos, rotulo, cabeca }: Props) {
-  const trilho = useRef<HTMLUListElement>(null);
-  const quadro = useRef<number | null>(null);
-  const idTrilho = useId();
-  const [noInicio, setNoInicio] = useState(true);
-  const [noFim, setNoFim] = useState(false);
+  const [atual, setAtual] = useState(0);
+  const [anterior, setAnterior] = useState<number | null>(null);
+  const [sentido, setSentido] = useState<'ir' | 'voltar'>('ir');
+  const toque = useRef<{ x: number; y: number } | null>(null);
+  const idPalco = useId();
+  const total = eventos.length;
+  // Antes do primeiro clique, nada anima: a seção abre parada.
+  const mexeu = anterior !== null;
 
-  useEffect(() => {
-    const el = trilho.current;
-    if (!el) return;
-    const atualizar = () => {
-      setNoInicio(el.scrollLeft <= 4);
-      setNoFim(el.scrollLeft + el.clientWidth >= el.scrollWidth - 4);
-    };
-    atualizar();
-    el.addEventListener('scroll', atualizar, { passive: true });
-    window.addEventListener('resize', atualizar);
-    return () => {
-      el.removeEventListener('scroll', atualizar);
-      window.removeEventListener('resize', atualizar);
-    };
-  }, []);
-
-  useEffect(() => {
-    const el = trilho.current;
-    const regiao = el?.closest('[role="region"]');
-    if (!el || !(regiao instanceof HTMLElement)) return;
-
-    const reduzir = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let sobre = false;
-    let foco = false;
-
-    const avancar = () => {
-      if (reduzir.matches || sobre || foco || document.hidden) return;
-      const max = el.scrollWidth - el.clientWidth;
-      if (max <= 4) return;
-      const noFimAgora = el.scrollLeft >= max - 4;
-      rolar(el, noFimAgora ? 0 : Math.min(max, el.scrollLeft + passoDo(el)), quadro);
-    };
-
-    const timer = window.setInterval(avancar, 4000);
-    const animacao = quadro;
-    const entrar = () => {
-      sobre = true;
-    };
-    const sair = () => {
-      sobre = false;
-    };
-    const focar = () => {
-      foco = true;
-    };
-    const desfocar = (evento: FocusEvent) => {
-      if (!regiao.contains(evento.relatedTarget as Node | null)) foco = false;
-    };
-
-    regiao.addEventListener('pointerenter', entrar);
-    regiao.addEventListener('pointerleave', sair);
-    regiao.addEventListener('focusin', focar);
-    regiao.addEventListener('focusout', desfocar);
-
-    return () => {
-      window.clearInterval(timer);
-      if (animacao.current !== null) cancelAnimationFrame(animacao.current);
-      regiao.removeEventListener('pointerenter', entrar);
-      regiao.removeEventListener('pointerleave', sair);
-      regiao.removeEventListener('focusin', focar);
-      regiao.removeEventListener('focusout', desfocar);
-    };
-  }, []);
-
-  function andar(direcao: 1 | -1) {
-    const el = trilho.current;
-    if (!el) return;
-    const max = el.scrollWidth - el.clientWidth;
-    const destino = Math.min(max, Math.max(0, el.scrollLeft + direcao * passoDo(el)));
-    rolar(el, destino, quadro);
+  function irPara(indice: number, direcao?: 'ir' | 'voltar') {
+    const destino = (indice + total) % total;
+    if (destino === atual) return;
+    setSentido(direcao ?? (destino > atual ? 'ir' : 'voltar'));
+    setAnterior(atual);
+    setAtual(destino);
   }
 
+  const proximo = () => irPara(atual + 1, 'ir');
+  const voltar = () => irPara(atual - 1, 'voltar');
+
+  function teclar(e: React.KeyboardEvent) {
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      proximo();
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      voltar();
+    }
+  }
+
+  function soltar(e: React.PointerEvent) {
+    const inicio = toque.current;
+    toque.current = null;
+    if (!inicio) return;
+    const dx = e.clientX - inicio.x;
+    const dy = e.clientY - inicio.y;
+    if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy)) return;
+    if (dx < 0) proximo();
+    else voltar();
+  }
+
+  const ev = eventos[atual];
   const botao =
-    'grid size-11 cursor-pointer place-items-center rounded-full text-white ring-1 ring-white/35 transition-colors duration-150 ring-inset hover:bg-white/10 disabled:cursor-default disabled:opacity-35 disabled:hover:bg-transparent';
+    'grid size-11 cursor-pointer place-items-center rounded-full text-white ring-1 ring-white/35 transition-colors duration-150 ring-inset hover:bg-white/10';
 
   return (
-    <div role="region" aria-roledescription="carrossel" aria-label={rotulo}>
-      <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-6">
-        {cabeca}
-        <div className="flex gap-2">
-          <button
-            type="button"
-            className={botao}
-            onClick={() => andar(-1)}
-            disabled={noInicio}
-            aria-controls={idTrilho}
-            aria-label="Evento anterior"
-          >
-            <Icon name="arrow-left" size={20} />
-          </button>
-          <button
-            type="button"
-            className={botao}
-            onClick={() => andar(1)}
-            disabled={noFim}
-            aria-controls={idTrilho}
-            aria-label="Próximo evento"
-          >
-            <Icon name="arrow-right" size={20} />
-          </button>
-        </div>
-      </div>
+    <div role="region" aria-roledescription="carrossel" aria-label={rotulo} onKeyDown={teclar}>
+      {cabeca}
 
-      <ul
-        ref={trilho}
-        id={idTrilho}
-        tabIndex={0}
-        aria-label="Eventos"
-        className="-mx-(--gutter) mt-10 flex snap-x snap-mandatory scroll-px-(--gutter) [scrollbar-width:none] gap-4 overflow-x-auto px-(--gutter) pb-2 focus-visible:outline-offset-[-2px] lg:mt-12 lg:mr-[calc((100%-100vw)/2)] lg:ml-0 lg:scroll-pl-0 lg:pr-[calc((100vw-100%)/2)] lg:pl-0 [&::-webkit-scrollbar]:hidden"
-      >
-        {eventos.map((ev, i) => {
-          const capa = capas[i % capas.length];
-          const quando = confirmado(ev.quando);
-          return (
-            <li
-              key={ev.id}
-              id={ev.id}
-              aria-roledescription="evento"
-              aria-label={`${i + 1} de ${eventos.length}: ${ev.nome}`}
-              className="w-[82%] shrink-0 snap-start sm:w-[20rem] lg:w-[22rem]"
-            >
-              <article>
+      <div className="@container mt-10 grid gap-8 lg:mt-14 lg:grid-cols-12 lg:gap-x-8">
+        {/* Palco: as capas empilhadas; só a atual (e a que está saindo) aparecem. */}
+        <div className="relative aspect-[4/3] lg:col-span-7 lg:aspect-auto lg:min-h-[34rem]">
+          <div
+            id={idPalco}
+            className="absolute inset-0 touch-pan-y overflow-hidden rounded-md select-none lg:left-[calc((100cqw-100vw)/2)] lg:rounded-l-none lg:rounded-r-lg"
+            onPointerDown={(e) => {
+              toque.current = { x: e.clientX, y: e.clientY };
+            }}
+            onPointerUp={soltar}
+            onPointerCancel={() => {
+              toque.current = null;
+            }}
+          >
+            {eventos.map((item, i) => {
+              const capa = capas[i % capas.length];
+              const ativo = i === atual;
+              const saindo = i === anterior && !ativo;
+              return (
                 <div
+                  key={item.id}
+                  aria-hidden={!ativo || !item.imagem}
+                  data-sentido={sentido}
                   className={cn(
-                    'relative flex aspect-square flex-col justify-between overflow-hidden rounded-md p-6',
-                    ev.imagem ? 'bg-ink' : cn(capa.fundo, capa.textura),
-                    ev.imagem ? 'text-white' : capa.texto,
+                    'absolute inset-0 overflow-hidden',
+                    ativo ? 'z-20' : saindo ? 'z-10' : 'invisible',
+                    ativo && mexeu && 'evento-entra',
+                    item.imagem ? 'bg-ink' : cn(capa.fundo, capa.textura, capa.texto),
                   )}
                 >
-                  {ev.imagem ? (
-                    <>
-                      <Image
-                        src={ev.imagem.src}
-                        alt={ev.imagem.alt}
-                        fill
-                        sizes="(min-width: 1024px) 352px, (min-width: 640px) 320px, 82vw"
-                        className="object-cover"
-                      />
-                      {/* Escurece só a base, onde fica o nome. */}
-                      <div
-                        aria-hidden
-                        className="absolute inset-0 bg-linear-to-t from-ink/85 via-ink/10 to-transparent"
-                      />
-                    </>
+                  {item.imagem ? (
+                    <Image
+                      src={item.imagem.src}
+                      alt={item.imagem.alt}
+                      fill
+                      sizes="(min-width: 1024px) 60vw, 100vw"
+                      className={cn('evento-midia object-cover', item.imagem.enquadramento === 'topo' && 'object-top')}
+                    />
                   ) : (
-                    <Icon name={ev.icone} size={56} className="relative" />
+                    // O ícone centraliza na parte que fica dentro da coluna, não na sangria.
+                    <div className="evento-midia grid h-full place-items-center lg:pl-[calc((100vw-100cqw)/2)]">
+                      <Icon name={item.icone} size={288} className="size-[min(55%,18rem)] opacity-25" />
+                    </div>
                   )}
-                  <h3 className="relative mt-auto font-display text-[clamp(1.75rem,1.5rem+0.8vw,2.125rem)] leading-[1.08] font-semibold tracking-[-0.015em]">
-                    {ev.nome}
-                  </h3>
                 </div>
-                <div className="mt-4 pr-2">
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Texto do evento atual + controles. */}
+        <div className="flex flex-col gap-8 lg:col-span-5 lg:justify-between lg:py-2">
+          <p className="sr-only" aria-live="polite" aria-atomic="true">
+            {mexeu ? `${doisDigitos(atual + 1)} de ${doisDigitos(total)}: ${ev.nome}. ${ev.descricao}` : ''}
+          </p>
+
+          {/* Todos os textos na mesma célula: a coluna tem a altura do mais longo e não pula. */}
+          <div className="grid">
+            {eventos.map((item, i) => {
+              const quando = confirmado(item.quando);
+              const faltas = pendencias(item);
+              return (
+                <article
+                  key={item.id}
+                  aria-hidden={i !== atual}
+                  className={cn('[grid-area:1/1]', i !== atual && 'invisible', i === atual && mexeu && 'evento-texto')}
+                >
+                  <span
+                    className={cn(
+                      'grid size-14 place-items-center rounded-full',
+                      capas[i % capas.length].fundo,
+                      capas[i % capas.length].texto,
+                    )}
+                  >
+                    <Icon name={item.icone} size={26} />
+                  </span>
                   {quando ? (
-                    <p className="text-eyebrow font-extrabold tracking-[0.12em] text-brand-yellow uppercase">
+                    <p className="mt-6 text-eyebrow font-extrabold tracking-[0.12em] text-brand-yellow uppercase">
                       {quando}
                     </p>
                   ) : null}
-                  <p className="mt-1 text-small text-on-ink-muted">{ev.descricao}</p>
-                  {ev.provisorio || isPendente(ev.quando) ? (
-                    <p className="mt-2">
-                      <Pending>
-                        {[
-                          ev.provisorio ? 'texto provisório' : null,
-                          isPendente(ev.quando) ? ev.quando.aConfirmar : null,
-                        ]
-                          .filter(Boolean)
-                          .join(' e ')}
-                      </Pending>
+                  <h3
+                    style={{ '--i': 1 } as React.CSSProperties}
+                    className={cn('font-display text-h2 font-semibold text-white', quando ? 'mt-2' : 'mt-6')}
+                  >
+                    {item.nome}
+                  </h3>
+                  <p
+                    style={{ '--i': 2 } as React.CSSProperties}
+                    className="mt-4 max-w-[34ch] text-lead text-on-ink-muted"
+                  >
+                    {item.descricao}
+                  </p>
+                  {faltas ? (
+                    <p style={{ '--i': 3 } as React.CSSProperties} className="mt-4">
+                      <Pending>{faltas}</Pending>
                     </p>
                   ) : null}
-                </div>
-              </article>
-            </li>
-          );
-        })}
-      </ul>
+                </article>
+              );
+            })}
+          </div>
+
+          <div>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                className={botao}
+                onClick={voltar}
+                aria-controls={idPalco}
+                aria-label="Evento anterior"
+              >
+                <Icon name="arrow-left" size={20} />
+              </button>
+              <button
+                type="button"
+                className={botao}
+                onClick={proximo}
+                aria-controls={idPalco}
+                aria-label="Próximo evento"
+              >
+                <Icon name="arrow-right" size={20} />
+              </button>
+              <p className="ml-3 text-small font-semibold text-on-ink-muted tabular-nums">
+                <span className="text-white">{doisDigitos(atual + 1)}</span> / {doisDigitos(total)}
+              </p>
+            </div>
+
+            {/* Celular: uma barra por evento, a atual em amarelo. */}
+            <ol className="mt-6 flex gap-1.5 lg:hidden">
+              {eventos.map((item, i) => (
+                <li key={item.id} className="flex-1">
+                  <button
+                    type="button"
+                    onClick={() => irPara(i)}
+                    aria-current={i === atual ? 'true' : undefined}
+                    aria-label={item.nome}
+                    className="flex h-11 w-full cursor-pointer items-center"
+                  >
+                    <span
+                      className={cn(
+                        'h-1 w-full rounded-full transition-colors duration-250',
+                        i === atual ? 'bg-brand-yellow' : 'bg-white/25',
+                      )}
+                    />
+                  </button>
+                </li>
+              ))}
+            </ol>
+
+            {/* Desktop: o índice com todos os eventos. */}
+            <ol className="mt-8 hidden border-t border-white/15 lg:block">
+              {eventos.map((item, i) => {
+                const ativo = i === atual;
+                return (
+                  <li key={item.id} className="border-b border-white/15">
+                    <button
+                      type="button"
+                      onClick={() => irPara(i)}
+                      aria-current={ativo ? 'true' : undefined}
+                      className={cn(
+                        'flex min-h-12 w-full cursor-pointer items-center gap-4 py-2 text-left transition-colors duration-150',
+                        ativo ? 'text-white' : 'text-on-ink-muted hover:text-white',
+                      )}
+                    >
+                      <span className="font-semibold">{item.nome}</span>
+                      <span
+                        aria-hidden
+                        className={cn(
+                          'ml-auto h-0.5 rounded-full bg-brand-yellow transition-[width] duration-250 ease-out-soft',
+                          ativo ? 'w-10' : 'w-0',
+                        )}
+                      />
+                    </button>
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

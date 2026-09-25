@@ -1,9 +1,16 @@
+import { documentosMatricula, type GrupoDocumentos } from '@/content/matricula';
 import { aConfirmar, isPendente, type Talvez } from '@/lib/pending';
 import { siteConfig } from '@/site.config';
 
 /** Dúvidas frequentes. Em produção, só aparecem perguntas com resposta validada pela escola. */
 
-export type Duvida = { id: string; pergunta: string; resposta: Talvez<string> };
+export type Duvida = {
+  id: string;
+  pergunta: string;
+  resposta: Talvez<string>;
+  grupos?: readonly GrupoDocumentos[];
+  nota?: string;
+};
 
 const todas = {
   idade: {
@@ -20,7 +27,9 @@ const todas = {
   },
   documentos: {
     pergunta: 'Quais documentos preciso para a matrícula?',
-    resposta: aConfirmar('lista de documentos da matrícula'),
+    resposta: documentosMatricula.lead,
+    grupos: documentosMatricula.grupos,
+    nota: documentosMatricula.nota,
   },
   'alimentacao-transporte': {
     pergunta: 'A escola oferece alimentação e transporte?',
@@ -28,7 +37,7 @@ const todas = {
   },
   valores: {
     pergunta: 'Como os valores são informados?',
-    resposta: aConfirmar('como a família recebe os valores (mensalidades não vão para o site)'),
+    resposta: 'Depois da visita, a escola passa os valores e as condições. As mensalidades não ficam no site.',
   },
   vestibulares: {
     pergunta: 'Para quais vestibulares o Ensino Médio prepara?',

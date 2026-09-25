@@ -9,7 +9,7 @@ import { Icon } from '@/components/ui/Icon';
 /**
  * WhatsApp flutuante que não cobre conteúdo (briefing §9): fica escondido
  * enquanto qualquer elemento marcado com `data-fab-oculta` está na tela
- * (CTAs do hero, formulário, CTA final, rodapé) e com o teclado aberto num
+ * (CTAs do hero, agendamento, CTA final, rodapé) e com o teclado aberto num
  * campo. A mensagem muda conforme a página.
  */
 export function WhatsAppFab() {

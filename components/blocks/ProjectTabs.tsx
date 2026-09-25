@@ -87,6 +87,7 @@ export function ProjectTabs({ projetos }: { projetos: readonly Projeto[] }) {
           >
             <div className="grid gap-6 md:grid-cols-2 md:items-center md:gap-8">
               <Figure
+                foto={p.imagem}
                 descricao={p.foto}
                 legenda={p.legenda}
                 proporcao="aspect-[4/3]"

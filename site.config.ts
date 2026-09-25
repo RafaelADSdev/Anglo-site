@@ -64,8 +64,10 @@ export const siteConfig = {
       nome: string;
       email: string;
     }>,
-    /** Prazo de guarda dos pedidos de visita, por extenso (ex.: "por até 12 meses"). */
-    guardaDosPedidos: aConfirmar('por quanto tempo os pedidos de visita ficam guardados') as Talvez<string>,
+    /** Prazo de guarda das conversas de agendamento no WhatsApp, por extenso (ex.: "por até 12 meses"). */
+    guardaDosPedidos: aConfirmar(
+      'por quanto tempo as conversas de agendamento no WhatsApp ficam guardadas',
+    ) as Talvez<string>,
     /** Data de vigência da política, por extenso. */
     atualizadaEm: aConfirmar('data de vigência, depois da revisão jurídica') as Talvez<string>,
   },

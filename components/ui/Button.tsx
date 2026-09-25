@@ -43,6 +43,8 @@ const variantes = {
   amarelo: 'bg-brand-yellow text-ink hover:bg-white',
   contorno: 'text-ink ring-[1.5px] ring-ink ring-inset hover:bg-paper-2',
   'contorno-claro': 'text-white ring-[1.5px] ring-white/80 ring-inset hover:bg-white/10',
+  /** Só o "Agendar visita pelo WhatsApp": verde para não se confundir com o "Falar no WhatsApp" (contorno). */
+  whatsapp: 'bg-whatsapp-ink text-white hover:bg-whatsapp-ink-hover',
 } as const;
 
 const tamanhos = {

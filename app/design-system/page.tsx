@@ -4,6 +4,7 @@ import { duvidasHome } from '@/content/faq';
 import { passosMatricula } from '@/content/matricula';
 import { segmentos } from '@/content/segmentos';
 import { siteConfig } from '@/site.config';
+import { AgendarWhatsApp } from '@/components/blocks/AgendarWhatsApp';
 import { FAQ } from '@/components/blocks/FAQ';
 import { MapCard } from '@/components/blocks/MapCard';
 import { SegmentCard } from '@/components/blocks/SegmentCard';
@@ -16,7 +17,6 @@ import { Icon } from '@/components/ui/Icon';
 import { Pending } from '@/components/ui/Pending';
 import { Section, SectionHead } from '@/components/ui/Section';
 import { SegmentTag } from '@/components/ui/SegmentTag';
-import { LeadFormDemo } from './LeadFormDemo';
 
 export const metadata: Metadata = {
   title: 'Design system',
@@ -70,7 +70,13 @@ const cores: Array<{
     grupo: 'Funcionais',
     itens: [
       { nome: 'WhatsApp', token: 'whatsapp', hex: '#128C7E', nota: 'botão flutuante', escuro: true },
-      { nome: 'WhatsApp escuro', token: 'whatsapp-ink', hex: '#075E54', nota: 'ícone em botões', escuro: true },
+      {
+        nome: 'WhatsApp escuro',
+        token: 'whatsapp-ink',
+        hex: '#075E54',
+        nota: 'ícone em botões · botão de agendar',
+        escuro: true,
+      },
       { nome: 'Erro', token: 'error', hex: '#B3241F', nota: '6,2:1 no papel', escuro: true },
       { nome: 'Sucesso', token: 'success', hex: '#21763C', nota: '5,3:1 no papel', escuro: true },
     ],
@@ -224,6 +230,14 @@ export default function DesignSystem() {
             >
               Falar no WhatsApp
             </ButtonLink>
+            <ButtonLink
+              href="https://wa.me/"
+              externo
+              variante="whatsapp"
+              icone={<Icon name="whatsapp" size={20} className="shrink-0" />}
+            >
+              Agendar visita pelo WhatsApp
+            </ButtonLink>
             <ArrowLink href="#ds-acoes">Ver o projeto</ArrowLink>
           </div>
           <div
@@ -288,20 +302,18 @@ export default function DesignSystem() {
         </div>
       </Section>
 
-      <Section labelledBy="ds-form">
+      <Section labelledBy="ds-agendar">
         <div className="wrap grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <h2 id="ds-form" className="font-display text-h2 font-semibold">
-              Formulário de visita
+            <h2 id="ds-agendar" className="font-display text-h2 font-semibold">
+              Agendar visita
             </h2>
             <p className="mt-3 text-ink-muted">
-              Demonstração: valida no navegador e mostra a confirmação, mas não envia nada. O envio real (Supabase +
-              aviso por e-mail) entra na etapa 5.
+              Sem formulário: o bloco explica que o botão abre o WhatsApp com a mensagem já escrita e mostra essa
+              mensagem antes do clique. O botão verde é só deste bloco; o “Falar no WhatsApp” continua de contorno.
             </p>
           </div>
-          <div className="lg:col-span-7">
-            <LeadFormDemo />
-          </div>
+          <AgendarWhatsApp tituloId="ds-agendar-titulo" origem="design-system" className="lg:col-span-7" />
         </div>
       </Section>
     </>

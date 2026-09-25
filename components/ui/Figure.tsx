@@ -54,7 +54,14 @@ export function Figure({
         )}
       >
         {foto ? (
-          <Image src={foto.src} alt={foto.alt} fill sizes={sizes} priority={priority} className="object-cover" />
+          <Image
+            src={foto.src}
+            alt={foto.alt}
+            fill
+            sizes={sizes}
+            priority={priority}
+            className={cn('object-cover', foto.enquadramento === 'topo' && 'object-top')}
+          />
         ) : (
           <div
             role="img"

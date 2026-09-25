@@ -10,6 +10,8 @@ export const mensagens = {
   segmento: (s: Segmento) => `Olá! Vim pelo site e gostaria de informações sobre ${s.artigo} ${s.nome} para ${ano}.`,
   serie: (serie: string) => `Olá! Vim pelo site e gostaria de informações sobre o ${serie} para ${ano}.`,
   projeto: (nome: string) => `Olá! Vim pelo site e gostaria de saber mais sobre o projeto ${nome}.`,
+  /** Botão "Agendar visita pelo WhatsApp" (/matriculas#agendar). Texto fixo, definido pela escola. */
+  visita: () => 'Olá, tudo bem? Quero agendar uma visita para conhecer o Colégio Anglo Tamarineira.',
 };
 
 export function linkWhatsApp(mensagem: string) {

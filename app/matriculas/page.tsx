@@ -1,22 +1,22 @@
-import { Fragment, Suspense } from 'react';
+import { Fragment } from 'react';
 import { duvidasMatricula, duvidasVisiveis } from '@/content/faq';
-import { passosMatricula } from '@/content/matricula';
+import { documentosMatricula, passosMatricula } from '@/content/matricula';
 import { paginas } from '@/content/paginas';
 import { metadadosDaPagina } from '@/lib/metadata';
 import { tomAlternado, type TomClaro } from '@/lib/tons';
 import { linkWhatsApp, mensagens } from '@/lib/whatsapp';
 import { siteConfig } from '@/site.config';
+import { AgendarWhatsApp } from '@/components/blocks/AgendarWhatsApp';
 import { CtaVisita } from '@/components/blocks/CtaVisita';
 import { FAQ } from '@/components/blocks/FAQ';
+import { ListaDocumentos } from '@/components/blocks/ListaDocumentos';
 import { Steps } from '@/components/blocks/Steps';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { ButtonLink } from '@/components/ui/Button';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Heading } from '@/components/ui/Heading';
 import { Icon } from '@/components/ui/Icon';
-import { PendingBloco } from '@/components/ui/Pending';
 import { Section, SectionHead } from '@/components/ui/Section';
-import { AgendarVisita, AgendarVisitaSemSegmento } from './AgendarVisita';
 
 const m = paginas.matriculas;
 
@@ -40,18 +40,23 @@ export default function MatriculasPage() {
         </div>
       </Section>
     ),
-    ...(siteConfig.emHomologacao
-      ? [
-          (tom: TomClaro) => (
-            <Section id="documentos" tom={tom} labelledBy="documentos-titulo">
-              <div className="wrap">
-                <SectionHead eyebrow={m.documentos.eyebrow} titulo={m.documentos.titulo} id="documentos-titulo" />
-                <PendingBloco className="mt-6">{m.documentos.pendente}</PendingBloco>
-              </div>
-            </Section>
-          ),
-        ]
-      : []),
+    (tom) => (
+      <Section id="documentos" tom={tom} labelledBy="documentos-titulo">
+        <div className="wrap">
+          <SectionHead
+            eyebrow={m.documentos.eyebrow}
+            titulo={m.documentos.titulo}
+            id="documentos-titulo"
+            intro={documentosMatricula.lead}
+          />
+          <ListaDocumentos
+            className="mt-12 lg:mt-16"
+            grupos={documentosMatricula.grupos}
+            nota={documentosMatricula.nota}
+          />
+        </div>
+      </Section>
+    ),
     ...(perguntas.length > 0
       ? [
           (tom: TomClaro) => (
@@ -79,7 +84,7 @@ export default function MatriculasPage() {
 
   return (
     <>
-      {/* Hero com o formulário: título em largura total; abaixo, texto e WhatsApp (5) e o formulário (7). */}
+      {/* Hero com o agendamento: título em largura total; abaixo, texto e WhatsApp (5) e o agendamento (7). */}
       <section aria-labelledby="pagina-titulo" className="pt-[clamp(0.25rem,0.1rem+0.8vw,1rem)] pb-(--section-y)">
         <div className="wrap">
           <Breadcrumbs itens={[{ rotulo: 'Matrículas', href: '/matriculas' }]} />
@@ -119,17 +124,7 @@ export default function MatriculasPage() {
             </div>
 
             <div id="agendar" data-fab-oculta className="lg:col-span-7">
-              <Eyebrow>{m.formulario.eyebrow}</Eyebrow>
-              <h2 id="agendar-titulo" className="mt-4 font-display text-h3 font-semibold text-ink">
-                {m.formulario.titulo}
-              </h2>
-              <p className="mt-2 max-w-[36em] text-small text-ink-muted">{m.formulario.lead}</p>
-              <div className="mt-6">
-                {/* O segmento vem da URL (?segmento=): lido só no navegador, com o formulário vazio enquanto isso. */}
-                <Suspense fallback={<AgendarVisitaSemSegmento />}>
-                  <AgendarVisita />
-                </Suspense>
-              </div>
+              <AgendarWhatsApp tituloId="agendar-titulo" origem="agendar-matriculas" />
             </div>
           </div>
         </div>

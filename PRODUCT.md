@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Next.js (App Router) + TypeScript + Tailwind CSS + Motion, deploy na Vercel — definido pelo briefing (`docs/briefing.md` §11). Leads: Supabase (tabela `leads` com RLS) + aviso por e-mail via Resend (etapa 5).
+Next.js (App Router) + TypeScript + Tailwind CSS + Motion, deploy na Vercel — definido pelo briefing (`docs/briefing.md` §11). Sem formulário: o agendamento da visita é pelo WhatsApp, com a mensagem já escrita (decisão de 2026-09-24).
 
 ## Users
 
@@ -17,7 +17,7 @@ Next.js (App Router) + TypeScript + Tailwind CSS + Motion, deploy na Vercel — 
 
 ## Product Purpose
 
-Site institucional multipágina do Colégio Anglo Líder Tamarineira (Recife/PE). Objetivo principal: gerar agendamentos de visita e contatos para as Matrículas 2027 (formulário + WhatsApp). Secundários: credibilidade (Sistema Anglo + projetos próprios), responder às dúvidas comuns antes do contato, ranquear nas buscas locais.
+Site institucional multipágina do Colégio Anglo Líder Tamarineira (Recife/PE). Objetivo principal: gerar agendamentos de visita e contatos para as Matrículas 2027 (pelo WhatsApp). Secundários: credibilidade (Sistema Anglo + projetos próprios), responder às dúvidas comuns antes do contato, ranquear nas buscas locais.
 
 Sucesso = teste dos 10 segundos: em qualquer página, no celular, o responsável entende o que é a escola, para quais idades, onde fica e como agendar, com o CTA sempre a um toque.
 
@@ -29,8 +29,8 @@ Uma unidade que acompanha a criança da Educação Infantil (a partir de 1 ano) 
 
 - Campanha anual de matrícula; o ano da campanha muda em um único lugar (`site.config.ts`).
 - Atendimento de segunda a sexta, das 8h às 17h; fechado em fins de semana e feriados.
-- Conversão por formulário "Agendar visita" e por WhatsApp (+55 81 98254-1643) com mensagem contextual por página e segmento.
-- Medição: GTM-W9QMS4S2, meta `facebook-domain-verification`, eventos `generate_lead`, `whatsapp_click`, `cta_click`, `video_play`; tags de marketing só após consentimento (LGPD).
+- Conversão pelo WhatsApp (+55 81 98254-1643): o botão verde "Agendar visita pelo WhatsApp" (em /matriculas#agendar, mensagem fixa de agendamento) e o "Falar no WhatsApp" (contorno, mensagem contextual por página e segmento).
+- Medição: GTM-W9QMS4S2, meta `facebook-domain-verification`, eventos `whatsapp_click`, `cta_click`, `video_play` (o agendamento é o `whatsapp_click` com `origem=agendar-matriculas`); tags de marketing só após consentimento (LGPD).
 
 ## Capabilities and Constraints
 

@@ -60,17 +60,11 @@ export default function PrivacidadePage() {
       titulo: 'Quais dados o site coleta',
       corpo: (
         <>
-          <P>O site só coleta dados pessoais quando você preenche o formulário de visita:</P>
-          <Lista>
-            <li>nome do responsável;</li>
-            <li>WhatsApp com DDD;</li>
-            <li>e-mail, se você quiser informar;</li>
-            <li>segmento de interesse e melhor período para a visita;</li>
-            <li>como você conheceu a escola, se quiser informar.</li>
-          </Lista>
+          <P>O site não tem formulário e não pede seus dados pessoais.</P>
           <P>
-            Junto com o pedido vão a página por onde você entrou no site, o endereço do site de onde você veio e, quando
-            o link tem, os parâmetros de campanha (UTM).
+            O agendamento da visita é feito pelo WhatsApp. Os botões do WhatsApp só abrem uma conversa com a escola, às
+            vezes com uma mensagem já escrita, que só é enviada quando você toca em enviar. O que você escreve na
+            conversa, e o seu número, chegam à escola pelo próprio WhatsApp.
           </P>
           <P>
             O site não pede dados da criança. No “Encontre a série”, o mês e o ano de nascimento ficam no seu navegador:
@@ -84,13 +78,10 @@ export default function PrivacidadePage() {
       titulo: 'Para que usamos',
       corpo: (
         <>
-          <Lista>
-            <li>
-              Falar com você pelo WhatsApp (ou pelo e-mail, se informado) para combinar a visita e tirar dúvidas sobre a
-              matrícula.
-            </li>
-            <li>Saber por qual canal ou campanha cada pedido chegou, para a escola avaliar a própria divulgação.</li>
-          </Lista>
+          <P>
+            O que você envia pelo WhatsApp serve para responder você, combinar a visita e tirar dúvidas sobre a
+            matrícula.
+          </P>
           <P>A escola não vende seus dados e não os usa para outra finalidade sem avisar antes.</P>
         </>
       ),
@@ -100,12 +91,11 @@ export default function PrivacidadePage() {
       titulo: 'Base legal',
       corpo: (
         <>
-          <P>
-            O contato para agendar a visita se apoia no seu consentimento (Lei nº 13.709/2018, a LGPD, art. 7º, I), dado
-            quando você marca a autorização no formulário. Você pode retirar esse consentimento quando quiser, pelos
-            canais descritos em “Seus direitos”.
-          </P>
-          <P>Cookies de medição e de publicidade também dependem do seu consentimento.</P>
+          <P>O atendimento pelo WhatsApp começa por iniciativa sua: é você quem envia a mensagem.</P>
+          <PendingBloco className="mt-4">
+            base legal do atendimento pelo WhatsApp (Lei nº 13.709/2018, a LGPD, art. 7º), na revisão jurídica
+          </PendingBloco>
+          <P>Cookies de medição e de publicidade dependem do seu consentimento.</P>
         </>
       ),
     },
@@ -129,10 +119,6 @@ export default function PrivacidadePage() {
             o aviso de cookies e o link “Preferências de cookies” entram na etapa 5, com o Google Tag Manager
           </PendingBloco>
           <P>
-            Enquanto você navega, o site guarda na sessão do navegador (sessionStorage) a página de entrada e os
-            parâmetros de campanha, para enviá-los junto do pedido de visita. Esses dados somem quando a aba é fechada.
-          </P>
-          <P>
             O mapa da escola é do Google e carrega junto com a página. O vídeo só carrega quando você clica nele. Antes
             disso, o YouTube não recebe nenhuma informação da sua visita.
           </P>
@@ -146,15 +132,19 @@ export default function PrivacidadePage() {
         <>
           <Lista>
             <li>
-              Prestadores de serviço que operam o site em nome da escola: hospedagem, armazenamento dos pedidos e envio
-              dos avisos por e-mail para a equipe de matrículas. Eles só podem usar os dados para prestar esse serviço.
+              O WhatsApp (Meta), por onde a conversa acontece, conforme os termos e a política de privacidade do próprio
+              WhatsApp.
+            </li>
+            <li>
+              Prestadores de serviço que operam o site em nome da escola, como a hospedagem. Eles só podem usar os dados
+              para prestar esse serviço.
             </li>
             <li>Google e Meta, apenas se você aceitar os cookies de medição e publicidade.</li>
             <li>Autoridades públicas, quando a lei exigir.</li>
           </Lista>
           <PendingBloco className="mt-4">
-            lista final de prestadores (previstos: Vercel, Supabase e Resend) e onde os dados ficam armazenados — se for
-            fora do Brasil, a política precisa citar a transferência internacional (LGPD, art. 33)
+            lista final de prestadores (previsto: Vercel, na hospedagem) e onde os dados ficam armazenados — se for fora
+            do Brasil, a política precisa citar a transferência internacional (LGPD, art. 33)
           </PendingBloco>
         </>
       ),
@@ -165,9 +155,9 @@ export default function PrivacidadePage() {
       corpo: (
         <>
           <P>
-            Os pedidos de visita ficam guardados pelo tempo necessário para o atendimento da matrícula
-            {guarda ? <> ({guarda})</> : null}. Depois disso, são apagados ou anonimizados, a não ser que a lei exija
-            guardá-los por mais tempo.
+            As conversas de agendamento pelo WhatsApp ficam guardadas pelo tempo necessário para o atendimento da
+            matrícula{guarda ? <> ({guarda})</> : null}. Depois disso, são apagadas ou anonimizadas, a não ser que a lei
+            exija guardá-las por mais tempo.
           </P>
           {isPendente(juridico.guardaDosPedidos) ? (
             <PendingBloco className="mt-4">{juridico.guardaDosPedidos.aConfirmar}</PendingBloco>
@@ -191,10 +181,7 @@ export default function PrivacidadePage() {
             <li>a portabilidade dos dados para outro fornecedor;</li>
             <li>a eliminação dos dados tratados com o seu consentimento;</li>
             <li>a informação sobre com quem compartilhamos seus dados;</li>
-            <li>
-              a informação sobre a possibilidade de não dar o consentimento e o que acontece nesse caso: sem ele, o
-              formulário não é enviado, mas o WhatsApp continua à disposição;
-            </li>
+            <li>a informação sobre a possibilidade de não dar o consentimento e o que acontece nesse caso;</li>
             <li>a revogação do consentimento.</li>
           </Lista>
           <P>
@@ -225,11 +212,11 @@ export default function PrivacidadePage() {
       corpo: (
         <>
           <P>
-            O site usa conexão criptografada (HTTPS) do início ao fim. O acesso aos pedidos de visita fica restrito às
-            pessoas da escola que cuidam das matrículas.
+            O site usa conexão criptografada (HTTPS) do início ao fim e não guarda dados pessoais: o agendamento
+            acontece na conversa pelo WhatsApp.
           </P>
           <PendingBloco className="mt-4">
-            quem terá acesso aos pedidos, quando o armazenamento for ligado (etapa 5)
+            quem na escola atende e tem acesso às conversas de agendamento no WhatsApp
           </PendingBloco>
         </>
       ),

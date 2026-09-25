@@ -11,9 +11,8 @@ export const menuPrincipal: readonly ItemMenu[] = [
   { rotulo: 'Contato', href: '/contato' },
 ];
 
-/** Destino de todo "Agendar visita". Com `segmento`, o formulário já vem com ele marcado. */
-export const hrefAgendar = (segmento?: string) =>
-  segmento ? `/matriculas?segmento=${segmento}#agendar` : '/matriculas#agendar';
+/** Destino de todo "Agendar visita": o bloco que explica e abre o WhatsApp com a mensagem pronta. */
+export const hrefAgendar = () => '/matriculas#agendar';
 
 /** Links do bloco "Para famílias" no rodapé (plataformas que a escola já usa). */
 export const paraFamilias: Talvez<readonly ItemMenu[]> = aConfirmar('plataformas usadas pelas famílias matriculadas');

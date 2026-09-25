@@ -26,7 +26,7 @@ Variáveis: copie `.env.example` para `.env.local`. Sem configurar nada, o site 
 | `/segmentos/[slug]` | `educacao-infantil`, `fundamental-1`, `fundamental-2`, `ensino-medio` — topo na cor do segmento |
 | `/projetos` | Um projeto por seção; a âncora é o id (`/projetos#criatto-lab`) |
 | `/estrutura` | Vídeo, espaços dos projetos e demais ambientes (âncoras iguais às dos projetos) |
-| `/matriculas` | Formulário (`#agendar`, aceita `?segmento=<slug>`), passos, documentos, dúvidas (`#duvidas`) |
+| `/matriculas` | Agendamento pelo WhatsApp com mensagem pronta (`#agendar`), passos, documentos, dúvidas (`#duvidas`) |
 | `/contato` | Canais, endereço e horário |
 | `/privacidade` | Texto-base da política (LGPD) — depende de revisão jurídica |
 | `/robots.txt`, `/sitemap.xml` | Gerados por `app/robots.ts` e `app/sitemap.ts` |
@@ -41,7 +41,7 @@ Variáveis: copie `.env.example` para `.env.local`. Sem configurar nada, o site 
 | Segmentos (e o conteúdo de cada página de segmento) | `content/segmentos.ts` |
 | Projetos, ambientes, dúvidas, passos da matrícula | `content/projetos.ts`, `content/estrutura.ts`, `content/faq.ts`, `content/matricula.ts` |
 | Tabela "Encontre a série" (provisória) | `content/series.ts` |
-| Formulário: validação e envio | `lib/lead.ts`, `app/matriculas/actions.ts` |
+| Mensagens do WhatsApp (inclusive a do agendamento) | `lib/whatsapp.ts` |
 | Cores, tipografia, espaçamentos | `app/globals.css` (`@theme`) e `DESIGN.md` |
 | Fontes (Fraunces instanciada + Manrope) | `app/fonts.ts`, `app/fonts/README.md` |
 | Componentes | `components/ui`, `components/blocks`, `components/layout`, `components/home` |

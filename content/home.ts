@@ -1,3 +1,4 @@
+import { fotoCriattoLab } from '@/content/fotos';
 import { siteConfig } from '@/site.config';
 
 /**
@@ -62,7 +63,7 @@ export const home = {
     titulo: 'Veja a escola antes da visita.',
     fotos: [
       { descricao: 'entrada da escola', legenda: 'entrada da escola, Tamarineira' },
-      { descricao: 'sala do Criatto Lab', legenda: 'Criatto Lab, Tamarineira' },
+      { descricao: 'sala do Criatto Lab', legenda: 'Criatto Lab, Tamarineira', foto: fotoCriattoLab },
       {
         descricao: 'espaço Google for Education, com os Chromebooks',
         legenda: 'espaço Google for Education, Tamarineira',
@@ -75,7 +76,7 @@ export const home = {
     eyebrow: `Matrículas ${ano}`,
     titulo: 'Da primeira visita à vaga garantida.',
     cta: 'Agendar visita',
-    microcopy: 'Formulário curto · usamos seus dados só para agendar a visita',
+    microcopy: 'Pelo WhatsApp · a mensagem já vai escrita',
   },
   duvidas: {
     eyebrow: 'Dúvidas frequentes',

@@ -308,7 +308,7 @@ Paleta contida, com acento forte: papel e tinta ocupam quase toda a página, o a
 ### Neutral
 - **Papel** (#fbf8f1 · `paper`): fundo da página, do cabeçalho e do menu do celular; também o `theme-color` do navegador. O fundo off-white quente foi fixado pelo briefing (§6); por isso o detector ignora `cream-palette` (`.impeccable/config.json`).
 - **Areia** (#f3ede1 · `paper-2`): seções alternadas (Estrutura, Dúvidas), placeholder de foto sobre o papel, hover do botão de contorno, trilho da barra de rolagem.
-- **Superfície** (#fffdf9 · `surface`): cards, painéis, formulário, campos e chips, tudo o que se apoia sobre o papel.
+- **Superfície** (#fffdf9 · `surface`): cards, painéis, campos e chips, tudo o que se apoia sobre o papel.
 - **Tinta** (#121d38 · `ink`): texto (15,7:1 no papel), azul-noite em vez de preto; fundo do rodapé (branco sobre ela: 16,7:1) e da aba selecionada no celular; tom da sombra.
 - **Tinta suave** (#4f586c · `ink-muted`): leads, microcopy, legendas e texto de apoio (6,7:1 no papel).
 - **Linha** (#e4dfd5 · `line`): divisórias e a borda de 1 px de cards, chips de aba e botões redondos.
@@ -323,16 +323,17 @@ Cada segmento tem três tons: base (a cor do logo), suave (fundo) e tinta (texto
 - **Fundamental 2**: base #036ea9 (`fund2`, o azul-claro do degradê do logo) · suave #d3ecf9 (`fund2-soft`) · tinta #09659f (`fund2-ink`, 5,1:1).
 - **Ensino Médio**: base #00279b (`medio`) · suave #d8defa (`medio-soft`) · tinta #00279b (`medio-ink`, 8,9:1).
 
-As bases aparecem no traço de 32 × 2 px que abre cada coluna de segmento, na régua do percurso e no ponto de 10 px da etiqueta; os suaves, no fundo da etiqueta, do resultado do "Encontre a série" e do topo da página do próprio segmento; as tintas, no texto da etiqueta, na faixa etária, na seta do card e, na página do segmento, na segunda batida do H1 e na régua de séries. Três suaves têm um segundo uso, funcional: `infantil-soft` é o fundo do marcador "A confirmar:" e da faixa de homologação; `medio-soft`, o do botão "+" do FAQ e do chip de escolha marcado; `fund1-soft`, o do alerta de falha do formulário.
+As bases aparecem no traço de 32 × 2 px que abre cada coluna de segmento, na régua do percurso e no ponto de 10 px da etiqueta; os suaves, no fundo da etiqueta, do resultado do "Encontre a série" e do topo da página do próprio segmento; as tintas, no texto da etiqueta, na faixa etária, na seta do card e, na página do segmento, na segunda batida do H1 e na régua de séries. Dois suaves têm um segundo uso, funcional: `infantil-soft` é o fundo do marcador "A confirmar:" e da faixa de homologação; `medio-soft`, o do botão "+" do FAQ e do chip de escolha marcado; `fund1-soft` ficou sem segundo uso quando o formulário saiu.
 
 ### Funcionais
 - **WhatsApp** (#128c7e · `whatsapp`): só o botão flutuante, com ícone branco (4,1:1, acima dos 3:1 exigidos para objeto gráfico). É o verde-azulado oficial; o verde claro #25D366 dá 2:1 com branco e reprova.
-- **WhatsApp escuro** (#075e54 · `whatsapp-ink`): o ícone do WhatsApp dentro de botões de contorno.
+- **WhatsApp escuro** (#075e54 · `whatsapp-ink`): o ícone do WhatsApp dentro de botões de contorno e o fundo do botão "Agendar visita pelo WhatsApp" (branco sobre ele: 7,7:1).
+- **WhatsApp profundo** (#05473f · `whatsapp-ink-hover`): só o hover desse botão.
 - **Erro** (#b3241f · `error`): borda e mensagem de campo inválido (6,2:1).
-- **Sucesso** (#21763c · `success`): o círculo da confirmação de envio do formulário (5,3:1).
+- **Sucesso** (#21763c · `success`): reservado (5,3:1); era o círculo da confirmação do formulário, que saiu.
 
 ### Named Rules
-**A Regra da Cor Única de Ação.** Todo botão preenchido é azul Anglo, e o azul marca o que responde ao toque: seta, sublinhado ativo, foco. Links de texto ficam em tinta e ganham o azul no sublinhado ao passar o mouse. Sobre o campo azul, o amarelo assume esse papel. A única exceção é funcional: o botão flutuante do WhatsApp, no verde oficial.
+**A Regra da Cor Única de Ação.** Todo botão preenchido é azul Anglo, e o azul marca o que responde ao toque: seta, sublinhado ativo, foco. Links de texto ficam em tinta e ganham o azul no sublinhado ao passar o mouse. Sobre o campo azul, o amarelo assume esse papel. As exceções são funcionais e verdes: o botão flutuante do WhatsApp e o "Agendar visita pelo WhatsApp" do bloco de agendamento, que precisa se distinguir do "Falar no WhatsApp" (contorno).
 
 **A Regra do Campo Azul Único.** No máximo uma seção de largura total em azul Anglo por página (na Home e em A Escola, a Proposta; as outras páginas não têm). É o único lugar onde existe botão amarelo.
 
@@ -350,9 +351,9 @@ A Fraunces é servida localmente como instância fixa (`app/fonts/`, 82 KB com o
 ### Hierarchy
 - **Display** (Fraunces 600, `clamp(2.5rem, 1.5rem + 3.9vw, 4.25rem)` · 40 → 68 px, 1,03, −0,02em): só o H1: o do hero da Home e o do topo das páginas internas.
 - **H2** (Fraunces 600, `clamp(2rem, 1.4rem + 2.6vw, 3.25rem)` · 32 → 52 px, 1,06, −0,015em): título de seção.
-- **H3** (Fraunces 600, `clamp(1.375rem, 1.2rem + 0.8vw, 1.75rem)` · 22 → 28 px, 1,18): título de bloco, como o do "Encontre a série", o do projeto na aba e o da confirmação do formulário.
-- **Numeral de passo** (`step`: Fraunces itálico 500, `clamp(2.5rem, 2rem + 2vw, 3.5rem)` · 40 → 56 px, 1): 01, 02, 03… em azul Anglo (amarelo sobre o azul).
-- **H4** (Manrope 700, 18 px, 1,375): título de passo e de pilar, logo abaixo do numeral.
+- **H3** (Fraunces 600, `clamp(1.375rem, 1.2rem + 0.8vw, 1.75rem)` · 22 → 28 px, 1,18): título de bloco, como o do "Encontre a série", o do projeto na aba e o do agendamento pelo WhatsApp.
+- **Numeral de pilar** (`step`: Fraunces itálico 500, `clamp(2.5rem, 2rem + 2vw, 3.5rem)` · 40 → 56 px, 1): 01, 02, 03 dos três pilares da Proposta, em amarelo sobre o azul. Os passos da matrícula usam o mesmo itálico, em 28 px, ao lado do título — ver Passos numerados.
+- **H4** (Manrope 700, 18 px, 1,375): título de passo e de pilar.
 - **Lead** (Manrope 450, `clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem)` · 18 → 21 px, 1,55): subtítulo do hero e introdução de seção, em `ink-muted`, até 33 a 36em de largura.
 - **Body** (Manrope 450, `clamp(1.0625rem, 1.04rem + 0.1vw, 1.125rem)` · 17 → 18 px, 1,6): texto corrido, até cerca de 60ch por linha.
 - **Small** (Manrope 450, 15 px, 1,5): texto de card, listas do rodapé, microcopy de confiança.
@@ -378,7 +379,7 @@ Celular primeiro (cada decisão é testada em 360 a 390 px antes do desktop), co
 - **Container** (`wrap`): conteúdo até 1200 px (`container`, 75rem), centralizado, com a margem lateral fluida `gutter` (16 → 40 px).
 - **Respiro de seção** (`section-y`, 64 → 128 px), em cima e embaixo, igual em todas as seções. Seções se separam por respiro e troca de fundo (papel, areia, azul), nunca por linha divisória.
 - **Grade:** 12 colunas a partir de `lg` (1024 px), com 32 px entre colunas; abaixo disso, uma coluna. Listas de cards: 2 por linha a partir de `sm` (640 px) e 4 a partir de `lg`, com 16 px de espaço; os três pilares da Proposta ficam lado a lado a partir de `md` (768 px). A proposta previa 8 colunas entre 768 e 1023 px; o código entregue empilha, e vale o código.
-- **A divisão 5 / 7:** a composição que se repete. Texto e CTAs (5) com a foto (7) no hero, título (5) com os campos (7) no "Encontre a série", cabeça (5) com o FAQ (7) em Dúvidas; invertida no fim (card do CTA 7, mapa 5). Nas páginas internas: texto e WhatsApp (5) com o formulário (7) em Matrículas, cabeça fixa (5) com a tabela (7) nas séries, texto (5) com a foto (7) em cada projeto (o lado alterna), endereço (5) com o mapa (7) em Contato.
+- **A divisão 5 / 7:** a composição que se repete. Texto e CTAs (5) com a foto (7) no hero, título (5) com os campos (7) no "Encontre a série", cabeça (5) com o FAQ (7) em Dúvidas; invertida no fim (card do CTA 7, mapa 5). Nas páginas internas: texto e WhatsApp (5) com o agendamento (7) em Matrículas, cabeça fixa (5) com a tabela (7) nas séries, texto (5) com a foto (7) em cada projeto (o lado alterna), endereço (5) com o mapa (7) em Contato.
 - **Alternância de fundo:** depois do topo, papel e areia se alternam (`tomAlternado`, `lib/tons.ts`); quando um bloco sai em produção por falta de dado, a alternância se refaz e duas seções vizinhas nunca repetem o fundo.
 - **Cabeça de seção:** até 42rem de largura; eyebrow → título 16 px; título → introdução 20 px; cabeça → conteúdo 48 px.
 - **Primeiro viewport:** eyebrow e H1 em largura total; abaixo, a divisão 5 / 7 com a foto em 16:9 (4:3 no celular); o painel "Encontre a série" sobe 40 px (64 px no desktop) sobre a base da foto.
@@ -402,15 +403,15 @@ Linhas de 1 px desenhadas com `box-shadow`, como a do cabeçalho em repouso (`0 
 ## Shapes
 
 Cantos moderados, numa escala de quatro:
-- **Suave, 8 px** (`rounded-sm`): campos, etiquetas de segmento, resultado do "Encontre a série", legenda sobre a foto, alerta do formulário.
-- **Médio, 14 px** (`rounded-md`): cards, painéis, formulário, vídeo, mapa e fotos menores.
+- **Suave, 8 px** (`rounded-sm`): campos, etiquetas de segmento, resultado do "Encontre a série", legenda sobre a foto, mensagem pronta do agendamento.
+- **Médio, 14 px** (`rounded-md`): cards, painéis, card do agendamento, vídeo, mapa e fotos menores.
 - **Amplo, 24 px** (`rounded-lg`): a foto do hero e o card do CTA final (o fecho de todas as páginas, menos Privacidade).
 - **Pílula** (`rounded-full`): botões, chips, botão flutuante e os botões de ícone redondos (menu, redes sociais, "+" do FAQ).
 
 Micro-raios pertencem a dois elementos só: 2 px no traço do friso e 4 px no marcador "A confirmar:". Bordas: 1 px em `line` para cards e divisórias (desenhadas por dentro quando o elemento tem fundo); 1 px em `field` para campos; 1,5 px em tinta no botão de contorno. Não há forma recortada, diagonal ou orgânica: a geometria de assinatura é a faixa reta.
 
 ### Named Rules
-**A Regra do Friso.** O friso é uma faixa reta azul · amarelo · vermelho em 2 : 1 : 1, com cortes secos, sem degradê (`stripe`). Aparece só em lugares fixos: 4 px no topo do cabeçalho, do rodapé e do menu do celular; 4 px no topo dos três contêineres de ação (painel "Encontre a série", formulário de visita, card do CTA final); o traço de 24 × 3 px antes de cada eyebrow; o mesmo traço marcando a aba ativa dos projetos no desktop. Sobre o azul Anglo, o terço azul vira branco (`stripe-invert`). Nunca como decoração solta.
+**A Regra do Friso.** O friso é uma faixa reta azul · amarelo · vermelho em 2 : 1 : 1, com cortes secos, sem degradê (`stripe`). Aparece só em lugares fixos: 4 px no topo do cabeçalho, do rodapé e do menu do celular; 4 px no topo dos três contêineres de ação (painel "Encontre a série", card do agendamento pelo WhatsApp, card do CTA final); o traço de 24 × 3 px antes de cada eyebrow; o mesmo traço marcando a aba ativa dos projetos no desktop. Sobre o azul Anglo, o terço azul vira branco (`stripe-invert`). Nunca como decoração solta.
 
 ## Components
 
@@ -421,11 +422,12 @@ Pílulas firmes, em negrito, com a seta que diz o destino.
 - **Primário** (`primario`): azul Anglo, texto branco; hover em azul Anglo profundo.
 - **Amarelo** (`amarelo`): amarelo, texto em tinta; hover em branco. Só sobre o campo azul.
 - **Contorno** (`contorno`): sem fundo, texto em tinta, borda interna de 1,5 px em tinta; hover em areia. É o par do primário para o WhatsApp, com o ícone em `whatsapp-ink`.
+- **WhatsApp** (`whatsapp`): fundo `whatsapp-ink`, texto e ícone brancos; hover em `whatsapp-ink-hover`. Só o "Agendar visita pelo WhatsApp", que abre a conversa com a mensagem de agendamento já escrita; o "Falar no WhatsApp" continua de contorno.
 - **Link com seta** (`ArrowLink`, o CTA secundário): texto em negrito com sublinhado de 1,5 px, afastado 0,32em, na cor do texto a 32%; no hover, o sublinhado fica azul Anglo (amarelo sobre fundo escuro); a seta é azul (amarela sobre o azul). Altura mínima de 44 px.
 - **Hover / Focus:** cor em 150 ms; a seta anda 3 px na direção do destino (→ para a direita, ↓ para baixo, ↗ 2 px na diagonal), também em 150 ms. Foco: anel de 2 px em azul Anglo com 3 px de respiro; em seções azuis ou de tinta, amarelo.
 - **Microcopy de confiança** (fixada pelo briefing §5): logo abaixo do CTA principal, uma linha em Small `ink-muted`, com os itens separados por " · ", como "Visita guiada · sem compromisso · seg. a sex., 8h às 17h".
 
-**A Regra da Seta de Destino.** Fixada pelo briefing (§5). → leva a uma ação no site; ↓ desce na mesma página; ↑ volta para cima na mesma página (o "Agendar visita" do fecho de Matrículas, que sobe até o formulário); ↗ sai do site, abre em nova aba e leva "(abre em nova aba)" para leitor de tela. As setas são ícones SVG (`components/ui/Icon.tsx`: 24 × 24, traço de 2 px, pontas arredondadas), nunca caracteres, porque a Fraunces não tem → nem ↗ no subconjunto latino. Botão sem seta só onde falta espaço (o "Agendar" compacto do cabeçalho no celular).
+**A Regra da Seta de Destino.** Fixada pelo briefing (§5). → leva a uma ação no site; ↓ desce na mesma página; ↑ volta para cima na mesma página (o "Agendar visita" do fecho de Matrículas, que sobe até o agendamento); ↗ sai do site, abre em nova aba e leva "(abre em nova aba)" para leitor de tela. As setas são ícones SVG (`components/ui/Icon.tsx`: 24 × 24, traço de 2 px, pontas arredondadas), nunca caracteres, porque a Fraunces não tem → nem ↗ no subconjunto latino. Botão sem seta só onde falta espaço (o "Agendar" compacto do cabeçalho no celular).
 
 ### Chips
 - **Etiqueta de segmento** (`SegmentTag`): 32 px de altura, cantos de 8 px, 12 px de padding lateral; fundo suave e texto em tinta do segmento, em Tag; ponto de 10 px na cor-base, com contorno de 1 px em tinta a 15%; sempre o nome do segmento escrito. Perde o fundo quando já está sobre o fundo suave do próprio segmento.
@@ -437,7 +439,7 @@ Pílulas firmes, em negrito, com a seta que diz o destino.
 - **Background:** superfície sobre papel ou areia.
 - **Shadow Strategy:** planos, com borda de 1 px em `line`; só o painel "Encontre a série" tem sombra em repouso (ver Elevation & Depth).
 - **Border:** 1 px em `line`; os contêineres de ação ganham o friso de 4 px no topo (ver A Regra do Friso).
-- **Internal Padding:** 20 a 24 px no celular, 28 a 48 px no desktop. Card de segmento 24 px (32 no topo) → 28 px (36); formulário 24 → 32 px; painel do "Encontre a série" 20 → 36 px (28 → 40 no topo); card do CTA final 28 → 40 → 48 px.
+- **Internal Padding:** 20 a 24 px no celular, 28 a 48 px no desktop. Card de segmento 24 px (32 no topo) → 28 px (36); card do agendamento 24 → 32 px; painel do "Encontre a série" 20 → 36 px (28 → 40 no topo); card do CTA final 28 → 40 → 48 px.
 - **Segmento** (`SegmentCard`): coluna de texto sobre o papel, sem caixa. Um traço de 32 × 2 px na cor-base abre a coluna (lado a lado, os quatro traços ainda formam a sequência da paleta); faixa etária em Tag, na tinta do segmento; nome em Fraunces 600; uma frase em Small `ink-muted`; o link "Conhecer →", com a seta na tinta do segmento. A coluna inteira é clicável. A seta anda 3 px no hover.
 
 ### Inputs / Fields
@@ -462,7 +464,7 @@ Pílulas firmes, em negrito, com a seta que diz o destino.
 A assinatura interativa. Painel em superfície, cantos de 14 px, sombra de flutuação e friso de 4 px no topo, sobreposto à base da foto do hero. Título em H3 com duas batidas; mês e ano em dois selects lado a lado; abaixo de uma linha `line`, a região de resultado (`aria-live`), com uma dica enquanto falta dado. O resultado entra na cor suave do segmento, varrendo da esquerda para a direita como o friso (recorte animado de 500 ms na curva `ease-out-soft`; o conteúdo sobe 8 px logo depois). Traz a etiqueta do segmento, "Em {ano}: {série}" em Fraunces 600, os links "Conhecer … →" e "Falar no WhatsApp ↗" e a nota da data de corte em Caption. Com movimento reduzido, aparece sem animação. É o único componente que usa a biblioteca Motion, carregada só quando a pessoa foca um dos campos.
 
 ### Passos numerados
-Lista ordenada com linha `line` no topo; 4 colunas a partir de `lg`, separadas por linhas verticais `line`. Cada passo tem o numeral (`step`), o título em H4 e o texto em Small `ink-muted`. Os numerais são `aria-hidden`: quem diz a ordem é a lista.
+Lista lida de cima para baixo, com no máximo 40 rem de largura. Linha `line` acima do primeiro passo e entre os passos. O numeral fica ao lado do título, em Fraunces itálico 28 px, azul Anglo — não no tamanho `step`, que fica para os três pilares da Proposta. Título em H4, texto em Small `ink-muted`. Os numerais são `aria-hidden`: quem diz a ordem é a lista.
 
 **A Regra do Processo Real.** Fixada pelo briefing (§5 e §8). Numeração 01, 02, 03… só em sequência real: os passos da matrícula (01 a 04) e os três pilares da Proposta, que o briefing numera explicitamente (sobre o azul, numerais em amarelo). Fora disso, número grande em destaque só com dado real e fonte.
 
@@ -470,7 +472,7 @@ Lista ordenada com linha `line` no topo; 4 colunas a partir de `lg`, separadas p
 `<details>` nativo, que abre pelo teclado sem JavaScript. Pergunta em Manrope 700, em tinta, em linhas de 64 px separadas por `line`; à direita, um círculo de 32 px em `medio-soft` com "+" azul, que gira 45° ao abrir (250 ms). Resposta em `ink-muted`, até 60ch.
 
 ### Botão flutuante do WhatsApp
-Círculo de 56 px em `whatsapp`, ícone branco de 28 px, sombra de flutuação, a 16 px do canto (respeitando a área segura). Nunca cobre conteúdo: some (opacidade 0, 12 px abaixo, sem clique) enquanto algum elemento marcado com `data-fab-oculta` está na tela (os CTAs do hero, o card do CTA final, o formulário, o rodapé) e enquanto um campo está em foco; transição de 250 ms. A mensagem pré-preenchida muda com a página.
+Círculo de 56 px em `whatsapp`, ícone branco de 28 px, sombra de flutuação, a 16 px do canto (respeitando a área segura). Nunca cobre conteúdo: some (opacidade 0, 12 px abaixo, sem clique) enquanto algum elemento marcado com `data-fab-oculta` está na tela (os CTAs do hero, o card do CTA final, o agendamento, o rodapé) e enquanto um campo está em foco; transição de 250 ms. A mensagem pré-preenchida muda com a página.
 
 ### Topo de página interna e trilha
 `PageHero` abre toda página interna (ver Layout). A trilha ("Início / Segmentos / Fundamental 1") fica acima do eyebrow, em Caption `ink-muted`, com barras em `field`, links sublinhados de 44 px de altura e a página atual em tinta 600, sem link; leva junto o `BreadcrumbList` em JSON-LD. Na página de segmento, o topo inteiro fica no suave do segmento e a segunda batida do H1, na tinta dele: a página "veste" a cor do card em que a pessoa clicou.

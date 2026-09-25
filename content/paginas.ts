@@ -113,23 +113,26 @@ export const paginas = {
   matriculas: {
     meta: {
       title: `Matrículas ${ano}`,
-      description: `Agende uma visita para as Matrículas ${ano}: formulário ou WhatsApp, atendimento de segunda a sexta, das 8h às 17h.`,
+      description: `Agende uma visita para as Matrículas ${ano} pelo WhatsApp. Atendimento de segunda a sexta, das 8h às 17h.`,
     },
     eyebrow: 'Matrículas abertas',
     titulo: `Matrículas ${ano}.`,
     destaque: 'Comece pela visita.',
-    lead: 'Agende a visita pelo formulário ou pelo WhatsApp. Atendimento de segunda a sexta, das 8h às 17h.',
-    formulario: {
+    lead: 'A visita é agendada pelo WhatsApp, com a mensagem já escrita. Atendimento de segunda a sexta, das 8h às 17h.',
+    agendar: {
       eyebrow: 'Agendar visita',
-      titulo: 'Deixe seu contato.',
-      lead: 'A equipe de matrículas fala com você pelo WhatsApp para combinar o dia da visita.',
+      titulo: 'Marque a visita pelo WhatsApp.',
+      texto:
+        'Ao clicar no botão abaixo, você é levado ao WhatsApp da escola com esta mensagem já escrita. É só enviar: a equipe de matrículas responde para combinar o dia e o horário da visita.',
+      rotuloMensagem: 'Mensagem que já vai escrita',
+      botao: 'Agendar visita pelo WhatsApp',
+      microcopy: 'Nada é enviado sem você: a mensagem só sai quando você toca em enviar.',
     },
     conversa: 'Prefere conversar antes?',
     passos: { eyebrow: 'Como funciona', titulo: 'Da primeira visita à vaga garantida.' },
     documentos: {
       eyebrow: 'Documentos',
       titulo: 'O que levar para a matrícula.',
-      pendente: 'lista de documentos da matrícula',
     },
     duvidas: { eyebrow: 'Dúvidas frequentes', titulo: 'Perguntas de quem está escolhendo escola.' },
   },
@@ -147,10 +150,11 @@ export const paginas = {
   privacidade: {
     meta: {
       title: 'Política de privacidade',
-      description: 'Como o site trata os dados de quem pede uma visita e como funcionam os cookies.',
+      description:
+        'Como o site trata seus dados, como funciona o agendamento pelo WhatsApp e como funcionam os cookies.',
     },
     eyebrow: 'Privacidade',
     titulo: 'Política de privacidade.',
-    lead: 'Como o site trata os dados de quem pede uma visita, e como funcionam os cookies.',
+    lead: 'Como o site trata seus dados, como funciona o agendamento pelo WhatsApp e como funcionam os cookies.',
   },
 } as const;

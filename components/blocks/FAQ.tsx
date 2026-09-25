@@ -1,5 +1,6 @@
 import { duvidasVisiveis, type Duvida } from '@/content/faq';
 import { isPendente } from '@/lib/pending';
+import { ListaDocumentos } from '@/components/blocks/ListaDocumentos';
 import { Icon } from '@/components/ui/Icon';
 import { Pending } from '@/components/ui/Pending';
 
@@ -28,7 +29,10 @@ export function FAQ({ duvidas }: { duvidas: readonly Duvida[] }) {
             {isPendente(d.resposta) ? (
               <Pending>{d.resposta.aConfirmar}</Pending>
             ) : (
-              <p className="max-w-[60ch]">{d.resposta}</p>
+              <>
+                <p className="max-w-[60ch]">{d.resposta}</p>
+                {d.grupos ? <ListaDocumentos grupos={d.grupos} nota={d.nota} denso className="mt-6" /> : null}
+              </>
             )}
           </div>
         </details>

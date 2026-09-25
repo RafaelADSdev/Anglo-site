@@ -2,7 +2,7 @@
 
 Tudo que o site precisa e ainda não foi confirmado pela escola. Regra do projeto: nada daqui entra inventado. No código, o item é declarado com `aConfirmar('...')` (`lib/pending.ts`): em homologação aparece com o marcador amarelo "A confirmar"; em produção, o bloco que depende dele não aparece.
 
-Atualizado em 23/09/2026 (etapa 4 — páginas internas: A Escola, Segmentos e as 4 páginas de segmento, Projetos, Estrutura, Matrículas, Contato e Privacidade).
+Atualizado em 24/09/2026 (lista de documentos da matrícula confirmada).
 
 ## Decisões da etapa 1 (aprovadas em 23/09/2026)
 
@@ -65,10 +65,10 @@ Atualizado em 23/09/2026 (etapa 4 — páginas internas: A Escola, Segmentos e a
 
 ## Matrícula
 
-- [ ] Passo 03 do processo (entre a visita e a vaga garantida).
-- [ ] Documentos exigidos (seção "Documentos" de /matriculas — só em homologação até chegar a lista).
-- [ ] Como os valores são informados à família (mensalidades não são publicadas no site).
-- [ ] Respostas validadas para o FAQ: 10 perguntas em `content/faq.ts`, só "A partir de que idade…" tem resposta. Em produção, cada pergunta aparece quando a resposta chegar.
+- [x] Passo 03, em 24/09/2026: "Receba a proposta" — depois da visita, a escola passa os valores e as condições.
+- [x] Documentos exigidos, confirmados em 24/09/2026 (seção "Documentos" de /matriculas e pergunta do FAQ). A CNH no lugar do RG e a conferência dos originais foram acrescentadas à lista recebida. O contrato em si continua sem descrição.
+- [x] Como os valores são informados à família, em 24/09/2026: depois da visita. As mensalidades não ficam no site.
+- [ ] Respostas validadas para o FAQ: 10 perguntas em `content/faq.ts`. Com resposta: idade de entrada, vestibulares (ENEM e SSA), documentos da matrícula e como os valores são informados. As outras 6 seguem pendentes e, em produção, cada uma aparece quando a resposta chegar.
 
 ## Prova e credibilidade (seções só aparecem com material real)
 
@@ -80,22 +80,24 @@ Atualizado em 23/09/2026 (etapa 4 — páginas internas: A Escola, Segmentos e a
 ## Fotos
 
 - [ ] Fotos reais por ambiente, segmento e projeto. De estudantes, só com autorização de uso de imagem assinada pelos responsáveis. Cada espaço já tem a descrição do que a foto deve mostrar (placeholders em homologação): 3 por segmento (`content/segmentos.ts`), 1 por projeto (`content/projetos.ts`), 1 por ambiente (`content/estrutura.ts`). Em produção, galerias e cards mostram só fotos reais.
+  - [x] Criatto Lab, recebida em 24/09/2026 (`public/fotos/criatto-lab.jpg`): Home, `/projetos#criatto-lab` e `/estrutura#criatto-lab`. O detalhe circular mostra estudantes; a autorização de uso de imagem segue pendente antes da produção.
+  - [x] Ensino Médio, recebida em 24/09/2026 (`public/fotos/ensino-medio.jpg`): galeria de `/segmentos/ensino-medio`. A foto é de estudantes; a autorização de uso de imagem segue pendente antes da produção. O arquivo tem 275×243 px — fica nítida só em tela pequena até chegar uma versão maior.
 - [ ] Foto (ou vídeo) do hero: sugestão — entrada da escola com famílias chegando, ou estudantes em atividade no pátio.
 
 ## Plataformas, medição e dados
 
 - [ ] Links do bloco "Para famílias" (rodapé e /contato).
-- [ ] Acesso ao GTM-W9QMS4S2 para configurar consentimento (LGPD) e os eventos `generate_lead`, `whatsapp_click`, `cta_click`, `video_play`.
-- [ ] Quem recebe o aviso de novo lead por e-mail; contas Supabase e Resend; domínio de envio. **Hoje o formulário valida e passa pela checagem do servidor (antirrobô e limite de envios), mas não grava nem avisa ninguém**: em homologação, a mensagem diz isso e oferece o WhatsApp (etapa 5).
+- [ ] Acesso ao GTM-W9QMS4S2 para configurar consentimento (LGPD) e os eventos `whatsapp_click`, `cta_click`, `video_play`. O agendamento de visita é o `whatsapp_click` com `origem=agendar-matriculas` (sem formulário desde 2026-09-24, não há mais `generate_lead` nem Supabase/Resend).
 
 ## Política de privacidade (/privacidade)
 
 - [ ] **Revisão jurídica** do texto-base antes da produção.
 - [ ] Mantenedora (controladora): razão social e CNPJ.
 - [ ] Encarregado pelo tratamento de dados (DPO): nome e e-mail para pedidos de titulares.
-- [ ] Prazo de guarda dos pedidos de visita.
-- [ ] Lista final de prestadores (previstos: Vercel, Supabase, Resend) e região de armazenamento — se fora do Brasil, citar a transferência internacional (LGPD, art. 33).
-- [ ] Quem na escola terá acesso aos pedidos de visita.
+- [ ] Prazo de guarda das conversas de agendamento no WhatsApp.
+- [ ] Lista final de prestadores (previsto: Vercel, na hospedagem) e região de armazenamento — se fora do Brasil, citar a transferência internacional (LGPD, art. 33).
+- [ ] Quem na escola atende e tem acesso às conversas de agendamento no WhatsApp.
+- [ ] Base legal do atendimento pelo WhatsApp (LGPD, art. 7º): o texto que citava o consentimento do formulário saiu junto com ele.
 - [ ] Data de vigência da política.
 - [ ] Aviso de cookies e link "Preferências de cookies" no rodapé (etapa 5, com o GTM) — a política já descreve esse funcionamento.
 

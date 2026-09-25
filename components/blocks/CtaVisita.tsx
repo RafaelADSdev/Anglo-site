@@ -14,9 +14,9 @@ type Props = {
   /** Origem do clique na medição (`data-track-origem`). */
   origem: string;
   tom?: Extract<Tom, 'papel' | 'areia'>;
-  /** Página de segmento: o formulário abre com o segmento marcado e o WhatsApp fala dele. */
+  /** Página de segmento: o WhatsApp fala dele. */
   segmento?: Segmento;
-  /** Na própria página de Matrículas, o botão volta ao formulário. */
+  /** Na própria página de Matrículas, o botão volta ao agendamento. */
   agendar?: { href: string; rotulo: string; seta: Seta };
   /** Mapa e horário ao lado do card (padrão). Sem eles, o card ocupa a largura toda. */
   comMapa?: boolean;
@@ -53,7 +53,7 @@ export function CtaVisita({ origem, tom = 'papel', segmento, agendar, comMapa = 
           <div className={comMapa ? undefined : 'lg:col-span-5'}>
             <div className={cn('mt-8 flex flex-wrap gap-3', !comMapa && 'lg:mt-0')}>
               <ButtonLink
-                href={agendar?.href ?? hrefAgendar(segmento?.slug)}
+                href={agendar?.href ?? hrefAgendar()}
                 seta={agendar?.seta}
                 data-track="cta_click"
                 data-track-origem={origem}

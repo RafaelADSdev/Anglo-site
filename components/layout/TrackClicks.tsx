@@ -2,16 +2,13 @@
 
 import { useEffect } from 'react';
 import { track, type Evento } from '@/lib/track';
-import { guardarUtms } from '@/lib/utm';
 
 /**
- * Medição no site todo: guarda UTMs/página de entrada na sessão e é o ouvinte
- * único de cliques rastreados. Componentes de servidor declaram
+ * Medição no site todo: é o ouvinte único de cliques rastreados. Componentes de servidor declaram
  * `data-track="cta_click"` e `data-track-<param>="valor"`; aqui vira evento no dataLayer.
  */
 export function TrackClicks() {
   useEffect(() => {
-    guardarUtms();
     const aoClicar = (e: MouseEvent) => {
       const alvo = (e.target as Element | null)?.closest<HTMLElement>('[data-track]');
       if (!alvo) return;

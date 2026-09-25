@@ -28,11 +28,12 @@ export const metadata = metadadosDaPagina({
 /** Ambiente: foto (ou placeholder, em homologação), nome, texto e o link do projeto que acontece ali. */
 function AmbienteCard({ ambiente: a, tom, indice }: { ambiente: Ambiente; tom: TomClaro; indice: number }) {
   const texto = confirmado(a.texto);
-  const comFoto = fotosVisiveis([{ descricao: a.foto, legenda: a.legenda }]).length > 0;
+  const comFoto = fotosVisiveis([{ descricao: a.foto, legenda: a.legenda, foto: a.imagem }]).length > 0;
   return (
     <li id={a.id} className="reveal" style={{ '--i': indice } as React.CSSProperties}>
       {comFoto ? (
         <Figure
+          foto={a.imagem}
           descricao={a.foto}
           legenda={a.legenda}
           proporcao="aspect-[4/3]"

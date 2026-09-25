@@ -29,7 +29,7 @@ export const metadata = metadadosDaPagina({
 /** Um projeto por seção (a âncora é o id): texto (5) e foto (7), alternando o lado. */
 function ProjetoSection({ projeto: pr, tom, invertido }: { projeto: Projeto; tom: TomClaro; invertido: boolean }) {
   const segs = confirmado(pr.segmentos);
-  const comFoto = fotosVisiveis([{ descricao: pr.foto, legenda: pr.legenda }]).length > 0;
+  const comFoto = fotosVisiveis([{ descricao: pr.foto, legenda: pr.legenda, foto: pr.imagem }]).length > 0;
   const comEspaco = (projetosComEspaco as readonly string[]).includes(pr.id);
   const mostrarSegmentos = segs || (siteConfig.emHomologacao && isPendente(pr.segmentos));
 
@@ -74,6 +74,7 @@ function ProjetoSection({ projeto: pr, tom, invertido }: { projeto: Projeto; tom
         {comFoto ? (
           <Figure
             className={cn('lg:col-span-7 lg:row-start-1', invertido ? 'lg:col-start-1' : 'lg:col-start-6')}
+            foto={pr.imagem}
             descricao={pr.foto}
             legenda={pr.legenda}
             proporcao="aspect-[4/3]"

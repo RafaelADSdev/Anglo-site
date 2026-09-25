@@ -194,7 +194,7 @@ export default async function SegmentoPage({ params }: PageProps<'/segmentos/[sl
         acoes={
           <>
             <ButtonLink
-              href={hrefAgendar(s.slug)}
+              href={hrefAgendar()}
               className="w-full sm:w-auto"
               data-track="cta_click"
               data-track-origem="hero-segmento"

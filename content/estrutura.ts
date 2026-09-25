@@ -1,3 +1,5 @@
+import { fotoCriattoLab } from '@/content/fotos';
+import type { Foto } from '@/lib/foto';
 import { aConfirmar, type Talvez } from '@/lib/pending';
 
 /**
@@ -13,6 +15,8 @@ export type Ambiente = {
   /** O que a foto real deve mostrar. */
   foto: string;
   legenda: string;
+  /** Foto real. Sem ela, o bloco usa o placeholder descrito em `foto`. */
+  imagem?: Foto;
   href?: string;
 };
 
@@ -31,6 +35,7 @@ export const ambientesProjetos: readonly Ambiente[] = [
     texto: 'Uma sala fora do padrão para protagonismo, liderança, comunicação, tecnologia e empreendedorismo.',
     foto: 'sala do Criatto Lab',
     legenda: 'Criatto Lab, Tamarineira',
+    imagem: fotoCriattoLab,
     href: '/projetos#criatto-lab',
   },
   {

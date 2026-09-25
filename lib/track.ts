@@ -3,7 +3,7 @@
  * disparar — e só dispara tags de marketing depois do consentimento (etapa 5).
  */
 
-export type Evento = 'generate_lead' | 'whatsapp_click' | 'cta_click' | 'video_play';
+export type Evento = 'whatsapp_click' | 'cta_click' | 'video_play';
 
 type Parametros = Record<string, string | number | undefined>;
 

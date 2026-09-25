@@ -1,3 +1,4 @@
+import { fotoEnsinoMedio } from '@/content/fotos';
 import { aConfirmar, type Talvez } from '@/lib/pending';
 import type { FotoPrevista } from '@/lib/foto';
 import type { IdDuvida } from './faq';
@@ -124,7 +125,11 @@ export const segmentos: readonly Segmento[] = [
         pendente: 'rotina e turnos do Ensino Médio',
       },
       fotos: [
-        { descricao: 'turma do Ensino Médio em sala', legenda: 'Ensino Médio, Tamarineira' },
+        {
+          descricao: 'estudantes do Ensino Médio de uniforme',
+          legenda: 'Ensino Médio, Tamarineira',
+          foto: fotoEnsinoMedio,
+        },
         { descricao: 'estudantes do Ensino Médio estudando', legenda: 'Ensino Médio, Tamarineira' },
         { descricao: 'estudantes do Ensino Médio em um projeto', legenda: 'Ensino Médio, Tamarineira' },
       ],

@@ -109,6 +109,7 @@ export function EstruturaSection() {
             {fotos.map((foto) => (
               <Figure
                 key={foto.descricao}
+                foto={'foto' in foto ? foto.foto : undefined}
                 descricao={foto.descricao}
                 legenda={foto.legenda}
                 fundoPlaceholder="claro"

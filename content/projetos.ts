@@ -1,3 +1,5 @@
+import { fotoCriattoLab } from '@/content/fotos';
+import type { Foto } from '@/lib/foto';
 import { aConfirmar, type Talvez } from '@/lib/pending';
 import type { SegmentoId } from './segmentos';
 
@@ -14,6 +16,8 @@ export type Projeto = {
   foto: string;
   /** Lugar ou momento, para a legenda "Fotografia real · …" quando a foto chegar. */
   legenda: string;
+  /** Foto real. Sem ela, o bloco usa o placeholder descrito em `foto`. */
+  imagem?: Foto;
 };
 
 const segmentosAConfirmar = aConfirmar('segmentos atendidos pelo projeto');
@@ -37,6 +41,7 @@ export const projetos: readonly Projeto[] = [
     segmentos: segmentosAConfirmar,
     foto: 'estudantes em atividade na sala do Criatto Lab',
     legenda: 'Criatto Lab, Tamarineira',
+    imagem: fotoCriattoLab,
   },
   {
     id: 'geracao-lider',

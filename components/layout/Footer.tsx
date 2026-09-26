@@ -150,7 +150,15 @@ export function Footer() {
             </Link>
             <p className="inline-flex min-h-11 items-center gap-2.5">
               <span>Feito por</span>
-              <Image src="/marca/tekton-labs.png" alt="Tekton Labs" width={943} height={247} className="h-10 w-auto" />
+              <a
+                href="https://tekton-digital.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Tekton Labs (abre em nova aba)"
+                className="inline-flex items-center rounded-sm transition-opacity hover:opacity-80"
+              >
+                <Image src="/marca/tekton-labs.png" alt="" width={943} height={247} className="h-10 w-auto" />
+              </a>
             </p>
           </div>
         </div>

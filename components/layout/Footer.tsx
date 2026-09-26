@@ -141,25 +141,17 @@ export function Footer() {
           <p>
             © <AnoAtual anoDoBuild={new Date().getFullYear()} /> {siteConfig.nome}
           </p>
-          <div className="flex flex-wrap items-center gap-x-4 sm:justify-end">
-            <p className="flex flex-wrap gap-x-4">
-              <Link
-                href="/privacidade"
-                className="inline-flex min-h-11 items-center link-underline decoration-white/30 hover:text-white"
-              >
-                Política de privacidade
-              </Link>
-              {siteConfig.emHomologacao ? (
-                <span className="inline-flex min-h-11 items-center">Ambiente de homologação</span>
-              ) : null}
-            </p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 sm:justify-end">
             <Link
-              href="/contato"
-              className="inline-flex min-h-11 items-center self-end font-display text-[0.7rem] font-semibold tracking-[0.18em] text-white/55 uppercase transition-colors hover:text-white sm:self-auto"
-              aria-label="MAÍKA — contato"
+              href="/privacidade"
+              className="inline-flex min-h-11 items-center link-underline decoration-white/30 hover:text-white"
             >
-              MAÍKA
+              Política de privacidade
             </Link>
+            <p className="inline-flex min-h-11 items-center gap-2.5">
+              <span>Feito por</span>
+              <Image src="/marca/tekton-labs.png" alt="Tekton Labs" width={943} height={247} className="h-10 w-auto" />
+            </p>
           </div>
         </div>
       </div>
